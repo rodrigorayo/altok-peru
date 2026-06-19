@@ -10,12 +10,7 @@
       
       <!-- Lado Izquierdo: Logo -->
       <div class="flex items-center gap-2 cursor-pointer" (click)="isPersonas.set(true); isPromociones.set(false); isAyuda.set(false); isContacto.set(false)">
-        <svg class="h-8 w-auto text-[#00a2ff]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 80L50 20L82 80" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M30 55H70" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
-          <path d="M50 20L35 40M50 20L65 40" stroke="#00a2ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="50" cy="55" r="6" fill="#0052ff"/>
-        </svg>
+        <img src="altok-logo.png" alt="Altok Perú Logo" class="h-8 w-auto object-contain rounded-md" />
         <span class="text-xl font-bold tracking-tight font-display text-white">Altok Perú</span>
       </div>
 
@@ -154,10 +149,10 @@
         <!-- Bloque Izquierdo: Copy y Estadísticas -->
         <div class="lg:col-span-7 space-y-8">
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white font-display">
-            Cambia <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">dólares y soles</span> online con <span class="text-brand-accent font-semibold">Altok Perú</span>
+            Cambia <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">bolivianos y soles</span> online con <span class="text-brand-accent font-semibold">Altok Perú</span>
           </h1>
           <p class="text-lg text-white/80 max-w-xl font-light">
-            La forma más rápida, segura y económica de cambiar divisas en el Perú. Olvídate de los riesgos de la calle y las altas tasas de los bancos tradicionales.
+            La forma más rápida, segura y económica de cambiar bolivianos y soles en el Perú. Olvídate de los riesgos de la calle y las altas tasas de los bancos tradicionales.
           </p>
 
           <!-- Grid Interno: Stats y Mejora Cotización -->
@@ -175,7 +170,7 @@
                   </svg>
                 </div>
                 <div>
-                  <p class="text-xs text-white/50 uppercase tracking-wide">Dólares cambiados</p>
+                  <p class="text-xs text-white/50 uppercase tracking-wide">Bolivianos cambiados</p>
                   <p class="text-lg font-bold font-display text-white">+ 2 BILLONES</p>
                 </div>
               </div>
@@ -259,7 +254,7 @@
             
             <!-- Encabezado Tipo Cambio -->
             <div class="text-center mb-6">
-              <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Tipo de Cambio del dólar hoy en Perú</p>
+              <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Tipo de Cambio del Boliviano hoy en Perú</p>
               <div class="flex items-center justify-center gap-6 mt-2">
                 <div class="text-center">
                   <span class="text-xs text-slate-500">Compra:</span>
@@ -286,8 +281,9 @@
                     class="bg-transparent text-2xl font-bold font-display text-slate-900 outline-none w-full border-none p-0 focus:ring-0" 
                     placeholder="0" />
                 </div>
-                <div class="bg-[#002f34] text-white px-5 py-3 rounded-xl font-bold font-display shadow-md shadow-[#002f34]/15 min-w-[120px] text-center select-none">
-                  {{ tipoCambio() === 'USD_TO_PEN' ? 'Dólares' : 'Soles' }}
+                <div class="bg-[#002f34] text-white px-4 py-3 rounded-xl font-bold font-display shadow-md shadow-[#002f34]/15 min-w-[140px] flex items-center justify-center gap-2 select-none">
+                  <span class="text-lg">{{ tipoCambio() === 'BOB_TO_PEN' ? '🇧🇴' : '🇵🇪' }}</span>
+                  <span>{{ tipoCambio() === 'BOB_TO_PEN' ? 'Bolivianos' : 'Soles' }}</span>
                 </div>
               </div>
 
@@ -313,8 +309,9 @@
                     class="bg-transparent text-2xl font-bold font-display text-slate-900 outline-none w-full border-none p-0 focus:ring-0" 
                     placeholder="0" />
                 </div>
-                <div class="bg-[#002f34] text-white px-5 py-3 rounded-xl font-bold font-display shadow-md shadow-[#002f34]/15 min-w-[120px] text-center select-none">
-                  {{ tipoCambio() === 'USD_TO_PEN' ? 'Soles' : 'Dólares' }}
+                <div class="bg-[#002f34] text-white px-4 py-3 rounded-xl font-bold font-display shadow-md shadow-[#002f34]/15 min-w-[140px] flex items-center justify-center gap-2 select-none">
+                  <span class="text-lg">{{ tipoCambio() === 'BOB_TO_PEN' ? '🇵🇪' : '🇧🇴' }}</span>
+                  <span>{{ tipoCambio() === 'BOB_TO_PEN' ? 'Soles' : 'Bolivianos' }}</span>
                 </div>
               </div>
 
@@ -577,7 +574,7 @@
         </div>
 
         <p class="text-sm sm:text-base text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
-          Cada sol cuenta y queremos que ahorres aún más. Por eso, hemos creado estos <strong>cupones Kambista</strong>, especialmente pensados para ti. <span class="text-[#00f2d1] font-semibold">Aplícalos y cambia tus dólares y soles con un mejor precio.</span>
+          Cada sol cuenta y queremos que ahorres aún más. Por eso, hemos creado estos <strong>cupones Kambista</strong>, especialmente pensados para ti. <span class="text-[#00f2d1] font-semibold">Aplícalos y cambia tus bolivianos y soles con un mejor precio.</span>
         </p>
       </div>
 
@@ -700,7 +697,7 @@
 
           <!-- Título -->
           <p class="text-base sm:text-lg font-bold font-display max-w-lg leading-snug">
-            Radar Empresarial 2026: Cómo gestionar el dólar, las tasas y tus excedentes ante el ruido electoral.
+            Radar Empresarial 2026: Cómo gestionar el boliviano, las tasas y tus excedentes ante el ruido electoral.
           </p>
         </div>
 
@@ -732,10 +729,10 @@
         </h2>
         <div class="w-12 h-1 bg-[#00f2d1] mx-auto rounded-full"></div>
         <p class="text-slate-600 font-light leading-relaxed text-base pt-2">
-          Kambista es la primera casa de cambio online en Perú para cambiar dólares y soles.
+          Kambista es la primera casa de cambio online en Perú para cambiar bolivianos y soles.
         </p>
         <p class="text-slate-500 font-light leading-relaxed text-sm">
-          Con un enfoque centrado en ofrecer un buen tipo de cambio por dólar hoy, transacciones cada vez más rápidas y la atención más personalizada del mercado, se mantiene como líder del sector.
+          Con un enfoque centrado en ofrecer un buen tipo de cambio por boliviano hoy, transacciones cada vez más rápidas y la atención más personalizada del mercado, se mantiene como líder del sector.
         </p>
       </div>
 
@@ -846,7 +843,7 @@
               Alertas de Tipo de Cambio
             </h2>
             <p class="text-white/80 font-light leading-relaxed text-sm">
-              En Kambista, puedes programar alertas para que te notifiquemos cuando el tipo de cambio alcance el valor que deseas, ya sea para comprar o vender dólares. ¡Recibe notificaciones en el momento justo y haz tus cambios de manera inteligente!
+              En Kambista, puedes programar alertas para que te notifiquemos cuando el tipo de cambio alcance el valor que deseas, ya sea para comprar o vender bolivianos. ¡Recibe notificaciones en el momento justo y haz tus cambios de manera inteligente!
             </p>
 
             <div class="space-y-4 pt-2">
@@ -965,7 +962,7 @@
               Alertas de tipo de cambio
             </h3>
             <p class="text-sm text-slate-600 leading-relaxed font-light">
-              Te notificamos cuando el dólar llegue al precio que buscas. Crea tu alarma desde la <strong>App Kambista</strong>.
+              Te notificamos cuando el boliviano llegue al precio que buscas. Crea tu alarma desde la <strong>App Kambista</strong>.
             </p>
           </div>
           
@@ -1035,7 +1032,7 @@
         <div class="lg:col-span-5 space-y-4">
           <span class="text-3xl font-extrabold text-[#00f2d1] bg-[#002f34] px-4 py-1.5 rounded-full inline-block font-display">2026</span>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-[#002f34] font-display leading-tight">
-            Números que inspiran confianza al momento de cambiar divisas
+            Números que inspiran confianza al momento de cambiar bolivianos y soles
           </h2>
           <p class="text-slate-500 font-light leading-relaxed text-sm">
             Nuestra trayectoria e innovación en el mercado cambiario peruano nos respaldan como la plataforma digital preferida por miles de peruanos y empresas.
@@ -1066,7 +1063,7 @@
           <!-- Metrica 4 -->
           <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm text-center sm:text-left space-y-2">
             <p class="text-3xl font-black text-[#002f34] font-display">+ 3 mil millones</p>
-            <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Dólares cambiados</p>
+            <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Bolivianos cambiados</p>
           </div>
 
         </div>
@@ -1138,10 +1135,10 @@
           <!-- Lado Izquierdo copy -->
           <div class="lg:col-span-5 space-y-6">
             <h2 class="text-3xl sm:text-4xl font-extrabold font-display leading-tight text-white">
-              El repunte del dólar
+              El repunte del boliviano
             </h2>
             <p class="text-white/80 font-light leading-relaxed text-sm">
-              El pago de gratificaciones y retiros de AFP podrían incrementar la compra de dólares e impactar en el tipo de cambio. Si esto ocurre, se pueden generar grandes oportunidades de cambio.
+              El pago de gratificaciones y retiros de AFP podrían incrementar la compra de bolivianos e impactar en el tipo de cambio. Si esto ocurre, se pueden generar grandes oportunidades de cambio.
             </p>
             <div class="space-y-2 text-xs text-white/60">
               <p class="font-semibold uppercase tracking-wider text-teal-400 text-[10px]">Noticias importantes del mes:</p>
@@ -1277,7 +1274,7 @@
               <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_1']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['proceso_1']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
-              Para cambiar soles o dólares, primero cotiza tu operación en nuestra calculadora, selecciona tu cuenta de destino, realiza la transferencia desde la app o web de tu banco a la cuenta de Kambista que te indiquemos y, finalmente, ingresa tu número de operación. ¡Tu dinero estará en tu cuenta en un promedio de 15 minutos!
+              Para cambiar soles o bolivianos, primero cotiza tu operación en nuestra calculadora, selecciona tu cuenta de destino, realiza la transferencia desde la app o web de tu banco a la cuenta de Kambista que te indiquemos y, finalmente, ingresa tu número de operación. ¡Tu dinero estará en tu cuenta en un promedio de 15 minutos!
             </div>
           </div>
 
@@ -1332,7 +1329,7 @@
               <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_6']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['proceso_6']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
-              No hay un límite máximo de cambio. Para operaciones mayores a $5,000 dólares o S/. 18,000 soles, disponemos de tasas preferenciales mejoradas que puedes negociar de forma instantánea contactando con nuestros operadores.
+              No hay un límite máximo de cambio. Para operaciones mayores a 35,000 Bs. o S/. 18,000 soles, disponemos de tasas preferenciales mejoradas que puedes negociar de forma instantánea contactando con nuestros operadores.
             </div>
           </div>
 
@@ -1343,7 +1340,7 @@
               <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_7']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['proceso_7']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
-              El monto mínimo para procesar un cambio en nuestra plataforma es de $10 dólares o su contravalor en soles peruanos.
+              El monto mínimo para procesar un cambio en nuestra plataforma es de 70 Bs. o su contravalor en soles peruanos.
             </div>
           </div>
 
@@ -1428,7 +1425,7 @@
               <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_6']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['seguridad_6']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
-              No. Kambista funciona únicamente como una plataforma digital de cambio de divisas físicas de curso legal (soles peruanos y dólares americanos). No gestionamos criptomonedas, acciones o carteras de inversión.
+              No. Kambista funciona únicamente como una plataforma digital de cambio de bolivianos y soles físicas de curso legal (soles peruanos y bolivianos americanos). No gestionamos criptomonedas, acciones o carteras de inversión.
             </div>
           </div>
 
@@ -1824,12 +1821,7 @@
       <div class="border-t border-slate-800 pt-8 flex flex-col items-center gap-6 text-center">
         <!-- Logo Altok Footer -->
         <div class="flex items-center gap-2">
-          <svg class="h-6 w-auto text-brand-accent" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 80L50 20L82 80" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M30 55H70" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
-            <path d="M50 20L35 40M50 20L65 40" stroke="#00a2ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="50" cy="55" r="6" fill="#0052ff"/>
-          </svg>
+          <img src="altok-logo.png" alt="Altok Perú Logo" class="h-7 w-auto object-contain rounded-md" />
           <span class="text-lg font-bold tracking-tight font-display text-white">Altok Perú</span>
         </div>
 
@@ -1898,12 +1890,7 @@
       <div class="flex items-center justify-between">
         <!-- Logo Altok -->
         <div class="flex items-center gap-2 cursor-pointer" (click)="closeAuth()">
-          <svg class="h-8 w-auto text-brand-teal" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 80L50 20L82 80" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M30 55H70" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
-            <path d="M50 20L35 40M50 20L65 40" stroke="#00a2ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="50" cy="55" r="6" fill="#0052ff"/>
-          </svg>
+          <img src="altok-logo.png" alt="Altok Perú Logo" class="h-8 w-auto object-contain rounded-md" />
           <span class="text-xl font-bold tracking-tight font-display text-brand-dark">Altok Perú</span>
         </div>
         
@@ -2060,12 +2047,7 @@
       <div class="flex items-center justify-between">
         <!-- Logo Altok -->
         <div class="flex items-center gap-2 cursor-pointer" (click)="closeAuth()">
-          <svg class="h-8 w-auto text-brand-teal" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 80L50 20L82 80" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M30 55H70" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
-            <path d="M50 20L35 40M50 20L65 40" stroke="#00a2ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="50" cy="55" r="6" fill="#0052ff"/>
-          </svg>
+          <img src="altok-logo.png" alt="Altok Perú Logo" class="h-8 w-auto object-contain rounded-md" />
           <span class="text-xl font-bold tracking-tight font-display text-brand-dark">Altok Perú</span>
         </div>
         

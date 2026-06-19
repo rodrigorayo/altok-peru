@@ -26,7 +26,7 @@ export class App {
   isContacto = signal(false);
   isLogin = signal(false);
   isRegister = signal(false);
-  tipoCambio = signal<'USD_TO_PEN' | 'PEN_TO_USD'>('USD_TO_PEN'); // USD_TO_PEN: Envia USD, Recibe PEN
+  tipoCambio = signal<'BOB_TO_PEN' | 'PEN_TO_BOB'>('BOB_TO_PEN'); // BOB_TO_PEN: Envia BOB, Recibe PEN
 
   // Form signals for Login
   loginEmail = signal('');
@@ -130,12 +130,12 @@ export class App {
   }
 
   // Rates
-  compraRate = signal(3.402);
-  ventaRate = signal(3.428);
+  compraRate = signal(0.535);
+  ventaRate = signal(0.540);
 
   // Bank rates for comparison (to calculate savings)
-  bancoCompraRate = signal(3.351);
-  bancoVentaRate = signal(3.485);
+  bancoCompraRate = signal(0.505);
+  bancoVentaRate = signal(0.575);
 
   // Input amounts
   montoEnviar = signal<number>(1500);
@@ -143,7 +143,7 @@ export class App {
   // Monto Recibir computed dynamically
   montoRecibir = computed(() => {
     const enviar = this.montoEnviar();
-    if (this.tipoCambio() === 'USD_TO_PEN') {
+    if (this.tipoCambio() === 'BOB_TO_PEN') {
       return Math.round(enviar * this.compraRate() * 100) / 100;
     } else {
       return Math.round((enviar / this.ventaRate()) * 100) / 100;
@@ -152,7 +152,7 @@ export class App {
 
   // Handle reciprocal updates (if user edits Recibir field)
   updateMontoRecibir(val: number) {
-    if (this.tipoCambio() === 'USD_TO_PEN') {
+    if (this.tipoCambio() === 'BOB_TO_PEN') {
       this.montoEnviar.set(Math.round((val / this.compraRate()) * 100) / 100);
     } else {
       this.montoEnviar.set(Math.round(val * this.ventaRate() * 100) / 100);
@@ -162,21 +162,21 @@ export class App {
   // Savings calculation
   ahorroEstimado = computed(() => {
     const enviar = this.montoEnviar();
-    if (this.tipoCambio() === 'USD_TO_PEN') {
+    if (this.tipoCambio() === 'BOB_TO_PEN') {
       const recibidosKambista = enviar * this.compraRate();
       const recibidosBanco = enviar * this.bancoCompraRate();
       return Math.max(0, Math.round((recibidosKambista - recibidosBanco) * 100) / 100);
     } else {
-      const recibidoUSD = enviar / this.ventaRate();
+      const recibidoBOB = enviar / this.ventaRate();
       const costoKambista = enviar;
-      const costoBanco = recibidoUSD * this.bancoVentaRate();
+      const costoBanco = recibidoBOB * this.bancoVentaRate();
       return Math.max(0, Math.round((costoBanco - costoKambista) * 100) / 100);
     }
   });
 
   // Koinks: reward points (simulated)
   koinks = computed(() => {
-    if (this.tipoCambio() === 'USD_TO_PEN') {
+    if (this.tipoCambio() === 'BOB_TO_PEN') {
       return Math.round(this.montoEnviar());
     } else {
       return Math.round(this.montoRecibir());
@@ -186,10 +186,10 @@ export class App {
   // Swap currencies
   swapCurrencies() {
     const currentRecibir = this.montoRecibir();
-    if (this.tipoCambio() === 'USD_TO_PEN') {
-      this.tipoCambio.set('PEN_TO_USD');
+    if (this.tipoCambio() === 'BOB_TO_PEN') {
+      this.tipoCambio.set('PEN_TO_BOB');
     } else {
-      this.tipoCambio.set('USD_TO_PEN');
+      this.tipoCambio.set('BOB_TO_PEN');
     }
     // Set the previous "recibir" amount as the new "enviar" amount
     this.montoEnviar.set(Math.round(currentRecibir));
@@ -241,17 +241,17 @@ export class App {
   selectMonth(month: 'junio' | 'mayo' | 'abril' | 'marzo') {
     this.selectedMonth.set(month);
     if (month === 'junio') {
-      this.compraRate.set(3.402);
-      this.ventaRate.set(3.428);
+      this.compraRate.set(0.535);
+      this.ventaRate.set(0.540);
     } else if (month === 'mayo') {
-      this.compraRate.set(3.415);
-      this.ventaRate.set(3.441);
+      this.compraRate.set(0.532);
+      this.ventaRate.set(0.537);
     } else if (month === 'abril') {
-      this.compraRate.set(3.389);
-      this.ventaRate.set(3.412);
+      this.compraRate.set(0.541);
+      this.ventaRate.set(0.546);
     } else if (month === 'marzo') {
-      this.compraRate.set(3.431);
-      this.ventaRate.set(3.457);
+      this.compraRate.set(0.528);
+      this.ventaRate.set(0.533);
     }
   }
 
