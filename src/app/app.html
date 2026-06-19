@@ -1,341 +1,2246 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- Container Principal con Tipografía Outfit y Inter -->
+<div class="min-h-screen bg-slate-50 font-sans">
 
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
+  <!-- Wrapper para ocultar la landing cuando estamos en login o registro -->
+  <div *ngIf="!isLogin() && !isRegister()" class="flex flex-col min-h-screen">
 
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--electric-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3) {
-    --pill-accent: var(--french-violet);
-  }
-
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5),
-  .pill-group .pill:nth-child(6n + 6) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title() }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
-    </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai'},
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
-        }
+  <!-- ==================== HEADER ESTÁTICO / NAVEGACIÓN ==================== -->
+  <nav class="sticky top-0 z-50 bg-[#0a2540]/95 backdrop-blur-md border-b border-white/10 text-white py-4 px-4 sm:px-6 lg:px-8 shadow-md">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Lado Izquierdo: Logo -->
+      <div class="flex items-center gap-2 cursor-pointer" (click)="isPersonas.set(true); isPromociones.set(false); isAyuda.set(false); isContacto.set(false)">
+        <svg class="h-8 w-auto text-[#00a2ff]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 80L50 20L82 80" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M30 55H70" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+          <path d="M50 20L35 40M50 20L65 40" stroke="#00a2ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="50" cy="55" r="6" fill="#0052ff"/>
+        </svg>
+        <span class="text-xl font-bold tracking-tight font-display text-white">Altok</span>
       </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
-          </svg>
+
+      <!-- Centro: Links de Navegación -->
+      <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-white/80">
+        <!-- Toggle Personas/Empresas -->
+        <div class="inline-flex bg-black/30 p-0.5 rounded-full border border-white/10 backdrop-blur-sm mr-2">
+          <button 
+            (click)="isPersonas.set(true); isPromociones.set(false); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)"
+            [class]="isPersonas() && !isPromociones() && !isAyuda() && !isContacto() ? 'bg-white/10 text-white font-semibold' : 'text-white/60 hover:text-white'"
+            class="px-4 py-1 rounded-full text-xs transition duration-200">
+            Personas
+          </button>
+          <button 
+            (click)="isPersonas.set(false); isPromociones.set(false); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)"
+            [class]="!isPersonas() && !isPromociones() && !isAyuda() && !isContacto() ? 'bg-white/10 text-white font-semibold' : 'text-white/60 hover:text-white'"
+            class="px-4 py-1 rounded-full text-xs transition duration-200">
+            Empresas
+          </button>
+        </div>
+
+        <button 
+          (click)="isPromociones.set(true); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)"
+          [class]="isPromociones() && !isAyuda() && !isContacto() ? 'text-brand-accent font-semibold' : 'hover:text-brand-accent text-white/80'"
+          class="transition duration-200 cursor-pointer bg-transparent border-none p-0 text-sm font-medium text-left">
+          Promociones
+        </button>
+        <a 
+          (click)="isPersonas.set(true); isPromociones.set(false); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)" 
+          href="#como-funciona" 
+          class="hover:text-brand-accent transition duration-200">
+          Cómo funciona
         </a>
-        <a
-          href="https://x.com/angular"
-          aria-label="X"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="X"
-          >
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-            />
+        <button 
+          (click)="isAyuda.set(true); isPromociones.set(false); isContacto.set(false); isMobileMenuOpen.set(false)"
+          [class]="isAyuda() ? 'text-brand-accent font-semibold' : 'hover:text-brand-accent text-white/80'"
+          class="transition duration-200 cursor-pointer bg-transparent border-none p-0 text-sm font-medium text-left">
+          Ayuda
+        </button>
+        <button 
+          (click)="isContacto.set(true); isPromociones.set(false); isAyuda.set(false); isMobileMenuOpen.set(false)"
+          [class]="isContacto() ? 'text-brand-accent font-semibold' : 'hover:text-brand-accent text-white/80'"
+          class="transition duration-200 cursor-pointer bg-transparent border-none p-0 text-sm font-medium text-left">
+          Contacto
+        </button>
+      </div>
+
+      <!-- Lado Derecho: Iniciar Sesión y Registro -->
+      <div class="hidden lg:flex items-center gap-4 text-sm font-semibold">
+        <button (click)="showLogin()" class="text-white/80 hover:text-brand-accent transition duration-200 bg-transparent border-none cursor-pointer font-semibold">Iniciar Sesión</button>
+        <button (click)="showRegister()" class="bg-gradient-to-r from-brand-teal to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white px-5 py-2.5 rounded-xl transition-all duration-300 shadow-md shadow-brand-teal/15 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] border-none cursor-pointer font-semibold">Registro</button>
+      </div>
+
+      <!-- Botón Menú Móvil -->
+      <div class="flex lg:hidden">
+        <button 
+          (click)="isMobileMenuOpen.set(!isMobileMenuOpen())"
+          class="inline-flex items-center justify-center p-2 rounded-xl text-white/80 hover:text-white hover:bg-white/10 transition focus:outline-none">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path *ngIf="!isMobileMenuOpen()" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path *ngIf="isMobileMenuOpen()" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Menú Móvil Desplegable -->
+    <div 
+      [class.hidden]="!isMobileMenuOpen()"
+      class="lg:hidden mt-4 pt-4 border-t border-white/10 space-y-4">
+      
+      <!-- Selector Personas/Empresas en móvil -->
+      <div class="flex items-center justify-center bg-black/20 p-1 rounded-xl border border-white/5">
+        <button 
+          (click)="isPersonas.set(true); isPromociones.set(false); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)"
+          [class]="isPersonas() && !isPromociones() && !isAyuda() && !isContacto() ? 'bg-white/10 text-white font-semibold' : 'text-white/60'"
+          class="flex-1 py-2 rounded-lg text-xs transition duration-200">
+          Personas
+        </button>
+        <button 
+          (click)="isPersonas.set(false); isPromociones.set(false); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)"
+          [class]="!isPersonas() && !isPromociones() && !isAyuda() && !isContacto() ? 'bg-white/10 text-white font-semibold' : 'text-white/60'"
+          class="flex-1 py-2 rounded-lg text-xs transition duration-200">
+          Empresas
+        </button>
+      </div>
+
+      <div class="flex flex-col gap-3.5 pl-2">
+        <button 
+          (click)="isPromociones.set(true); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)" 
+          [class]="isPromociones() && !isAyuda() && !isContacto() ? 'text-brand-accent font-semibold' : 'text-white/80'"
+          class="text-left hover:text-brand-accent transition text-sm py-1 bg-transparent border-none p-0 font-medium">
+          Promociones
+        </button>
+        <a 
+          (click)="isPersonas.set(true); isPromociones.set(false); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)" 
+          href="#como-funciona" 
+          class="text-white/80 hover:text-brand-accent transition text-sm py-1">
+          Cómo funciona
         </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
+        <button 
+          (click)="isAyuda.set(true); isPromociones.set(false); isContacto.set(false); isMobileMenuOpen.set(false)" 
+          [class]="isAyuda() ? 'text-brand-accent font-semibold' : 'text-white/80'"
+          class="text-left hover:text-brand-accent transition text-sm py-1 bg-transparent border-none p-0 font-medium">
+          Ayuda
+        </button>
+        <button 
+          (click)="isContacto.set(true); isPromociones.set(false); isAyuda.set(false); isMobileMenuOpen.set(false)" 
+          [class]="isContacto() ? 'text-brand-accent font-semibold' : 'text-white/80'"
+          class="text-left hover:text-brand-accent transition text-sm py-1 bg-transparent border-none p-0 font-medium">
+          Contacto
+        </button>
+      </div>
+
+      <div class="border-t border-white/10 pt-4 flex flex-col gap-3">
+        <button (click)="showLogin()" class="text-center text-white/80 hover:text-brand-accent transition text-sm py-2.5 bg-transparent border-none cursor-pointer font-semibold">Iniciar Sesión</button>
+        <button (click)="showRegister()" class="text-center bg-gradient-to-r from-brand-teal to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white py-2.5 rounded-xl font-bold transition duration-300 border-none cursor-pointer">Registro</button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ==================== BANNER PRINCIPAL (HERO) ==================== -->
+  <header *ngIf="!isAyuda() && !isContacto()" class="relative bg-gradient-to-br from-[#0a2540] via-[#112d4e] to-[#1e3e62] text-white overflow-hidden pb-24 pt-16 px-4 sm:px-6 lg:px-8">
+    <!-- Glow decorativo superior -->
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl -mr-60 -mt-60 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-[600px] h-[400px] bg-blue-500/5 rounded-full blur-3xl -ml-80 -mb-40 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Grid de Contenido Principal del Hero -->
+      <!-- ==================== CONTENIDO HERO: PERSONAS ==================== -->
+      <div *ngIf="isPersonas() && !isPromociones()" class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center animate-fade-in">
+        
+        <!-- Bloque Izquierdo: Copy y Estadísticas -->
+        <div class="lg:col-span-7 space-y-8">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white font-display">
+            Cambia <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">dólares y soles</span> online con <span class="text-brand-accent font-semibold">Altok</span>
+          </h1>
+          <p class="text-lg text-white/80 max-w-xl font-light">
+            La forma más rápida, segura y económica de cambiar divisas en el Perú. Olvídate de los riesgos de la calle y las altas tasas de los bancos tradicionales.
+          </p>
+
+          <!-- Grid Interno: Stats y Mejora Cotización -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-start">
+            <!-- Estadísticas -->
+            <div class="space-y-4 bg-black/15 p-6 rounded-2xl border border-white/5 backdrop-blur-sm">
+              <!-- Stat 1 -->
+              <div class="flex items-center gap-4">
+                <div class="p-3 bg-teal-500/10 rounded-xl text-[#00f2d1]">
+                  <!-- SVG Stack of money -->
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <rect x="2" y="6" width="20" height="12" rx="2" />
+                    <circle cx="12" cy="12" r="3" />
+                    <path d="M6 12h.01M18 12h.01" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs text-white/50 uppercase tracking-wide">Dólares cambiados</p>
+                  <p class="text-lg font-bold font-display text-white">+ 2 BILLONES</p>
+                </div>
+              </div>
+              <hr class="border-white/10" />
+              <!-- Stat 2 -->
+              <div class="flex items-center gap-4">
+                <div class="p-3 bg-teal-500/10 rounded-xl text-[#00f2d1]">
+                  <!-- SVG Receipt -->
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs text-white/50 uppercase tracking-wide">Órdenes realizadas</p>
+                  <p class="text-lg font-bold font-display text-white">+ 1 MILLÓN</p>
+                </div>
+              </div>
+              <hr class="border-white/10" />
+              <!-- Stat 3 -->
+              <div class="flex items-center gap-4">
+                <div class="p-3 bg-teal-500/10 rounded-xl text-[#00f2d1]">
+                  <!-- SVG Users -->
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs text-white/50 uppercase tracking-wide">Clientes registrados</p>
+                  <p class="text-lg font-bold font-display text-white">+ 100 MIL</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Caja Mejora tu Cotización -->
+            <div class="bg-white text-slate-800 p-6 rounded-2xl shadow-xl border border-slate-100 flex flex-col justify-between h-full space-y-4">
+              <div>
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="text-xl">💵</span>
+                  <h3 class="font-bold text-slate-900 font-display">Mejora tu cotización aquí</h3>
+                </div>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  ¿Tienes una cotización de otra casa de cambio? Nosotros la mejoramos. <a href="#" class="text-[#002f34] font-semibold underline hover:text-teal-600">Aplica TyC</a>
+                </p>
+              </div>
+
+              <!-- Zona Dotted Upload -->
+              <label class="cursor-pointer border-2 border-dashed border-slate-200 rounded-xl p-4 flex flex-col items-center justify-center hover:bg-slate-50 transition relative overflow-hidden group">
+                <input type="file" class="hidden" (change)="onFileChange($event)" accept="image/*,.pdf" />
+                
+                <div class="text-center space-y-2" *ngIf="!uploadedFileName()">
+                  <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 group-hover:scale-110 transition mx-auto">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                    </svg>
+                  </div>
+                  <p class="text-xs font-semibold text-slate-700">Envíanos una captura de tu cotización</p>
+                </div>
+
+                <div class="text-center space-y-1" *ngIf="uploadedFileName()">
+                  <span class="text-2xl">📄</span>
+                  <p class="text-xs font-semibold text-emerald-600 truncate max-w-[150px]">{{ uploadedFileName() }}</p>
+                  <p class="text-[10px] text-slate-400">Archivo seleccionado</p>
+                </div>
+              </label>
+
+              <button class="w-full bg-[#002f34] hover:bg-[#004e57] text-white text-xs font-bold py-3 px-4 rounded-xl uppercase tracking-wider transition-all duration-300 shadow-sm shadow-[#002f34]/10">
+                {{ uploadedFileName() ? 'CAMBIAR ARCHIVO' : 'ENVIAR ARCHIVO' }}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloque Derecho: Calculadora Widget -->
+        <div class="lg:col-span-5 relative">
+          <div class="absolute -top-6 -left-6 w-12 h-12 bg-[#00f2d1]/20 rounded-full blur-xl"></div>
+          
+          <!-- Contenedor Calculadora -->
+          <div class="bg-white text-slate-900 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-[#002f34]/20 border border-slate-100 relative">
+            
+            <!-- Encabezado Tipo Cambio -->
+            <div class="text-center mb-6">
+              <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Tipo de Cambio del dólar hoy en Perú</p>
+              <div class="flex items-center justify-center gap-6 mt-2">
+                <div class="text-center">
+                  <span class="text-xs text-slate-500">Compra:</span>
+                  <span class="text-lg font-extrabold text-slate-900 font-display ml-1.5">{{ compraRate() | number:'1.3-3' }}</span>
+                </div>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <div class="text-center">
+                  <span class="text-xs text-slate-500">Venta:</span>
+                  <span class="text-lg font-extrabold text-slate-900 font-display ml-1.5">{{ ventaRate() | number:'1.3-3' }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Calculadora Inputs -->
+            <div class="space-y-4 relative">
+              
+              <!-- Input: Tú Envías -->
+              <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 flex items-center justify-between hover:border-slate-300 focus-within:border-[#002f34] focus-within:ring-1 focus-within:ring-[#002f34] transition">
+                <div class="flex flex-col flex-1 min-w-0 pr-4">
+                  <label class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1">Tú Envías</label>
+                  <input 
+                    type="number" 
+                    [(ngModel)]="montoEnviar" 
+                    class="bg-transparent text-2xl font-bold font-display text-slate-900 outline-none w-full border-none p-0 focus:ring-0" 
+                    placeholder="0" />
+                </div>
+                <div class="bg-[#002f34] text-white px-5 py-3 rounded-xl font-bold font-display shadow-md shadow-[#002f34]/15 min-w-[120px] text-center select-none">
+                  {{ tipoCambio() === 'USD_TO_PEN' ? 'Dólares' : 'Soles' }}
+                </div>
+              </div>
+
+              <!-- Botón SWAP flotante intermedio -->
+              <div class="absolute left-1/2 top-[74px] -translate-x-1/2 -translate-y-1/2 z-10">
+                <button 
+                  (click)="swapCurrencies()"
+                  class="w-10 h-10 bg-white hover:bg-slate-50 border border-slate-200 text-[#002f34] rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-all active:scale-95 duration-200">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Input: Tú Recibes -->
+              <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 flex items-center justify-between hover:border-slate-300 transition">
+                <div class="flex flex-col flex-1 min-w-0 pr-4">
+                  <label class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1">Tú Recibes</label>
+                  <input 
+                    type="number" 
+                    [ngModel]="montoRecibir()"
+                    (ngModelChange)="updateMontoRecibir($event)"
+                    class="bg-transparent text-2xl font-bold font-display text-slate-900 outline-none w-full border-none p-0 focus:ring-0" 
+                    placeholder="0" />
+                </div>
+                <div class="bg-[#002f34] text-white px-5 py-3 rounded-xl font-bold font-display shadow-md shadow-[#002f34]/15 min-w-[120px] text-center select-none">
+                  {{ tipoCambio() === 'USD_TO_PEN' ? 'Soles' : 'Dólares' }}
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Ahorro Estimado y Koinks -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mt-6 bg-slate-50/50 p-4 rounded-xl border border-slate-100 text-sm">
+              <div class="flex items-center gap-2">
+                <span class="text-slate-500 font-medium">Ahorro Estimado:</span>
+                <span class="font-extrabold text-[#002f34] font-display">S/. {{ ahorroEstimado() | number:'1.2-2' }}</span>
+              </div>
+              <div class="flex items-center gap-2 bg-amber-500/10 text-amber-800 px-3 py-1 rounded-full border border-amber-500/20 self-start sm:self-auto">
+                <span class="font-medium text-xs">Koinks:</span>
+                <span class="font-extrabold font-display text-xs">{{ koinks() | number }}</span>
+                <span class="text-xs">🪙</span>
+              </div>
+            </div>
+
+            <!-- Botón Registro -->
+            <div class="mt-6">
+              <button class="w-full bg-gradient-to-r from-[#00e3c2] to-[#00cbb0] hover:from-[#00ffd9] hover:to-[#00ffd9] text-[#002f34] font-bold py-4 px-6 rounded-2xl font-display shadow-lg shadow-[#00e3c2]/20 hover:shadow-xl transition-all duration-300 uppercase tracking-wider text-sm active:scale-[0.99]">
+                Regístrate Ahora
+              </button>
+            </div>
+
+            <!-- Solicitud Especial -->
+            <div class="flex items-start gap-2.5 mt-5 text-[11px] text-slate-500 leading-normal bg-blue-50/30 p-3 rounded-xl border border-blue-500/10">
+              <svg class="w-4 h-4 text-blue-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 111.085 1.085l-.04.042m0 0a.75.75 0 11-1.085-1.085l.04-.042m0 0a3.375 3.375 0 100-6.75 3.375 3.375 0 000 6.75zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>
+                Solicita una tasa preferencial por montos mayores a <strong>$5,000</strong> o <strong>S/. 18,000</strong>.
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==================== CONTENIDO HERO: EMPRESAS ==================== -->
+      <div *ngIf="!isPersonas() && !isPromociones()" class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center animate-fade-in">
+        
+        <!-- Lado Izquierdo: Copy Empresas y Botón WhatsApp -->
+        <div class="lg:col-span-6 space-y-8 text-center lg:text-left">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white font-display">
+            El <span class="text-[#00f2d1]">mejor tipo de cambio</span> para <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-200">tu empresa</span>
+          </h1>
+          <p class="text-lg text-white/80 max-w-xl font-light mx-auto lg:mx-0">
+            Rentabiliza las operaciones de tu negocio con la cotización más competitiva del mercado peruano. Obtén asesoría dedicada para operaciones de tesorería.
+          </p>
+
+          <div class="pt-4">
+            <a href="https://wa.me/51922340125" target="_blank" class="inline-flex items-center justify-center gap-3 bg-white text-slate-900 hover:bg-slate-50 font-bold px-8 py-4 rounded-2xl shadow-xl transition-all hover:scale-105 active:scale-98 font-display w-full sm:w-auto">
+              <!-- WhatsApp SVG Logo -->
+              <svg class="w-6 h-6 text-emerald-500 fill-current" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.488 1.459 5.407 1.46h.007c5.845 0 10.605-4.76 10.609-10.606.002-2.833-1.096-5.497-3.09-7.501-2.007-2.007-4.664-3.111-7.501-3.112-5.855 0-10.615 4.761-10.62 10.61-.002 1.953.51 3.86 1.48 5.564L1.75 22.02l4.897-1.282c1.606.877 3.4 1.416 5.416 1.416zM17.47 15.17c-.319-.16-1.89-.933-2.185-1.042-.295-.11-.51-.16-.724.16-.215.32-.83.16-1.018.16h-.11c-.187 0-.319-.079-.495-.16-1.745-.733-2.909-2.05-3.324-2.766-.184-.316-.02-.486.139-.643.144-.142.319-.373.479-.56.16-.188.213-.32.32-.533.107-.213.054-.4-.027-.56-.08-.16-.724-1.746-.992-2.39-.262-.628-.528-.544-.724-.554l-.615-.012c-.214 0-.563.08-.857.4-.294.32-1.124 1.1-1.124 2.682 0 1.583 1.152 3.113 1.312 3.327.16.213 2.268 3.46 5.496 4.856.768.332 1.367.53 1.834.678.772.245 1.476.21 2.032.127.62-.093 1.89-.773 2.155-1.48.266-.707.266-1.312.187-1.44-.079-.127-.294-.207-.613-.368z" />
+              </svg>
+              WhatsApp Empresas
+            </a>
+          </div>
+        </div>
+
+        <!-- Lado Derecho: Formulario de Contacto Empresas -->
+        <div class="lg:col-span-6 relative">
+          <div class="absolute -top-6 -left-6 w-12 h-12 bg-teal-500/20 rounded-full blur-xl"></div>
+          
+          <!-- Contenedor Formulario -->
+          <div class="bg-white text-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-[#002f34]/20 border border-slate-100 relative">
+            <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 leading-snug">
+              ¿Tienes dudas? <span class="text-slate-500 font-light">Déjanos tus datos para</span> contactarte
+            </h2>
+
+            <form class="space-y-4 mt-6 text-xs text-slate-700">
+              <!-- Nombre y Apellido -->
+              <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-1.5">
+                  <label class="font-bold text-slate-500 uppercase tracking-wide">Nombre<span class="text-red-500">*</span></label>
+                  <input type="text" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:outline-none focus:border-[#002f34] transition text-slate-800 font-semibold" placeholder="Nombre" required />
+                </div>
+                <div class="space-y-1.5">
+                  <label class="font-bold text-slate-500 uppercase tracking-wide">Apellido</label>
+                  <input type="text" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:outline-none focus:border-[#002f34] transition text-slate-800 font-semibold" placeholder="Apellido" />
+                </div>
+              </div>
+
+              <!-- Correo y Teléfono -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="space-y-1.5">
+                  <label class="font-bold text-slate-500 uppercase tracking-wide">Correo electrónico<span class="text-red-500">*</span></label>
+                  <input type="email" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:outline-none focus:border-[#002f34] transition text-slate-800 font-semibold" placeholder="ejemplo@correo.com" required />
+                </div>
+                <div class="space-y-1.5">
+                  <label class="font-bold text-slate-500 uppercase tracking-wide">Número de teléfono<span class="text-red-500">*</span></label>
+                  <div class="flex bg-slate-50 border border-slate-200 rounded-xl overflow-hidden focus-within:border-[#002f34] transition">
+                    <div class="flex items-center gap-1 bg-slate-100 border-r border-slate-200 px-3 py-2 text-slate-600 font-semibold select-none cursor-pointer">
+                      <span>🇵🇪</span>
+                      <span>+51</span>
+                    </div>
+                    <input type="tel" class="w-full bg-transparent p-3 outline-none border-none text-slate-800 font-semibold focus:ring-0" placeholder="987 654 321" required />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Medio de Contacto -->
+              <div class="space-y-1.5">
+                <label class="font-bold text-slate-500 uppercase tracking-wide">¿Por qué medio deseas ser contactado?</label>
+                <div class="relative">
+                  <select class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 appearance-none focus:outline-none focus:border-[#002f34] transition text-slate-800 font-semibold pr-10">
+                    <option value="correo">Correo</option>
+                    <option value="telefono">Llamada Telefónica</option>
+                    <option value="whatsapp">WhatsApp</option>
+                  </select>
+                  <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Comentario -->
+              <div class="space-y-1.5">
+                <label class="font-bold text-slate-500 uppercase tracking-wide">Deja aquí tu duda o comentario</label>
+                <textarea rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:outline-none focus:border-[#002f34] transition text-slate-800 font-semibold resize-none" placeholder="Escribe tu mensaje..."></textarea>
+              </div>
+
+              <!-- Botón Enviar -->
+              <div class="pt-2 text-center">
+                <button type="submit" class="bg-[#00e3c2] hover:bg-[#00ffd9] text-[#002f34] font-bold py-3.5 px-12 rounded-2xl text-xs uppercase tracking-wider transition-all duration-300 shadow-md font-display inline-block active:scale-95">
+                  Enviar
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==================== CONTENIDO HERO: PROMOCIONES ==================== -->
+      <div *ngIf="isPromociones()" class="max-w-4xl mx-auto text-center space-y-8 animate-fade-in py-10" id="promociones-top">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white font-display">
+          Cupones Kambista
+        </h1>
+
+        <!-- 3D Ticket & Cash Illustration (SVG) -->
+        <div class="relative w-80 h-52 mx-auto flex items-center justify-center">
+          <svg class="w-full h-full" viewBox="0 0 240 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- Ticket gradient -->
+              <linearGradient id="ticketGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00ffd9" />
+                <stop offset="100%" stop-color="#00cbb0" />
+              </linearGradient>
+              <!-- Hand skin gradient -->
+              <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fed7aa" />
+                <stop offset="100%" stop-color="#fdbb2d" />
+              </linearGradient>
+              <!-- Sleeve gradient -->
+              <linearGradient id="sleeveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#475569" />
+                <stop offset="50%" stop-color="#64748b" />
+                <stop offset="100%" stop-color="#334155" />
+              </linearGradient>
+              <!-- Cash green gradient -->
+              <linearGradient id="cashGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#34d399" />
+                <stop offset="100%" stop-color="#059669" />
+              </linearGradient>
+            </defs>
+
+            <!-- Background Glow behind ticket -->
+            <circle cx="120" cy="70" r="45" fill="#00ffd9" opacity="0.15" filter="blur(10px)"/>
+
+            <!-- Cash Bundles Flying Around (Background layer) -->
+            <!-- Cash 1 (Left top) -->
+            <g transform="translate(25, 20) rotate(-25) scale(0.65)">
+              <rect x="0" y="0" width="40" height="22" rx="2" fill="#047857" opacity="0.6"/>
+              <rect x="2" y="-2" width="40" height="22" rx="2" fill="#10b981" stroke="#059669" stroke-width="0.8"/>
+              <rect x="4" y="-4" width="40" height="22" rx="2" fill="url(#cashGrad)" stroke="#34d399" stroke-width="0.8"/>
+              <!-- Band -->
+              <rect x="20" y="-4" width="8" height="22" fill="#f8fafc"/>
+            </g>
+            <!-- Cash 2 (Right top) -->
+            <g transform="translate(185, 30) rotate(15) scale(0.7)">
+              <rect x="0" y="0" width="40" height="22" rx="2" fill="#047857" opacity="0.6"/>
+              <rect x="2" y="-2" width="40" height="22" rx="2" fill="#10b981" stroke="#059669" stroke-width="0.8"/>
+              <rect x="4" y="-4" width="40" height="22" rx="2" fill="url(#cashGrad)" stroke="#34d399" stroke-width="0.8"/>
+              <!-- Band -->
+              <rect x="20" y="-4" width="8" height="22" fill="#f8fafc"/>
+            </g>
+            <!-- Cash 3 (Left bottom) -->
+            <g transform="translate(35, 90) rotate(35) scale(0.6)">
+              <rect x="0" y="0" width="40" height="22" rx="2" fill="#047857" opacity="0.6"/>
+              <rect x="2" y="-2" width="40" height="22" rx="2" fill="#10b981" stroke="#059669" stroke-width="0.8"/>
+              <rect x="4" y="-4" width="40" height="22" rx="2" fill="url(#cashGrad)" stroke="#34d399" stroke-width="0.8"/>
+              <!-- Band -->
+              <rect x="20" y="-4" width="8" height="22" fill="#f8fafc"/>
+            </g>
+            <!-- Cash 4 (Right bottom) -->
+            <g transform="translate(180, 85) rotate(-15) scale(0.65)">
+              <rect x="0" y="0" width="40" height="22" rx="2" fill="#047857" opacity="0.6"/>
+              <rect x="2" y="-2" width="40" height="22" rx="2" fill="#10b981" stroke="#059669" stroke-width="0.8"/>
+              <rect x="4" y="-4" width="40" height="22" rx="2" fill="url(#cashGrad)" stroke="#34d399" stroke-width="0.8"/>
+              <!-- Band -->
+              <rect x="20" y="-4" width="8" height="22" fill="#f8fafc"/>
+            </g>
+
+            <!-- 3D Sleeve of the hand -->
+            <g transform="translate(90, 105)">
+              <!-- Sleeve base -->
+              <path d="M 0,35 C 10,22 45,22 55,35 L 45,0 C 35,-5 15,-5 5,0 Z" fill="url(#sleeveGrad)" stroke="#1e293b" stroke-width="1"/>
+              <!-- Checkered or lines pattern on sleeve -->
+              <path d="M 12,32 L 15,2" stroke="#64748b" stroke-width="0.8" opacity="0.3"/>
+              <path d="M 27,34 L 27,0" stroke="#64748b" stroke-width="0.8" opacity="0.3"/>
+              <path d="M 42,32 L 39,2" stroke="#64748b" stroke-width="0.8" opacity="0.3"/>
+              <path d="M 7,10 L 47,10" stroke="#64748b" stroke-width="0.8" opacity="0.3"/>
+              <path d="M 5,20 L 50,20" stroke="#64748b" stroke-width="0.8" opacity="0.3"/>
+              <!-- White cuff -->
+              <path d="M 5,0 C 15,-4 35,-4 45,0 C 47,2 47,5 45,7 C 35,3 15,3 5,7 C 3,5 3,2 5,0 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.5"/>
+            </g>
+
+            <!-- Detailed Hand holding the ticket -->
+            <!-- Hand Palm & Wrist -->
+            <path d="M 98,103 C 98,85 105,75 125,75 C 145,75 150,90 140,105 Z" fill="url(#skinGrad)"/>
+            
+            <!-- Ticket Body (Horizontal, angled slightly) -->
+            <g transform="translate(60, 40) rotate(5)">
+              <!-- Shadow -->
+              <rect x="4" y="4" width="115" height="46" rx="6" fill="#001c20" opacity="0.4"/>
+              <!-- Main Ticket -->
+              <rect x="0" y="0" width="115" height="46" rx="6" fill="url(#ticketGrad)" stroke="#00cbb0" stroke-width="1.5"/>
+              <!-- Bite Notches -->
+              <circle cx="0" cy="23" r="7" fill="#003c42" stroke="#00cbb0" stroke-width="1.5"/>
+              <circle cx="115" cy="23" r="7" fill="#003c42" stroke="#00cbb0" stroke-width="1.5"/>
+              
+              <!-- Dotted dividing line -->
+              <line x1="25" y1="5" x2="25" y2="41" stroke="#003c42" stroke-width="1" stroke-dasharray="3 2"/>
+              
+              <!-- Ticket Text Left (Small) -->
+              <text x="12" y="27" font-family="Outfit" font-size="12" font-weight="900" fill="#002f34" text-anchor="middle" transform="rotate(-90 12 25)">%</text>
+              
+              <!-- Ticket Text Right (Main) -->
+              <text x="70" y="22" font-family="Outfit" font-size="14" font-weight="900" fill="#002f34" text-anchor="middle" letter-spacing="-0.3">Cupón</text>
+              <text x="70" y="35" font-family="Inter" font-size="7" font-weight="700" fill="#002f34" text-anchor="middle" letter-spacing="1">Kambista.com</text>
+            </g>
+
+            <!-- Fingers wrapping over the ticket -->
+            <!-- Thumb -->
+            <path d="M 94,82 C 96,70 106,66 112,74 C 114,78 110,85 102,86 Z" fill="url(#skinGrad)" stroke="#d97706" stroke-width="0.5"/>
+            <!-- Index Finger -->
+            <path d="M 125,75 C 132,64 140,68 135,78 C 132,83 126,82 125,75 Z" fill="url(#skinGrad)" stroke="#d97706" stroke-width="0.5"/>
+            <!-- Middle Finger -->
+            <path d="M 132,77 C 140,68 147,72 142,82 C 138,87 133,85 132,77 Z" fill="url(#skinGrad)" stroke="#d97706" stroke-width="0.5"/>
+            <!-- Ring Finger -->
+            <path d="M 136,82 C 144,74 149,78 145,87 C 141,91 137,89 136,82 Z" fill="url(#skinGrad)" stroke="#d97706" stroke-width="0.5"/>
           </svg>
-        </a>
+        </div>
+
+        <p class="text-sm sm:text-base text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
+          Cada sol cuenta y queremos que ahorres aún más. Por eso, hemos creado estos <strong>cupones Kambista</strong>, especialmente pensados para ti. <span class="text-[#00f2d1] font-semibold">Aplícalos y cambia tus dólares y soles con un mejor precio.</span>
+        </p>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== BANCOS & TRANSFERENCIAS ==================== -->
+  <section *ngIf="!isAyuda() && !isContacto()" class="relative z-20 -mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white rounded-2xl shadow-xl border border-slate-100 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-8">
+      
+      <!-- Lado Izquierdo: Titulo e Icono -->
+      <div class="flex items-center gap-4 border-b md:border-b-0 md:border-r border-slate-100 pb-4 md:pb-0 md:pr-8 shrink-0">
+        <div class="w-14 h-14 bg-[#002f34] text-white rounded-full flex flex-col items-center justify-center shrink-0 shadow-lg shadow-[#002f34]/15">
+          <span class="text-lg font-bold font-display leading-none">15</span>
+          <span class="text-[9px] uppercase font-bold tracking-wider opacity-80 leading-none mt-1">MIN</span>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-800 font-display text-sm sm:text-base leading-tight">Transferencias Inmediatas</h4>
+          <p class="text-xs text-slate-400 mt-1">Bancos principales con liquidación express</p>
+        </div>
+      </div>
+
+      <!-- Lado Derecho: Logos Bancos -->
+      <div class="flex-1 w-full">
+        <div class="flex flex-wrap items-center justify-center lg:justify-between gap-6 md:gap-4">
+          <!-- BCP -->
+          <div class="flex flex-col items-center">
+            <span class="text-base font-extrabold text-blue-900 tracking-wider">
+              <span class="text-orange-500">></span>BCP
+            </span>
+            <span class="text-[9px] text-slate-400 font-medium mt-1">Todo el Perú</span>
+          </div>
+
+          <!-- Interbank -->
+          <div class="flex flex-col items-center">
+            <div class="flex items-center gap-1.5">
+              <span class="w-4 h-4 bg-emerald-500 rounded-sm"></span>
+              <span class="text-sm font-bold text-slate-800">Interbank</span>
+            </div>
+            <span class="text-[9px] text-slate-400 font-medium mt-1">Todo el Perú</span>
+          </div>
+
+          <!-- BanBif -->
+          <div class="flex flex-col items-center">
+            <span class="text-sm font-black text-cyan-500 uppercase tracking-tighter">BanBif</span>
+            <span class="text-[9px] text-slate-400 font-medium mt-1">Solo Lima</span>
+          </div>
+
+          <!-- Pichincha -->
+          <div class="flex flex-col items-center">
+            <div class="flex items-center gap-1">
+              <span class="w-3.5 h-3.5 bg-yellow-400 rounded-full flex items-center justify-center text-[8px] font-bold text-[#002f34]">*</span>
+              <span class="text-xs font-bold text-[#002f34] uppercase tracking-wide">PICHINCHA</span>
+            </div>
+            <span class="text-[9px] text-slate-400 font-medium mt-1">Solo Lima (Lu-Vi)</span>
+          </div>
+
+          <!-- BBVA -->
+          <div class="flex flex-col items-center">
+            <span class="text-base font-black text-blue-800 tracking-tighter">BBVA</span>
+            <span class="text-[9px] text-slate-400 font-medium mt-1">Solo Lima</span>
+          </div>
+
+          <!-- Scotiabank -->
+          <div class="flex flex-col items-center">
+            <div class="flex items-center gap-1">
+              <svg class="w-3.5 h-3.5 text-red-600" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+              <span class="text-xs font-bold text-slate-800">Scotiabank</span>
+            </div>
+            <span class="text-[9px] text-slate-400 font-medium mt-1">Solo Lima</span>
+          </div>
+
+          <!-- Otros Bancos -->
+          <div class="flex flex-col items-center">
+            <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-semibold">Otros bancos</span>
+            <span class="text-[9px] text-slate-400 font-medium mt-1">*Aplican T&C</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== RADAR EMPRESARIAL BANNER (SLIDER) ==================== -->
+  <section *ngIf="!isAyuda() && !isContacto()" id="promociones" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 scroll-mt-24">
+    <!-- Slider Container -->
+    <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-black text-white rounded-3xl p-6 sm:p-8 relative overflow-hidden border border-white/5 shadow-2xl">
+      <!-- Glow background -->
+      <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl"></div>
+      
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+        
+        <!-- Left: Branding & Event Title -->
+        <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+          <!-- Logo & Event Indicator -->
+          <div class="flex items-center gap-3 shrink-0 border-b md:border-b-0 md:border-r border-white/10 pb-4 md:pb-0 md:pr-6">
+            <div class="h-10 w-10 text-emerald-400 flex items-center justify-center">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-[10px] font-bold uppercase tracking-widest text-emerald-400 leading-none">WEBINAR</p>
+              <p class="text-sm font-extrabold tracking-tight font-display text-white mt-1 leading-none">Radar Empresarial</p>
+            </div>
+          </div>
+
+          <!-- Ponentes Fotos -->
+          <div class="flex -space-x-4 shrink-0">
+            <!-- Ponente 1 -->
+            <div class="w-12 h-12 rounded-full border-2 border-slate-800 bg-slate-200 overflow-hidden flex items-center justify-center shadow-md">
+              <svg class="w-8 h-8 text-slate-400 mt-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            </div>
+            <!-- Ponente 2 -->
+            <div class="w-12 h-12 rounded-full border-2 border-slate-800 bg-slate-300 overflow-hidden flex items-center justify-center shadow-md">
+              <svg class="w-8 h-8 text-slate-400 mt-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            </div>
+          </div>
+
+          <!-- Título -->
+          <p class="text-base sm:text-lg font-bold font-display max-w-lg leading-snug">
+            Radar Empresarial 2026: Cómo gestionar el dólar, las tasas y tus excedentes ante el ruido electoral.
+          </p>
+        </div>
+
+        <!-- Right: CTA Button -->
+        <button class="shrink-0 bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 hover:to-teal-300 text-slate-950 font-bold px-6 py-3 rounded-xl transition duration-300 text-xs uppercase tracking-wider font-display active:scale-95 shadow-md">
+          REGISTRARME GRATIS
+        </button>
+
+      </div>
+
+      <!-- Indicadores slider -->
+      <div class="flex items-center justify-center gap-2 mt-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>
+        <span class="w-5 h-1.5 rounded-full bg-emerald-400 transition-all"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>
+      </div>
+    </div>
+  </section>
+
+  <div *ngIf="isPersonas() && !isPromociones() && !isAyuda() && !isContacto()">
+    <!-- ==================== ¿QUÉ ES KAMBISTA? & ¿CÓMO USAR? ==================== -->
+    <section class="py-20 bg-white mt-16 border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- ¿Qué es Kambista? -->
+      <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-[#002f34] font-display">
+          ¿Qué es Kambista?
+        </h2>
+        <div class="w-12 h-1 bg-[#00f2d1] mx-auto rounded-full"></div>
+        <p class="text-slate-600 font-light leading-relaxed text-base pt-2">
+          Kambista es la primera casa de cambio online en Perú para cambiar dólares y soles.
+        </p>
+        <p class="text-slate-500 font-light leading-relaxed text-sm">
+          Con un enfoque centrado en ofrecer un buen tipo de cambio por dólar hoy, transacciones cada vez más rápidas y la atención más personalizada del mercado, se mantiene como líder del sector.
+        </p>
+      </div>
+
+      <!-- ¿Cómo usar Kambista? -->
+      <div id="como-funciona" class="space-y-12 scroll-mt-24">
+        <div class="text-center">
+          <h2 class="text-3xl font-extrabold text-[#002f34] font-display">
+            ¿Cómo usar Kambista?
+          </h2>
+          <div class="w-12 h-1 bg-[#00f2d1] mx-auto rounded-full mt-2"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4">
+          <!-- Paso 1 -->
+          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex flex-col items-center text-center space-y-6 hover:shadow-xl transition-all duration-300 relative group">
+            <span class="absolute top-4 left-4 w-8 h-8 bg-[#002f34] text-[#00f2d1] rounded-full flex items-center justify-center font-bold font-display text-sm">1</span>
+            
+            <!-- Monedas SVG Estilizadas -->
+            <div class="w-36 h-36 bg-gradient-to-br from-teal-500/10 to-emerald-500/10 rounded-2xl flex items-center justify-center text-slate-800 shadow-inner group-hover:scale-105 transition duration-300">
+              <svg class="w-24 h-24 text-slate-500" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Sol Coin -->
+                <circle cx="60" cy="60" r="25" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/>
+                <circle cx="60" cy="60" r="20" stroke="#94a3b8" stroke-dasharray="4 2" stroke-width="1.5"/>
+                <text x="60" y="66" font-family="Outfit" font-size="18" font-weight="900" fill="#64748b" text-anchor="middle">S/.</text>
+                <!-- Dollar Coin overlap -->
+                <circle cx="40" cy="40" r="25" fill="#38bdf8" fill-opacity="0.15" stroke="#0ea5e9" stroke-width="2"/>
+                <circle cx="40" cy="40" r="20" stroke="#0284c7" stroke-dasharray="4 2" stroke-width="1.5"/>
+                <text x="40" y="47" font-family="Outfit" font-size="22" font-weight="900" fill="#0369a1" text-anchor="middle">$</text>
+              </svg>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-slate-800 font-display text-lg">Cotiza</h3>
+              <p class="text-sm text-slate-500 mt-2 leading-relaxed max-w-[220px] mx-auto">
+                Usa nuestra calculadora para saber cuánto valdrá tu dinero al cambiarlo.
+              </p>
+            </div>
+          </div>
+
+          <!-- Paso 2 -->
+          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex flex-col items-center text-center space-y-6 hover:shadow-xl transition-all duration-300 relative group">
+            <span class="absolute top-4 left-4 w-8 h-8 bg-[#002f34] text-[#00f2d1] rounded-full flex items-center justify-center font-bold font-display text-sm">2</span>
+
+            <!-- Transferencia Flechas SVG -->
+            <div class="w-36 h-36 bg-gradient-to-br from-teal-500/10 to-emerald-500/10 rounded-2xl flex items-center justify-center text-slate-800 shadow-inner group-hover:scale-105 transition duration-300">
+              <svg class="w-24 h-24 text-teal-600" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Circulating arrows -->
+                <path d="M30 65C30 45.67 45.67 30 65 30M65 30L55 20M65 30L55 40" stroke="#0d9488" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M70 35C70 54.33 54.33 70 35 70M35 70L45 80M35 70L45 60" stroke="#14b8a6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="42" y="42" width="16" height="16" rx="3" fill="#002f34"/>
+                <text x="50" y="54" font-family="Outfit" font-size="10" font-weight="900" fill="#00f2d1" text-anchor="middle">vch</text>
+              </svg>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-slate-800 font-display text-lg">Transfiere</h3>
+              <p class="text-sm text-slate-500 mt-2 leading-relaxed max-w-[220px] mx-auto">
+                Deposítanos el dinero desde tu banco y guarda el voucher.
+              </p>
+            </div>
+          </div>
+
+          <!-- Paso 3 -->
+          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex flex-col items-center text-center space-y-6 hover:shadow-xl transition-all duration-300 relative group">
+            <span class="absolute top-4 left-4 w-8 h-8 bg-[#002f34] text-[#00f2d1] rounded-full flex items-center justify-center font-bold font-display text-sm">3</span>
+
+            <!-- Recibe Dinero SVG -->
+            <div class="w-36 h-36 bg-gradient-to-br from-teal-500/10 to-emerald-500/10 rounded-2xl flex items-center justify-center text-slate-800 shadow-inner group-hover:scale-105 transition duration-300">
+              <svg class="w-24 h-24 text-emerald-600" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Bills Stack -->
+                <rect x="25" y="40" width="50" height="28" rx="4" fill="#059669" stroke="#047857" stroke-width="2"/>
+                <rect x="30" y="34" width="50" height="28" rx="4" fill="#10b981" stroke="#059669" stroke-width="2"/>
+                <rect x="35" y="28" width="50" height="28" rx="4" fill="#34d399" stroke="#10b981" stroke-width="2"/>
+                <circle cx="60" cy="42" r="6" fill="#10b981"/>
+                <text x="60" y="46" font-family="Outfit" font-size="12" font-weight="900" fill="#065f46" text-anchor="middle">$</text>
+                <path d="M42 34V50" stroke="#059669" stroke-width="2"/>
+                <path d="M78 34V50" stroke="#059669" stroke-width="2"/>
+              </svg>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-slate-800 font-display text-lg">Recibe</h3>
+              <p class="text-sm text-slate-500 mt-2 leading-relaxed max-w-[220px] mx-auto">
+                Enviaremos tu cambio a cualquier banco en un estimado de 15 minutos (Aplican T&C).
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== ALERTAS Y DESCARGA (PROMO APP) ==================== -->
+  <section class="py-12 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Contenedor Asimétrico Azul Oscuro -->
+      <div class="bg-[#002f34] text-white rounded-3xl overflow-hidden shadow-2xl relative">
+        <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 sm:p-12 lg:p-16">
+          
+          <!-- Lado Izquierdo: Copy y Tiendas -->
+          <div class="lg:col-span-6 space-y-6">
+            <h2 class="text-3xl sm:text-4xl font-extrabold font-display leading-tight text-white">
+              Alertas de Tipo de Cambio
+            </h2>
+            <p class="text-white/80 font-light leading-relaxed text-sm">
+              En Kambista, puedes programar alertas para que te notifiquemos cuando el tipo de cambio alcance el valor que deseas, ya sea para comprar o vender dólares. ¡Recibe notificaciones en el momento justo y haz tus cambios de manera inteligente!
+            </p>
+
+            <div class="space-y-4 pt-2">
+              <p class="text-xs uppercase font-bold tracking-wider text-teal-400">Descarga disponible</p>
+              
+              <div class="flex flex-wrap items-center gap-3">
+                <!-- Google Play Button -->
+                <a href="#" class="bg-black hover:bg-slate-900 border border-white/10 px-4 py-2.5 rounded-xl flex items-center gap-2.5 transition shrink-0">
+                  <span class="text-xl">🤖</span>
+                  <div class="text-left leading-none">
+                    <p class="text-[9px] text-white/50 uppercase">GET IT ON</p>
+                    <p class="text-xs font-bold font-display mt-0.5">Google Play</p>
+                  </div>
+                </a>
+                
+                <!-- App Store Button -->
+                <a href="#" class="bg-black hover:bg-slate-900 border border-white/10 px-4 py-2.5 rounded-xl flex items-center gap-2.5 transition shrink-0">
+                  <span class="text-xl">🍎</span>
+                  <div class="text-left leading-none">
+                    <p class="text-[9px] text-white/50 uppercase">Download on the</p>
+                    <p class="text-xs font-bold font-display mt-0.5">App Store</p>
+                  </div>
+                </a>
+
+                <!-- Huawei AppGallery Button -->
+                <a href="#" class="bg-black hover:bg-slate-900 border border-white/10 px-4 py-2.5 rounded-xl flex items-center gap-2.5 transition shrink-0">
+                  <span class="text-xl">🔴</span>
+                  <div class="text-left leading-none">
+                    <p class="text-[9px] text-white/50 uppercase">EXPLORE IT ON</p>
+                    <p class="text-xs font-bold font-display mt-0.5">AppGallery</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lado Derecho: Mockup Digital (Tablet/Chart) -->
+          <div class="lg:col-span-6 flex justify-center">
+            <div class="w-full max-w-[420px] bg-slate-900 rounded-3xl p-4 shadow-2xl border-4 border-slate-950 aspect-[4/3] flex flex-col justify-between relative group hover:scale-[1.02] transition duration-500">
+              
+              <!-- Tablet Header -->
+              <div class="flex items-center justify-between text-[10px] text-slate-500 border-b border-slate-800 pb-2">
+                <span class="font-bold">Kambista App</span>
+                <div class="flex gap-2">
+                  <span>Semana</span>
+                  <span class="bg-slate-800 px-2 rounded-full text-white">Mes</span>
+                  <span>Año</span>
+                </div>
+              </div>
+
+              <!-- Tablet Body: Chart Visual representation -->
+              <div class="flex-1 flex flex-col justify-end py-4 relative">
+                <!-- Grid Lines -->
+                <div class="absolute inset-0 flex flex-col justify-between opacity-10 pointer-events-none">
+                  <div class="border-b border-white"></div>
+                  <div class="border-b border-white"></div>
+                  <div class="border-b border-white"></div>
+                </div>
+
+                <!-- SVG Trend Chart Mockup -->
+                <svg class="w-full h-32 text-emerald-400" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Compra Line -->
+                  <path d="M 0,40 Q 25,20 50,35 T 100,20" stroke="#00e3c2" stroke-width="2" fill="none"/>
+                  <!-- Venta Line -->
+                  <path d="M 0,30 Q 25,10 50,25 T 100,10" stroke="#38bdf8" stroke-width="2" fill="none"/>
+                </svg>
+
+                <!-- Floating Tooltip -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-950/90 text-white text-[9px] p-2 rounded-lg border border-slate-800 flex flex-col gap-1 items-center shadow-lg">
+                  <span class="text-[8px] text-slate-400">18 Jun 2026</span>
+                  <span class="font-bold text-[#00f2d1]">USD = S/. 3.428</span>
+                </div>
+              </div>
+
+              <!-- Tablet Footer -->
+              <div class="flex items-center justify-between text-[9px] text-slate-500 border-t border-slate-800 pt-2">
+                <span>Compra: 3.402</span>
+                <span>Venta: 3.428</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== ¿POR QUÉ CAMBIAR CON NOSOTROS? ==================== -->
+  <section id="ayuda" class="py-20 bg-white border-b border-slate-100 scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Título de sección -->
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-extrabold text-[#002f34] font-display">
+          ¿Por qué cambiar con nosotros?
+        </h2>
+        <div class="w-12 h-1 bg-[#00f2d1] mx-auto rounded-full mt-2"></div>
+      </div>
+
+      <!-- Grid de Beneficios -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Beneficio 1 -->
+        <div class="bg-[#e6fcf9] rounded-3xl p-8 border border-teal-100 hover:shadow-xl transition-all duration-300 flex flex-col justify-between min-h-[300px] group">
+          <div class="space-y-4">
+            <!-- Icono Campana -->
+            <div class="w-14 h-14 bg-teal-500 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-teal-500/10 group-hover:scale-110 transition duration-300">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            
+            <h3 class="text-xl font-bold text-[#002f34] font-display leading-tight">
+              Alertas de tipo de cambio
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed font-light">
+              Te notificamos cuando el dólar llegue al precio que buscas. Crea tu alarma desde la <strong>App Kambista</strong>.
+            </p>
+          </div>
+          
+          <a href="#" class="text-xs font-bold text-[#002f34] uppercase tracking-wider mt-6 group-hover:translate-x-1 transition flex items-center gap-1.5 self-start">
+            CREAR ALERTA <span class="text-lg leading-none">→</span>
+          </a>
+        </div>
+
+        <!-- Beneficio 2 -->
+        <div class="bg-[#f0f9ff] rounded-3xl p-8 border border-sky-100 hover:shadow-xl transition-all duration-300 flex flex-col justify-between min-h-[300px] group">
+          <div class="space-y-4">
+            <!-- Icono Caja Fuerte -->
+            <div class="w-14 h-14 bg-sky-500 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-sky-500/10 group-hover:scale-110 transition duration-300">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+
+            <h3 class="text-xl font-bold text-[#002f34] font-display leading-tight">
+              TC Preferencial
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed font-light">
+              Obtén un <strong>tipo de cambio preferencial</strong> por WhatsApp para grandes montos corporativos o personales.
+            </p>
+          </div>
+
+          <a href="#" class="text-xs font-bold text-[#002f34] uppercase tracking-wider mt-6 group-hover:translate-x-1 transition flex items-center gap-1.5 self-start">
+            SOLICITAR TASA <span class="text-lg leading-none">→</span>
+          </a>
+        </div>
+
+        <!-- Beneficio 3 -->
+        <div class="bg-[#f0fdf4] rounded-3xl p-8 border border-emerald-100 hover:shadow-xl transition-all duration-300 flex flex-col justify-between min-h-[300px] group">
+          <div class="space-y-4">
+            <!-- Icono Piggy/WhatsApp -->
+            <div class="w-14 h-14 bg-emerald-500 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-500/10 group-hover:scale-110 transition duration-300">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+            </div>
+
+            <h3 class="text-xl font-bold text-[#002f34] font-display leading-tight">
+              Atención por WhatsApp
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed font-light">
+              ¿Tienes alguna duda? Escríbenos por WhatsApp al <strong>922 340 125</strong> para ayudarte en tiempo real.
+            </p>
+          </div>
+
+          <a href="https://wa.me/51922340125" target="_blank" class="text-xs font-bold text-[#002f34] uppercase tracking-wider mt-6 group-hover:translate-x-1 transition flex items-center gap-1.5 self-start">
+            CONTACTAR <span class="text-lg leading-none">→</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CIFRAS DE CONFIANZA & COMUNIDAD ==================== -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Cifras de Confianza Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-28">
+        <!-- Lado Izquierdo copy -->
+        <div class="lg:col-span-5 space-y-4">
+          <span class="text-3xl font-extrabold text-[#00f2d1] bg-[#002f34] px-4 py-1.5 rounded-full inline-block font-display">2026</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#002f34] font-display leading-tight">
+            Números que inspiran confianza al momento de cambiar divisas
+          </h2>
+          <p class="text-slate-500 font-light leading-relaxed text-sm">
+            Nuestra trayectoria e innovación en el mercado cambiario peruano nos respaldan como la plataforma digital preferida por miles de peruanos y empresas.
+          </p>
+        </div>
+
+        <!-- Lado Derecho Grid 2x2 -->
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          
+          <!-- Metrica 1 -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm text-center sm:text-left space-y-2">
+            <p class="text-3xl font-black text-[#002f34] font-display">+ 2 millones</p>
+            <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Operaciones realizadas</p>
+          </div>
+
+          <!-- Metrica 2 -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm text-center sm:text-left space-y-2">
+            <p class="text-3xl font-black text-[#002f34] font-display">+ 400 mil</p>
+            <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Usuarios registrados</p>
+          </div>
+
+          <!-- Metrica 3 -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm text-center sm:text-left space-y-2">
+            <p class="text-3xl font-black text-[#002f34] font-display">+ 20 millones</p>
+            <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Ahorrados por usuarios</p>
+          </div>
+
+          <!-- Metrica 4 -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm text-center sm:text-left space-y-2">
+            <p class="text-3xl font-black text-[#002f34] font-display">+ 3 mil millones</p>
+            <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Dólares cambiados</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Comunidad (Testimonios) -->
+      <div class="bg-white rounded-3xl border border-slate-100 shadow-xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-8 relative">
+        <h3 class="text-2xl font-extrabold text-[#002f34] font-display tracking-tight">Comunidad</h3>
+        
+        <!-- Slider testimonials container -->
+        <div class="min-h-[160px] flex items-center justify-center relative px-8">
+          
+          <!-- Testimonial Item (Dynamic based on active index) -->
+          <div class="space-y-4 animate-fade-in">
+            <div class="flex justify-center gap-1">
+              <span class="text-amber-400 text-lg" *ngFor="let s of [1,2,3,4,5]">★</span>
+            </div>
+            
+            <p class="text-slate-600 italic text-base leading-relaxed font-light">
+              "{{ testimonials[activeTestimonialIndex()].text }}"
+            </p>
+
+            <div class="flex items-center justify-center gap-3 pt-2">
+              <div class="w-10 h-10 bg-slate-200 rounded-full flex items-center justify-center text-slate-400 text-xs font-bold uppercase">
+                {{ testimonials[activeTestimonialIndex()].name.charAt(0) }}
+              </div>
+              <span class="font-bold text-slate-800 text-sm font-display">{{ testimonials[activeTestimonialIndex()].name }}</span>
+            </div>
+          </div>
+
+          <!-- Flechas Izquierda y Derecha -->
+          <button 
+            (click)="prevTestimonial()"
+            class="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 bg-slate-50 hover:bg-slate-100 border border-slate-100 text-[#002f34] rounded-full flex items-center justify-center transition-all duration-200">
+            ←
+          </button>
+          <button 
+            (click)="nextTestimonial()"
+            class="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 bg-slate-50 hover:bg-slate-100 border border-slate-100 text-[#002f34] rounded-full flex items-center justify-center transition-all duration-200">
+            →
+          </button>
+        </div>
+
+        <!-- Banner inferior del testimonial (Únete a esta increíble comunidad) -->
+        <div class="bg-[#002f34] rounded-2xl p-6 text-white flex flex-col md:flex-row items-center justify-between gap-6">
+          <p class="font-medium text-sm sm:text-base font-display">
+            Únete a esta increíble comunidad ¡Solo faltas tú!
+          </p>
+          <button class="bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 hover:to-teal-300 text-[#002f34] font-bold px-6 py-2.5 rounded-xl text-xs uppercase tracking-wider transition font-display shadow-md">
+            Regístrate ahora
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== EL REPUNTE DEL DÓLAR (TENDENCIAS) ==================== -->
+  <section class="py-20 bg-white border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Contenedor general en Azul Oscuro -->
+      <div class="bg-[#002f34] text-white rounded-3xl p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden">
+        <div class="absolute -left-10 -bottom-10 w-60 h-60 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Lado Izquierdo copy -->
+          <div class="lg:col-span-5 space-y-6">
+            <h2 class="text-3xl sm:text-4xl font-extrabold font-display leading-tight text-white">
+              El repunte del dólar
+            </h2>
+            <p class="text-white/80 font-light leading-relaxed text-sm">
+              El pago de gratificaciones y retiros de AFP podrían incrementar la compra de dólares e impactar en el tipo de cambio. Si esto ocurre, se pueden generar grandes oportunidades de cambio.
+            </p>
+            <div class="space-y-2 text-xs text-white/60">
+              <p class="font-semibold uppercase tracking-wider text-teal-400 text-[10px]">Noticias importantes del mes:</p>
+              <ul class="list-disc pl-4 space-y-1">
+                <li>Fluctuación por decisiones de la Reserva Federal.</li>
+                <li>Impacto del flujo fiscal y corporativo local.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Lado Derecho: Contenedor Gráfico e Interactividad -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <!-- Tarjeta Gráfico Blanca -->
+            <div class="bg-white text-slate-800 rounded-2xl p-6 shadow-xl border border-slate-100">
+              
+              <!-- Cabecera del gráfico: Tabs e indicadores -->
+              <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-b border-slate-100 pb-4 mb-4">
+                <!-- Tabs -->
+                <div class="inline-flex bg-slate-100 p-0.5 rounded-lg text-xs font-semibold text-slate-500">
+                  <span class="px-3 py-1 text-slate-400 hover:text-slate-700 cursor-pointer">Semana</span>
+                  <span class="px-3 py-1 bg-white text-[#002f34] rounded shadow-sm">Mes</span>
+                  <span class="px-3 py-1 text-slate-400 hover:text-slate-700 cursor-pointer">Año</span>
+                </div>
+
+                <!-- Indicador Compra / Venta -->
+                <div class="flex items-center gap-4 text-xs font-bold">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-3 h-0.5 bg-[#00e3c2] inline-block"></span>
+                    <span class="text-slate-700">Compra</span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-3 h-0.5 bg-sky-500 inline-block"></span>
+                    <span class="text-slate-700">Venta</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- El Gráfico SVG de Tendencias -->
+              <div class="h-44 relative flex items-end">
+                <svg class="w-full h-full" viewBox="0 0 900 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Y Axis Markers -->
+                  <line x1="0" y1="20" x2="900" y2="20" stroke="#f1f5f9" stroke-width="1"/>
+                  <line x1="0" y1="75" x2="900" y2="75" stroke="#f1f5f9" stroke-width="1"/>
+                  <line x1="0" y1="130" x2="900" y2="130" stroke="#f1f5f9" stroke-width="1"/>
+                  
+                  <text x="10" y="15" fill="#94a3b8" font-size="10">Máximo</text>
+                  <text x="10" y="70" fill="#94a3b8" font-size="10">3.481</text>
+                  <text x="10" y="125" fill="#94a3b8" font-size="10">Mínimo</text>
+
+                  <!-- Dynamic Chart Paths -->
+                  <path [attr.d]="chartData().compra" stroke="#00e3c2" stroke-width="3" fill="none" class="transition-all duration-700 ease-in-out"/>
+                  <path [attr.d]="chartData().venta" stroke="#0ea5e9" stroke-width="3" fill="none" class="transition-all duration-700 ease-in-out"/>
+                </svg>
+
+                <div class="absolute bottom-2 left-4 text-[9px] text-slate-400">2026 Mayo</div>
+                <div class="absolute bottom-2 right-4 text-[9px] text-slate-400">2026 Junio</div>
+              </div>
+
+              <!-- Footer de la cotización -->
+              <div class="text-center border-t border-slate-100 pt-3 mt-4 text-[10px] text-slate-400">
+                Tipo de cambio actualizado el 18/06/2026 a las 13:30 horas
+              </div>
+
+            </div>
+
+            <!-- Filtros de Meses inferiores -->
+            <div class="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
+              <button 
+                (click)="selectMonth('junio')"
+                [class]="selectedMonth() === 'junio' ? 'bg-white text-[#002f34]' : 'bg-transparent text-white border border-white/20 hover:bg-white/5'"
+                class="px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200">
+                junio
+              </button>
+              <button 
+                (click)="selectMonth('mayo')"
+                [class]="selectedMonth() === 'mayo' ? 'bg-white text-[#002f34]' : 'bg-transparent text-white border border-white/20 hover:bg-white/5'"
+                class="px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200">
+                mayo
+              </button>
+              <button 
+                (click)="selectMonth('abril')"
+                [class]="selectedMonth() === 'abril' ? 'bg-white text-[#002f34]' : 'bg-transparent text-white border border-white/20 hover:bg-white/5'"
+                class="px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200">
+                abril
+              </button>
+              <button 
+                (click)="selectMonth('marzo')"
+                [class]="selectedMonth() === 'marzo' ? 'bg-white text-[#002f34]' : 'bg-transparent text-white border border-white/20 hover:bg-white/5'"
+                class="px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200">
+                marzo
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  </div> <!-- Fin de isPersonas() && !isPromociones() && !isAyuda() && !isContacto() -->
+
+  <!-- ==================== CONTENIDO EXCLUSIVO: AYUDA ==================== -->
+  <div *ngIf="isAyuda()" class="space-y-0 animate-fade-in bg-white min-h-[60vh] pb-24">
+    <!-- Header Hero Ayuda -->
+    <header class="relative bg-gradient-to-br from-[#002f34] via-[#003c42] to-[#004e57] text-white overflow-hidden pb-16 pt-16 px-4 sm:px-6 lg:px-8 text-center rounded-b-[40px] shadow-lg">
+      <div class="max-w-4xl mx-auto space-y-4">
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white font-display">
+          Preguntas Frecuentes
+        </h1>
+        <div class="w-16 h-1 bg-[#00f2d1] mx-auto rounded-full"></div>
+        <p class="text-sm sm:text-base text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
+          ¿Tienes preguntas acerca de Kambista? ¡Esperamos que esta lista de preguntas frecuentes pueda ayudarte!
+        </p>
+      </div>
+    </header>
+
+    <!-- FAQ Categories and Accordions Accordion list -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+      
+      <!-- 1. Sobre el proceso de cambio -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-bold text-[#002f34] font-display">Sobre el proceso de cambio</h3>
+        <div class="border-t border-slate-100 divide-y divide-slate-100 bg-white rounded-2xl shadow-sm border border-slate-100/80 overflow-hidden">
+          
+          <!-- Q1 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('proceso_1')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Cuál es el procedimiento de cambio?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_1']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['proceso_1']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              Para cambiar soles o dólares, primero cotiza tu operación en nuestra calculadora, selecciona tu cuenta de destino, realiza la transferencia desde la app o web de tu banco a la cuenta de Kambista que te indiquemos y, finalmente, ingresa tu número de operación. ¡Tu dinero estará en tu cuenta en un promedio de 15 minutos!
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('proceso_2')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Con qué bancos trabajan?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_2']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['proceso_2']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              Trabajamos con transferencias inmediatas con el BCP e Interbank en todo el país. Para BanBif, BBVA, Scotiabank y Banco Pichincha, operamos de manera inmediata para cuentas registradas en Lima. Para otras regiones o bancos, las transferencias se procesan de forma interbancaria diferida y pueden tomar hasta 24 horas útiles.
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('proceso_3')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿En cuánto tiempo tendré mi cambio?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_3']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['proceso_3']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              Las operaciones inmediatas demoran en promedio 15 minutos desde que validamos tu transferencia. Para transferencias interbancarias, la duración depende de los horarios establecidos por la Cámara de Compensación Electrónica (CCE), realizándose en el transcurso del día o en la mañana del siguiente día útil.
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('proceso_4')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Dónde encuentro el número de operación?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_4']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['proceso_4']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              Puedes encontrar este número directamente en la constancia de transferencia emitida por la app de tu banco. Usualmente está rotulado como "Número de operación", "Nro. de referencia" o "Número de transacción" y consta de 6 a 12 dígitos.
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('proceso_5')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Por qué solo me permite seleccionar la cuenta de destino? ¿Cómo debitarán el dinero?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_5']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['proceso_5']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              Por razones de máxima seguridad, Kambista no tiene acceso para debitar dinero directamente de tus cuentas bancarias. Eres tú quien debe ingresar a la app de tu banco y hacer la transferencia de forma manual hacia la cuenta de destino de Kambista provista durante la operación.
+            </div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('proceso_6')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Hasta qué monto puedo cambiar en Kambista?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_6']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['proceso_6']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              No hay un límite máximo de cambio. Para operaciones mayores a $5,000 dólares o S/. 18,000 soles, disponemos de tasas preferenciales mejoradas que puedes negociar de forma instantánea contactando con nuestros operadores.
+            </div>
+          </div>
+
+          <!-- Q7 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('proceso_7')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Hay algún monto mínimo por transacción?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_7']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['proceso_7']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              El monto mínimo para procesar un cambio en nuestra plataforma es de $10 dólares o su contravalor en soles peruanos.
+            </div>
+          </div>
+
+          <!-- Q8 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('proceso_8')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Cuál es mi cupón de bienvenida?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_8']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['proceso_8']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              Los nuevos usuarios registrados pueden utilizar el cupón **MIPRIMERKAMBIO** en su primera transacción para recibir una mejora especial en el margen de su tipo de cambio.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 2. Sobre seguridad -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-bold text-[#002f34] font-display">Sobre seguridad</h3>
+        <div class="border-t border-slate-100 divide-y divide-slate-100 bg-white rounded-2xl shadow-sm border border-slate-100/80 overflow-hidden">
+          
+          <!-- Q1 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('seguridad_1')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Cuáles son las plataformas oficiales de Kambista?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_1']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['seguridad_1']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              Nuestras únicas plataformas oficiales son el portal web oficial (https://kambista.com) y nuestras aplicaciones móviles oficiales disponibles en Google Play (Android), App Store (iOS) y AppGallery (Huawei). No realices operaciones fuera de estas plataformas.
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('seguridad_2')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Es necesaria la validación de identidad?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_2']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['seguridad_2']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              Sí, es una exigencia legal dictaminada por la Superintendencia de Banca, Seguros y AFP (SBS) y la Unidad de Inteligencia Financiera (UIF) en el marco de prevención de lavado de activos. Todo usuario debe verificar su identidad antes de cambiar dinero.
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('seguridad_3')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Cómo realizo mi validación de identidad?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_3']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['seguridad_3']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              Al registrarte, completa tus datos personales y carga fotos nítidas de tu documento de identidad (DNI, Carné de Extranjería o Pasaporte). Para completar la validación biométrica, se te solicitará una selfi rápida. El proceso se aprueba de forma automática en pocos segundos.
+            </div>
+          </div>
+
+          <!-- Q4 (Italics) -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('seguridad_4')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition italic">¿Kambista es seguro?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_4']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['seguridad_4']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              Sí. Kambista es una empresa regulada por la SBS mediante Resolución de Registro Nro. 00335-2017. Manejamos altos estándares de cifrado SSL/TLS de grado bancario para proteger toda tu información y operaciones financieras.
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('seguridad_5')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Puedo enviar mi cambio a una cuenta que no es mía?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_5']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['seguridad_5']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              No. Por regulaciones estrictas contra el fraude y lavado de dinero, todas las transferencias de origen y las cuentas bancarias de destino deben pertenecer única y exclusivamente al mismo titular que está registrado en Kambista.
+            </div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('seguridad_6')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Kambista cambia criptomonedas u ofrece servicios de inversión?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_6']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['seguridad_6']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              No. Kambista funciona únicamente como una plataforma digital de cambio de divisas físicas de curso legal (soles peruanos y dólares americanos). No gestionamos criptomonedas, acciones o carteras de inversión.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 3. Operaciones frecuentes -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-bold text-[#002f34] font-display">Operaciones frecuentes</h3>
+        <div class="border-t border-slate-100 divide-y divide-slate-100 bg-white rounded-2xl shadow-sm border border-slate-100/80 overflow-hidden">
+          
+          <!-- Q1 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('frecuentes_1')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Cómo guardo mi operación como "Operación frecuente"?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['frecuentes_1']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['frecuentes_1']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              Durante el proceso de ingreso de datos para tu transferencia, verás una casilla de verificación que indica "Guardar como operación frecuente". Al marcarla, podrás asignarle un alias (ej. "Pago de Tarjeta BCP") para seleccionarla directamente en tus próximos cambios.
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('frecuentes_2')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Cuántas operaciones frecuentes puedo guardar?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['frecuentes_2']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['frecuentes_2']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              No hay un límite de almacenamiento. Puedes guardar todas las cuentas y operaciones recurrentes que desees para acelerar tus flujos mensuales de cambio de dinero.
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('frecuentes_3')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Puedo modificar los datos de mi operación frecuente? ¿Qué sucede si lo hago?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['frecuentes_3']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['frecuentes_3']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              Sí, puedes modificar los datos de tus cuentas bancarias y alias guardados desde la configuración de tu perfil. Al guardar los cambios, las nuevas especificaciones se aplicarán automáticamente a tus futuras transferencias.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 4. Otras preguntas -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-bold text-[#002f34] font-display">Otras preguntas</h3>
+        <div class="border-t border-slate-100 divide-y divide-slate-100 bg-white rounded-2xl shadow-sm border border-slate-100/80 overflow-hidden">
+          
+          <!-- Q1 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('otras_1')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Qué es el ahorro acumulado? ¿Puedo retirarlo?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['otras_1']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['otras_1']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              El ahorro acumulado es un indicador de referencia en tu perfil que muestra la suma total aproximada que has ahorrado al operar con Kambista en vez de cambiar con los bancos tradicionales. No constituye un saldo en efectivo y no es retirable.
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('otras_2')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Hay algún cobro/comisión de parte de Kambista por el cambio que haga?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['otras_2']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['otras_2']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              No cobramos comisiones ni tasas de servicio adicionales. El tipo de cambio cotizado en la calculadora al inicio de tu operación es el valor neto e invariable que se transferirá a tu cuenta.
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('otras_3')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Puedo pagar mi tarjeta de crédito?</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['otras_3']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['otras_3']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              Sí, puedes indicar como cuenta de destino una cuenta de ahorros y luego pagar tu tarjeta desde la app de tu banco habitual. Si el banco permite abono directo a la tarjeta por transferencia ordinaria, también puedes registrarla como destino de fondos.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 5. Legal (All question titles in bold) -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-bold text-[#002f34] font-display">Legal</h3>
+        <div class="border-t border-slate-100 divide-y divide-slate-100 bg-white rounded-2xl shadow-sm border border-slate-100/80 overflow-hidden">
+          
+          <!-- Q1 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('legal_1')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-bold text-[#002f34] pr-4 group-hover:text-teal-600 transition">Términos y condiciones</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['legal_1']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['legal_1']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              Nuestros Términos y Condiciones regulan el acuerdo legal, las obligaciones operativas, los plazos bancarios, y las responsabilidades del usuario al utilizar la plataforma de Kambista. Puedes consultarlos al completo en el enlace del pie de página.
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('legal_2')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-bold text-[#002f34] pr-4 group-hover:text-teal-600 transition">Políticas de privacidad</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['legal_2']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['legal_2']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              Nos comprometemos a salvaguardar tu información privada bajo los estándares de la Ley Nro. 29733 de Protección de Datos Personales de Perú. Detalla cómo gestionamos tu información bancaria e identidad.
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('legal_3')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-bold text-[#002f34] pr-4 group-hover:text-teal-600 transition">Políticas de cookies</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['legal_3']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['legal_3']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              Empleamos cookies técnicas, analíticas y de marketing para mejorar el rendimiento del sitio web y proveerte de anuncios personalizados. Puedes restringir el uso de cookies modificando la configuración de tu navegador de internet.
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="group">
+            <button (click)="toggleAyudaFaq('legal_4')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
+              <span class="text-sm font-bold text-[#002f34] pr-4 group-hover:text-teal-600 transition">Kambi Koinks</span>
+              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['legal_4']">+</span>
+            </button>
+            <div *ngIf="faqAyudaOpen()['legal_4']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
+              Kambi Koinks es nuestro programa de fidelización exclusivo. Al acumular Koinks mediante transacciones continuadas en la plataforma, podrás desbloquear de forma automatizada mejores tipos de cambio mediante cupones especiales.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== CONTENIDO EXCLUSIVO: CONTACTO ==================== -->
+  <div *ngIf="isContacto()" class="space-y-0 animate-fade-in bg-slate-50 min-h-[60vh] pb-24">
+    <!-- Header Hero Contacto -->
+    <header class="relative bg-gradient-to-r from-blue-700 via-indigo-700 to-indigo-900 text-white overflow-hidden pb-16 pt-16 px-4 sm:px-6 lg:px-8 text-center rounded-b-[40px] shadow-lg">
+      <div class="max-w-4xl mx-auto space-y-4">
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white font-display">
+          Estamos para <span class="text-[#00f2d1]">ayudarte</span>.
+        </h1>
+        <p class="text-sm sm:text-base text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
+          Encuéntranos por el canal que prefieras. Respondemos rápido — sin chatbots.
+        </p>
+      </div>
+    </header>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
+      
+      <!-- Cards Grid (3 channels) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        
+        <!-- Card 1: Visítanos -->
+        <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300 text-center flex flex-col items-center space-y-5">
+          <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center shadow-inner">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+          </div>
+          <div class="space-y-2">
+            <h4 class="font-bold text-slate-800 font-display text-base">Visítanos</h4>
+            <p class="text-xs text-slate-400 font-medium leading-relaxed">
+              Cal. Arias Schreiber 165<br/>
+              Urb. La Aurora, Miraflores<br/>
+              Lima, Perú
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2: Llámanos -->
+        <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300 text-center flex flex-col items-center space-y-5">
+          <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center shadow-inner">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.01-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+          </div>
+          <div class="space-y-2">
+            <h4 class="font-bold text-slate-800 font-display text-base">Llámanos</h4>
+            <p class="text-sm font-bold text-indigo-900 hover:text-indigo-700 transition font-display select-all">+51 994 790 996</p>
+            <p class="text-xs text-slate-400 font-medium">Lun a Vie, 9am – 6pm</p>
+          </div>
+        </div>
+
+        <!-- Card 3: Escríbenos -->
+        <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300 text-center flex flex-col items-center space-y-5">
+          <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center shadow-inner">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </div>
+          <div class="space-y-2">
+            <h4 class="font-bold text-slate-800 font-display text-base">Escríbenos</h4>
+            <a href="mailto:operaciones@srcambio.pe" class="text-xs font-bold text-indigo-900 hover:text-indigo-700 underline block select-all">operaciones@srcambio.pe</a>
+            <p class="text-xs text-slate-400 font-medium">Respondemos en menos de 24h.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Vector Styled Google Map -->
+      <div class="max-w-5xl mx-auto h-[350px] bg-white rounded-3xl p-3 shadow-md border border-slate-150 relative overflow-hidden group">
+        <!-- Pulse effect for background layout -->
+        <div class="w-full h-full rounded-2xl overflow-hidden relative">
+          
+          <!-- Styled Map SVG -->
+          <svg class="w-full h-full rounded-2xl shadow-inner bg-[#f4f3f0]" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="mapClip">
+                <rect width="600" height="300" rx="16"/>
+              </clipPath>
+            </defs>
+            <g clip-path="url(#mapClip)">
+              <!-- Terrain grids -->
+              <rect x="50" y="30" width="100" height="60" rx="10" fill="#d1fae5" opacity="0.8"/>
+              <text x="100" y="65" font-family="Inter" font-size="8" font-weight="600" fill="#047857" text-anchor="middle">Parque Ramón Castilla</text>
+              
+              <rect x="350" y="160" width="120" height="90" rx="10" fill="#d1fae5" opacity="0.8"/>
+              <text x="410" y="210" font-family="Inter" font-size="8" font-weight="600" fill="#047857" text-anchor="middle">Wong Benavides</text>
+
+              <!-- Roads -->
+              <path d="M 0,100 L 600,100" stroke="#ffffff" stroke-width="20" stroke-linecap="round"/>
+              <path d="M 0,100 L 600,100" stroke="#e2e8f0" stroke-width="14" stroke-linecap="round"/>
+              <text x="250" y="103" font-family="Inter" font-size="7" font-weight="700" fill="#94a3b8">Av. Roca y Boloña</text>
+
+              <path d="M 0,220 L 600,220" stroke="#ffffff" stroke-width="24" stroke-linecap="round"/>
+              <path d="M 0,220 L 600,220" stroke="#cbd5e1" stroke-width="16" stroke-linecap="round"/>
+              <text x="250" y="224" font-family="Inter" font-size="8" font-weight="700" fill="#64748b">Av. Alfredo Benavides</text>
+
+              <path d="M 300,100 L 300,220" stroke="#ffffff" stroke-width="16" stroke-linecap="round"/>
+              <path d="M 300,100 L 300,220" stroke="#e2e8f0" stroke-width="10" stroke-linecap="round"/>
+              <text x="294" y="160" font-family="Inter" font-size="7" font-weight="700" fill="#94a3b8" transform="rotate(-90 294 160)">Cal. Arias Schreiber</text>
+
+              <!-- Secondary roads -->
+              <path d="M 120,0 L 120,300" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round"/>
+              <path d="M 480,0 L 480,300" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round"/>
+              
+              <!-- POI circles -->
+              <circle cx="340" cy="120" r="4" fill="#059669"/>
+              <text x="350" y="123" font-family="Inter" font-size="6" font-weight="600" fill="#047857">Starbucks</text>
+              
+              <circle cx="380" cy="200" r="4" fill="#3b82f6"/>
+              <text x="390" y="203" font-family="Inter" font-size="6" font-weight="600" fill="#1d4ed8">Wong Aurora</text>
+
+              <!-- Pulse Pin -->
+              <g transform="translate(300, 150)">
+                <circle cx="0" cy="0" r="12" fill="#ef4444" opacity="0.2">
+                  <animate attributeName="r" values="6;16;6" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <ellipse cx="0" cy="8" rx="4" ry="1.5" fill="#000000" opacity="0.3"/>
+                <path d="M 0,-16 C -6,-16 -10,-12 -10,-6 C -10,-1 0,8 0,8 C 0,8 10,-1 10,-6 C 10,-12 6,-16 0,-16 Z" fill="#ef4444" stroke="#ffffff" stroke-width="1"/>
+                <circle cx="0" cy="-6" r="3" fill="#ffffff"/>
+              </g>
+
+              <!-- Floating search bar overlay -->
+              <g transform="translate(20, 20)">
+                <!-- Search bar bg -->
+                <rect width="180" height="38" rx="8" fill="#ffffff" filter="drop-shadow(0px 2px 4px rgba(0,0,0,0.08))"/>
+                <text x="12" y="16" font-family="Inter" font-size="7.5" font-weight="700" fill="#0f172a">Calle Arias Schreiber 165</text>
+                <text x="12" y="26" font-family="Inter" font-size="6.5" font-weight="500" fill="#94a3b8">Miraflores, Lima, Perú</text>
+                
+                <!-- Direction icon -->
+                <g transform="translate(156, 11)">
+                  <circle cx="8" cy="8" r="8" fill="#3b82f6"/>
+                  <path d="M 5,8 L 11,5 L 8,11 L 7,9 Z" fill="#ffffff"/>
+                </g>
+              </g>
+            </g>
+          </svg>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== NEWSLETTER ("MANTENTE AL TANTO") ==================== -->
+  <section *ngIf="!isAyuda() && !isContacto()" class="py-12 bg-slate-100 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <div class="text-center md:text-left">
+          <h4 class="text-lg font-bold text-slate-800 font-display">¡Mantente al Tanto!</h4>
+          <p class="text-xs text-slate-500 mt-1">No pierdas la oportunidad, suscríbete y recibe un cupón especial para ti.</p>
+        </div>
+
+        <div class="w-full max-w-md">
+          <form class="flex items-stretch bg-white rounded-xl overflow-hidden shadow-sm border border-slate-200 p-1">
+            <input 
+              type="email" 
+              placeholder="Suscríbete con tu Email" 
+              class="flex-1 px-4 py-2 text-sm text-slate-800 bg-transparent outline-none border-none focus:ring-0" 
+              required />
+            <button 
+              type="submit" 
+              class="bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 hover:to-teal-300 text-slate-950 px-5 rounded-lg flex items-center justify-center transition active:scale-98">
+              <!-- Flecha Derecha SVG -->
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer id="contacto" class="bg-[#001c20] text-slate-400 pt-16 pb-8 text-xs scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Grid de enlaces -->
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-4 mb-16">
+        
+        <!-- Col 1: Empresa -->
+        <div class="space-y-4">
+          <h5 class="text-white font-bold font-display uppercase tracking-wider text-[10px]">Empresa</h5>
+          <ul class="space-y-2.5 font-light">
+            <li><a href="#" class="hover:text-white transition">Empresas-original</a></li>
+            <li><a href="#" class="hover:text-white transition">Blog</a></li>
+            <li><a href="#" class="hover:text-white transition">Trabaja con Nosotros</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Ayuda -->
+        <div class="space-y-4">
+          <h5 class="text-white font-bold font-display uppercase tracking-wider text-[10px]">Ayuda</h5>
+          <ul class="space-y-2.5 font-light">
+            <li><a href="#" class="hover:text-white transition">Atención al Cliente</a></li>
+            <li><a href="#" class="hover:text-white transition">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Más Info -->
+        <div class="space-y-4">
+          <h5 class="text-white font-bold font-display uppercase tracking-wider text-[10px]">Más información</h5>
+          <ul class="space-y-2.5 font-light">
+            <li><a href="#" class="hover:text-white transition">Beneficios</a></li>
+            <li><a href="#" class="hover:text-white transition">Configurar Alertas</a></li>
+            <li><a href="#" class="hover:text-white transition">Tipo de Cambio Hoy</a></li>
+            <li><a href="#" class="hover:text-white transition">¿Qué es Kambista?</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Legal -->
+        <div class="space-y-4">
+          <h5 class="text-white font-bold font-display uppercase tracking-wider text-[10px]">Legal</h5>
+          <ul class="space-y-2.5 font-light">
+            <li><a href="#" class="hover:text-white transition">Términos y Condiciones</a></li>
+            <li><a href="#" class="hover:text-white transition">Políticas de Privacidad</a></li>
+            <li><a href="#" class="hover:text-white transition">Derechos ARCO</a></li>
+          </ul>
+          <!-- Libro Reclamaciones Button -->
+          <div class="pt-2">
+            <a href="#" class="inline-flex items-center gap-2 border border-slate-600 hover:border-white hover:text-white px-3 py-1.5 rounded-lg transition">
+              <span>📖</span>
+              <span class="text-[9px] uppercase font-bold tracking-wider font-display">Libro de Reclamaciones</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 5: Horarios y Redes -->
+        <div class="space-y-4 col-span-2 md:col-span-1">
+          <h5 class="text-white font-bold font-display uppercase tracking-wider text-[10px]">Horarios</h5>
+          <div class="space-y-2 font-light">
+            <p>Lunes a Viernes<br/><strong class="text-white">9:00 AM - 7:00 PM</strong></p>
+            <p>Sábado<br/><strong class="text-white">9:00 AM - 2:00 PM</strong></p>
+          </div>
+
+          <div class="pt-4 space-y-3">
+            <h5 class="text-white font-bold uppercase tracking-wider text-[9px]">Síguenos</h5>
+            <div class="flex items-center gap-3">
+              <a href="#" class="hover:text-white transition text-base">📘</a>
+              <a href="#" class="hover:text-white transition text-base">📸</a>
+              <a href="#" class="hover:text-white transition text-base">🎥</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Separador inferior y logo -->
+      <div class="border-t border-slate-800 pt-8 flex flex-col items-center gap-6 text-center">
+        <!-- Logo Altok Footer -->
+        <div class="flex items-center gap-2">
+          <svg class="h-6 w-auto text-brand-accent" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 80L50 20L82 80" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M30 55H70" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+            <path d="M50 20L35 40M50 20L65 40" stroke="#00a2ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="50" cy="55" r="6" fill="#0052ff"/>
+          </svg>
+          <span class="text-lg font-bold tracking-tight font-display text-white">Altok</span>
+        </div>
+
+        <!-- TextosSBS y corporativos -->
+        <div class="space-y-2 max-w-3xl text-slate-500 font-light leading-relaxed">
+          <p>Altok S.A.C. RUC 20601708141</p>
+          <p>Registro SBS: 00335 - 2017</p>
+          <p>V.E. Luis Fernán Bedoya Reyes (antes Paseo de la República) No. 3617</p>
+          <p class="pt-4 text-slate-600 text-[10px]">© Altok Todos los derechos reservados 2026</p>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== WIDGET DE CHAT / CONTACTO ==================== -->
+  <!-- 1. Chatbot Normal (Se muestra si no es vista de contacto) -->
+  <div *ngIf="!isContacto()" class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 group animate-fade-in">
+    <!-- Bubble Tooltip -->
+    <div class="bg-white text-slate-800 border border-slate-100 shadow-xl px-4 py-2 rounded-2xl text-[11px] font-semibold flex items-center gap-2 animate-bounce">
+      <span class="w-2 h-2 rounded-full bg-[#00f2d1]"></span>
+      ¡Hola, soy Kambot!
+    </div>
+    <!-- Main Chat Button -->
+    <button class="w-14 h-14 bg-gradient-to-r from-[#002f34] to-[#004e57] text-[#00f2d1] rounded-full flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 border border-white/10 relative">
+      <span class="absolute top-0 right-0 w-3 h-3 bg-red-500 rounded-full border-2 border-[#002f34]"></span>
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- 2. WhatsApp Widget (Se muestra exclusivamente en la vista de contacto) -->
+  <div *ngIf="isContacto()" class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 group animate-fade-in">
+    <!-- WhatsApp Bubble Tooltip -->
+    <div class="bg-white text-slate-800 border border-slate-100 shadow-xl px-4 py-3 rounded-2xl text-[11px] font-semibold flex items-start gap-3 w-64 relative">
+      <!-- Blue bubble point icon -->
+      <div class="p-1.5 bg-blue-500/10 text-blue-500 rounded-full shrink-0">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+      </div>
+      <div class="space-y-0.5">
+        <p class="font-extrabold text-[#002f34]">¿Hablamos por WhatsApp?</p>
+        <p class="text-slate-400 text-[10px] font-normal leading-tight font-sans">Resolvemos tu duda en minutos.</p>
+      </div>
+    </div>
+    <!-- Floating Green WhatsApp Button -->
+    <a href="https://wa.me/51994790996" target="_blank" class="w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 border border-white/10 relative">
+      <span class="absolute top-0 right-0 w-3.5 h-3.5 bg-red-500 rounded-full border-2 border-emerald-500 animate-ping"></span>
+      <span class="absolute top-0 right-0 w-3.5 h-3.5 bg-red-500 rounded-full border-2 border-emerald-500"></span>
+      <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.488 1.459 5.407 1.46h.007c5.845 0 10.605-4.76 10.609-10.606.002-2.833-1.096-5.497-3.09-7.501-2.007-2.007-4.664-3.111-7.501-3.112-5.855 0-10.615 4.761-10.62 10.61-.002 1.953.51 3.86 1.48 5.564L1.75 22.02l4.897-1.282c1.606.877 3.4 1.416 5.416 1.416zM17.47 15.17c-.319-.16-1.89-.933-2.185-1.042-.295-.11-.51-.16-.724.16-.215.32-.83.16-1.018.16h-.11c-.187 0-.319-.079-.495-.16-1.745-.733-2.909-2.05-3.324-2.766-.184-.316-.02-.486.139-.643.144-.142.319-.373.479-.56.16-.188.213-.32.32-.533.107-.213.054-.4-.027-.56-.08-.16-.724-1.746-.992-2.39-.262-.628-.528-.544-.724-.554l-.615-.012c-.214 0-.563.08-.857.4-.294.32-1.124 1.1-1.124 2.682 0 1.583 1.152 3.113 1.312 3.327.16.213 2.268 3.46 5.496 4.856.768.332 1.367.53 1.834.678.772.245 1.476.21 2.032.127.62-.093 1.89-.773 2.155-1.48.266-.707.266-1.312.187-1.44-.079-.127-.294-.207-.613-.368z" />
+      </svg>
+    </a>
+  </div>
+
+  </div> <!-- Fin del wrapper !isLogin() && !isRegister() -->
+
+  <!-- ==================== VISTAS DE AUTENTICACIÓN ==================== -->
+  <!-- 1. INICIO DE SESIÓN -->
+  <div *ngIf="isLogin()" class="animate-fade-in min-h-screen bg-white flex flex-col lg:flex-row overflow-hidden font-sans">
+    
+    <!-- Lado Izquierdo: Formulario -->
+    <div class="w-full lg:w-[45%] p-8 sm:p-12 lg:p-16 flex flex-col justify-between min-h-screen bg-white">
+      
+      <!-- Cabecera -->
+      <div class="flex items-center justify-between">
+        <!-- Logo Altok -->
+        <div class="flex items-center gap-2 cursor-pointer" (click)="closeAuth()">
+          <svg class="h-8 w-auto text-brand-teal" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 80L50 20L82 80" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M30 55H70" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+            <path d="M50 20L35 40M50 20L65 40" stroke="#00a2ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="50" cy="55" r="6" fill="#0052ff"/>
+          </svg>
+          <span class="text-xl font-bold tracking-tight font-display text-brand-dark">Altok</span>
+        </div>
+        
+        <!-- Volver a Inicio -->
+        <button (click)="closeAuth()" class="text-xs font-semibold text-slate-500 hover:text-brand-teal transition flex items-center gap-1 bg-transparent border-none cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+          Volver a Inicio
+        </button>
+      </div>
+
+      <!-- Formulario Central -->
+      <div class="max-w-md w-full mx-auto my-auto py-10">
+        <div class="space-y-2 mb-8">
+          <h2 class="text-3xl font-extrabold text-brand-dark tracking-tight font-display">¡Bienvenido de nuevo!</h2>
+          <p class="text-sm text-slate-400 font-medium">Ingresa a tu cuenta de Altok para continuar operando.</p>
+        </div>
+
+        <!-- Alerta de Error -->
+        <div *ngIf="authErrorMessage()" class="bg-red-50 border border-red-200 text-red-700 p-4 rounded-2xl text-xs font-semibold flex items-start gap-2.5 animate-fade-in mb-4">
+          <svg class="w-4 h-4 text-red-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+          </svg>
+          <span>{{ authErrorMessage() }}</span>
+        </div>
+
+        <!-- Alerta de Éxito -->
+        <div *ngIf="authSuccess()" class="bg-emerald-50 border border-emerald-200 text-emerald-800 p-4 rounded-2xl text-xs font-semibold flex items-start gap-2.5 animate-fade-in mb-4">
+          <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>¡Inicio de sesión exitoso! Redirigiendo a tu cuenta...</span>
+        </div>
+
+        <form (submit)="handleLogin($event)" class="space-y-5">
+          <!-- Campo Email -->
+          <div class="space-y-1">
+            <label for="login-email" class="text-xs font-bold text-brand-dark uppercase tracking-wider">Correo Electrónico</label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg>
+              </span>
+              <input 
+                id="login-email"
+                type="email" 
+                placeholder="ejemplo@correo.com" 
+                [ngModel]="loginEmail()"
+                (ngModelChange)="loginEmail.set($event)"
+                name="loginEmail"
+                class="w-full bg-slate-50 border border-slate-100 focus:border-brand-teal focus:bg-white text-sm text-slate-800 rounded-2xl py-3.5 pl-11 pr-4 outline-none transition duration-200"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Campo Contraseña -->
+          <div class="space-y-1">
+            <div class="flex justify-between items-center">
+              <label for="login-password" class="text-xs font-bold text-brand-dark uppercase tracking-wider">Contraseña</label>
+              <a href="#" class="text-xs font-semibold text-brand-teal hover:underline" (click)="$event.preventDefault()">¿Olvidaste tu contraseña?</a>
+            </div>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                </svg>
+              </span>
+              <input 
+                id="login-password"
+                [type]="showLoginPassword() ? 'text' : 'password'" 
+                placeholder="••••••••" 
+                [ngModel]="loginPassword()"
+                (ngModelChange)="loginPassword.set($event)"
+                name="loginPassword"
+                class="w-full bg-slate-50 border border-slate-100 focus:border-brand-teal focus:bg-white text-sm text-slate-800 rounded-2xl py-3.5 pl-11 pr-12 outline-none transition duration-200"
+                required
+              />
+              <button 
+                type="button" 
+                (click)="showLoginPassword.set(!showLoginPassword())"
+                class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 cursor-pointer bg-transparent border-none"
+              >
+                <svg *ngIf="!showLoginPassword()" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.43 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                <svg *ngIf="showLoginPassword()" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Recordarme -->
+          <div class="flex items-center">
+            <label class="flex items-center gap-2 text-xs font-semibold text-slate-600 cursor-pointer select-none">
+              <input 
+                type="checkbox" 
+                [ngModel]="loginRememberMe()" 
+                (ngModelChange)="loginRememberMe.set($event)" 
+                name="loginRememberMe" 
+                class="w-4 h-4 rounded text-brand-teal border-slate-300 focus:ring-brand-teal" 
+              />
+              Recordarme en este dispositivo
+            </label>
+          </div>
+
+          <!-- Botón de Envío -->
+          <button 
+            type="submit" 
+            [disabled]="authLoading()"
+            class="w-full bg-brand-teal hover:bg-blue-600 disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold py-4 px-6 rounded-2xl transition duration-300 shadow-md shadow-brand-teal/10 hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer border-none"
+          >
+            <svg *ngIf="authLoading()" class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <span>{{ authLoading() ? 'Iniciando sesión...' : 'Entrar a Altok' }}</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Footer inferior -->
+      <div class="text-center">
+        <p class="text-xs text-slate-500 font-semibold">
+          ¿No tienes una cuenta? 
+          <button (click)="showRegister()" class="text-brand-teal hover:underline font-bold bg-transparent border-none cursor-pointer">Regístrate gratis</button>
+        </p>
+      </div>
+    </div>
+
+    <!-- Lado Derecho: Visual / Branding -->
+    <div class="hidden lg:flex lg:w-[55%] bg-gradient-to-br from-brand-dark via-[#112d4e] to-[#1e3e62] text-white p-16 flex-col justify-between relative overflow-hidden">
+      <!-- Glows -->
+      <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-brand-accent/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="space-y-3">
+        <h3 class="text-2xl font-bold font-display tracking-tight text-white">Cambia seguro, ahorra siempre</h3>
+        <p class="text-sm text-blue-200/80 leading-relaxed font-light">En Altok nos tomamos tu seguridad con la máxima seriedad. Regulados por la SBS.</p>
       </div>
     </div>
   </div>
-</main>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <!-- 2. REGISTRO -->
+  <div *ngIf="isRegister()" class="animate-fade-in min-h-screen bg-white flex flex-col lg:flex-row overflow-hidden font-sans">
+    
+    <!-- Lado Izquierdo: Formulario -->
+    <div class="w-full lg:w-[45%] p-8 sm:p-12 lg:p-16 flex flex-col justify-between min-h-screen bg-white">
+      
+      <!-- Cabecera -->
+      <div class="flex items-center justify-between">
+        <!-- Logo Altok -->
+        <div class="flex items-center gap-2 cursor-pointer" (click)="closeAuth()">
+          <svg class="h-8 w-auto text-brand-teal" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 80L50 20L82 80" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M30 55H70" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+            <path d="M50 20L35 40M50 20L65 40" stroke="#00a2ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="50" cy="55" r="6" fill="#0052ff"/>
+          </svg>
+          <span class="text-xl font-bold tracking-tight font-display text-brand-dark">Altok</span>
+        </div>
+        
+        <!-- Volver a Inicio -->
+        <button (click)="closeAuth()" class="text-xs font-semibold text-slate-500 hover:text-brand-teal transition flex items-center gap-1 bg-transparent border-none cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+          Volver a Inicio
+        </button>
+      </div>
 
+      <!-- Formulario Central -->
+      <!-- Formulario Central -->
+      <div class="max-w-md w-full mx-auto my-auto py-6">
+        <div class="space-y-1 mb-6">
+          <h2 class="text-3xl font-extrabold text-brand-dark tracking-tight font-display">Crea tu cuenta gratis</h2>
+          <p class="text-sm text-slate-400 font-medium">Únete a Altok hoy y accede a la mejor tasa de cambio.</p>
+        </div>
 
+        <!-- Alerta de Error -->
+        <div *ngIf="authErrorMessage()" class="bg-red-50 border border-red-200 text-red-700 p-4 rounded-2xl text-xs font-semibold flex items-start gap-2.5 animate-fade-in mb-4">
+          <svg class="w-4 h-4 text-red-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+          </svg>
+          <span>{{ authErrorMessage() }}</span>
+        </div>
+
+        <!-- Alerta de Éxito -->
+        <div *ngIf="authSuccess()" class="bg-emerald-50 border border-emerald-200 text-emerald-800 p-4 rounded-2xl text-xs font-semibold flex items-start gap-2.5 animate-fade-in mb-4">
+          <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>¡Cuenta creada con éxito! Redirigiendo al inicio de sesión...</span>
+        </div>
+
+        <form (submit)="handleRegister($event)" class="space-y-4">
+          <!-- Campo Nombre -->
+          <div class="space-y-1">
+            <label for="reg-name" class="text-xs font-bold text-brand-dark uppercase tracking-wider">Nombre Completo</label>
+            <input 
+              id="reg-name" 
+              type="text" 
+              placeholder="Juan Pérez" 
+              [ngModel]="registerName()"
+              (ngModelChange)="registerName.set($event)"
+              name="registerName"
+              class="w-full bg-slate-50 border border-slate-100 rounded-2xl py-3.5 px-4 outline-none focus:border-brand-teal focus:bg-white text-sm text-slate-800 transition duration-200" 
+              required 
+            />
+          </div>
+
+          <!-- Campo Email -->
+          <div class="space-y-1">
+            <label for="reg-email" class="text-xs font-bold text-brand-dark uppercase tracking-wider">Correo Electrónico</label>
+            <input 
+              id="reg-email" 
+              type="email" 
+              placeholder="juan@correo.com" 
+              [ngModel]="registerEmail()"
+              (ngModelChange)="registerEmail.set($event)"
+              name="registerEmail"
+              class="w-full bg-slate-50 border border-slate-100 rounded-2xl py-3.5 px-4 outline-none focus:border-brand-teal focus:bg-white text-sm text-slate-800 transition duration-200" 
+              required 
+            />
+          </div>
+
+          <!-- Campo Contraseña -->
+          <div class="space-y-1">
+            <label for="reg-password" class="text-xs font-bold text-brand-dark uppercase tracking-wider">Contraseña</label>
+            <div class="relative">
+              <input 
+                id="reg-password" 
+                [type]="showRegisterPassword() ? 'text' : 'password'" 
+                placeholder="••••••••" 
+                [ngModel]="registerPassword()"
+                (ngModelChange)="registerPassword.set($event)"
+                name="registerPassword"
+                class="w-full bg-slate-50 border border-slate-100 rounded-2xl py-3.5 pl-4 pr-12 outline-none focus:border-brand-teal focus:bg-white text-sm text-slate-800 transition duration-200" 
+                required 
+              />
+              <button 
+                type="button" 
+                (click)="showRegisterPassword.set(!showRegisterPassword())"
+                class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 cursor-pointer bg-transparent border-none"
+              >
+                <svg *ngIf="!showRegisterPassword()" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.43 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                <svg *ngIf="showRegisterPassword()" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Fuerza de contraseña -->
+            <div class="space-y-1.5 mt-2">
+              <div class="flex justify-between text-[10px] font-bold text-slate-400">
+                <span>Fuerza de la contraseña</span>
+                <span [ngClass]="{
+                  'text-red-500': passwordStrength() <= 1 && registerPassword(),
+                  'text-amber-500': passwordStrength() === 2,
+                  'text-lime-500': passwordStrength() === 3,
+                  'text-emerald-500': passwordStrength() === 4
+                }">
+                  {{ 
+                    !registerPassword() ? '' : 
+                    passwordStrength() <= 1 ? 'Muy débil' : 
+                    passwordStrength() === 2 ? 'Débil' : 
+                    passwordStrength() === 3 ? 'Buena' : 'Fuerte' 
+                  }}
+                </span>
+              </div>
+              <div class="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden flex gap-1">
+                <div 
+                  class="h-full transition-all duration-300 rounded-full"
+                  [ngClass]="{
+                    'bg-red-500': passwordStrength() <= 1,
+                    'bg-amber-500': passwordStrength() === 2,
+                    'bg-lime-500': passwordStrength() === 3,
+                    'bg-emerald-500': passwordStrength() === 4
+                  }"
+                  [style.width.%]="!registerPassword() ? 0 : passwordStrength() * 25"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Términos y condiciones -->
+          <div class="pt-1">
+            <label class="flex items-start gap-2 text-xs font-semibold text-slate-600 cursor-pointer select-none">
+              <input 
+                type="checkbox" 
+                [ngModel]="registerTerms()" 
+                (ngModelChange)="registerTerms.set($event)" 
+                name="registerTerms" 
+                class="w-4 h-4 rounded text-brand-teal border-slate-300 focus:ring-brand-teal mt-0.5" 
+                required 
+              />
+              <span>Acepto los <a href="#" class="text-brand-teal hover:underline font-bold" (click)="$event.preventDefault()">Términos y Condiciones</a> y la <a href="#" class="text-brand-teal hover:underline font-bold" (click)="$event.preventDefault()">Política de Privacidad</a> de Altok.</span>
+            </label>
+          </div>
+
+          <!-- Botón Registrar -->
+          <button 
+            type="submit" 
+            [disabled]="authLoading()"
+            class="w-full bg-brand-teal hover:bg-blue-600 disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold py-4 px-6 rounded-2xl transition duration-300 shadow-md shadow-brand-teal/10 hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer border-none"
+          >
+            <svg *ngIf="authLoading()" class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <span>{{ authLoading() ? 'Creando cuenta...' : 'Crear cuenta gratis' }}</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Footer inferior -->
+      <div class="text-center">
+        <p class="text-xs text-slate-500 font-semibold">
+          ¿Ya tienes cuenta? 
+          <button (click)="showLogin()" class="text-brand-teal hover:underline font-bold bg-transparent border-none cursor-pointer">Inicia sesión</button>
+        </p>
+      </div>
+    </div>
+
+    <!-- Lado Derecho: Visual / Branding -->
+    <div class="hidden lg:flex lg:w-[55%] bg-gradient-to-br from-brand-dark via-[#112d4e] to-[#1e3e62] text-white p-16 flex-col justify-between relative overflow-hidden">
+      <div class="space-y-3">
+        <h3 class="text-2xl font-bold font-display tracking-tight text-white">Regístrate en 2 minutos</h3>
+        <p class="text-sm text-blue-200/80 leading-relaxed font-light">Accede a tasas corporativas y beneficios exclusivos.</p>
+      </div>
+    </div>
+  </div>
+
+</div> <!-- Fin del contenedor principal bg-slate-50 (Línea 2) -->
