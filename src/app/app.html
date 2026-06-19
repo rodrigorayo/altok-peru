@@ -5,13 +5,12 @@
   <div *ngIf="!isLogin() && !isRegister()" class="flex flex-col min-h-screen">
 
   <!-- ==================== HEADER ESTÁTICO / NAVEGACIÓN ==================== -->
-  <nav [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'bg-[#0b170e]/95 border-emerald-900/40' : 'bg-[#150303]/95 border-red-950/40'" class="sticky top-0 z-50 backdrop-blur-md border-b text-white py-4 px-4 sm:px-6 lg:px-8 shadow-md transition-colors duration-500">
+  <nav class="sticky top-0 z-50 bg-[#1b3b6f]/95 backdrop-blur-md border-b border-white/10 text-white py-4 px-4 sm:px-6 lg:px-8 shadow-md">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       
       <!-- Lado Izquierdo: Logo -->
       <div class="flex items-center gap-2 cursor-pointer" (click)="isPersonas.set(true); isPromociones.set(false); isAyuda.set(false); isContacto.set(false)">
         <img src="altok-logo.png" alt="Cambia Altok Logo" class="h-8 w-auto object-contain rounded-md" />
-        <span class="text-xl font-bold tracking-tight font-display text-white">Cambia Altok</span>
       </div>
 
       <!-- Centro: Links de Navegación -->
@@ -34,26 +33,25 @@
 
         <button 
           (click)="isPromociones.set(true); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)"
-          [class]="isPromociones() && !isAyuda() && !isContacto() ? (tipoCambio() === 'BOB_TO_PEN' ? 'text-yellow-400 font-semibold' : 'text-red-400 font-semibold') : (tipoCambio() === 'BOB_TO_PEN' ? 'hover:text-yellow-400 text-white/80' : 'hover:text-red-400 text-white/80')"
+          [class]="isPromociones() && !isAyuda() && !isContacto() ? 'text-brand-accent font-semibold' : 'hover:text-brand-accent text-white/80'"
           class="transition duration-200 cursor-pointer bg-transparent border-none p-0 text-sm font-medium text-left">
           Promociones
         </button>
         <a 
           (click)="isPersonas.set(true); isPromociones.set(false); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)" 
           href="#como-funciona" 
-          [class]="tipoCambio() === 'BOB_TO_PEN' ? 'hover:text-yellow-400' : 'hover:text-red-400'"
-          class="transition duration-200">
+          class="hover:text-brand-accent transition duration-200">
           Cómo funciona
         </a>
         <button 
           (click)="isAyuda.set(true); isPromociones.set(false); isContacto.set(false); isMobileMenuOpen.set(false)"
-          [class]="isAyuda() ? (tipoCambio() === 'BOB_TO_PEN' ? 'text-yellow-400 font-semibold' : 'text-red-400 font-semibold') : (tipoCambio() === 'BOB_TO_PEN' ? 'hover:text-yellow-400 text-white/80' : 'hover:text-red-400 text-white/80')"
+          [class]="isAyuda() ? 'text-brand-accent font-semibold' : 'hover:text-brand-accent text-white/80'"
           class="transition duration-200 cursor-pointer bg-transparent border-none p-0 text-sm font-medium text-left">
           Ayuda
         </button>
         <button 
           (click)="isContacto.set(true); isPromociones.set(false); isAyuda.set(false); isMobileMenuOpen.set(false)"
-          [class]="isContacto() ? (tipoCambio() === 'BOB_TO_PEN' ? 'text-yellow-400 font-semibold' : 'text-red-400 font-semibold') : (tipoCambio() === 'BOB_TO_PEN' ? 'hover:text-yellow-400 text-white/80' : 'hover:text-red-400 text-white/80')"
+          [class]="isContacto() ? 'text-brand-accent font-semibold' : 'hover:text-brand-accent text-white/80'"
           class="transition duration-200 cursor-pointer bg-transparent border-none p-0 text-sm font-medium text-left">
           Contacto
         </button>
@@ -61,8 +59,8 @@
 
       <!-- Lado Derecho: Iniciar Sesión y Registro -->
       <div class="hidden lg:flex items-center gap-4 text-sm font-semibold">
-        <button (click)="showLogin()" [class]="tipoCambio() === 'BOB_TO_PEN' ? 'hover:text-yellow-400' : 'hover:text-red-400'" class="text-white/80 transition duration-200 bg-transparent border-none cursor-pointer font-semibold">Iniciar Sesión</button>
-        <button (click)="showRegister()" [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'from-emerald-600 to-green-700 hover:from-emerald-500 hover:to-green-600 shadow-emerald-950/20' : 'from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 shadow-rose-950/20'" class="bg-gradient-to-r text-white px-5 py-2.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] border-none cursor-pointer font-semibold">Registro</button>
+        <button (click)="showLogin()" class="text-white/80 hover:text-brand-accent transition duration-200 bg-transparent border-none cursor-pointer font-semibold">Iniciar Sesión</button>
+        <button (click)="showRegister()" class="bg-gradient-to-r from-brand-teal to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white px-5 py-2.5 rounded-xl transition-all duration-300 shadow-md shadow-brand-teal/15 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] border-none cursor-pointer font-semibold">Registro</button>
       </div>
 
       <!-- Botón Menú Móvil -->
@@ -129,35 +127,34 @@
       </div>
 
       <div class="border-t border-white/10 pt-4 flex flex-col gap-3">
-        <button (click)="showLogin()" [class]="tipoCambio() === 'BOB_TO_PEN' ? 'hover:text-yellow-400' : 'hover:text-red-400'" class="text-center text-white/80 transition text-sm py-2.5 bg-transparent border-none cursor-pointer font-semibold">Iniciar Sesión</button>
-        <button (click)="showRegister()" [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'from-emerald-600 to-green-700 hover:from-emerald-500 hover:to-green-600' : 'from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-600'" class="text-center bg-gradient-to-r text-white py-2.5 rounded-xl font-bold transition duration-300 border-none cursor-pointer">Registro</button>
+        <button (click)="showLogin()" class="text-center text-white/80 hover:text-brand-accent transition text-sm py-2.5 bg-transparent border-none cursor-pointer font-semibold">Iniciar Sesión</button>
+        <button (click)="showRegister()" class="text-center bg-gradient-to-r from-brand-teal to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white py-2.5 rounded-xl font-bold transition duration-300 border-none cursor-pointer">Registro</button>
       </div>
 
     </div>
   </nav>
 
   <!-- ==================== BANNER PRINCIPAL (HERO) ==================== -->
-  <header *ngIf="!isAyuda() && !isContacto()" [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'bg-[#0f1f14]' : 'bg-[#260a0a]'" class="relative text-white overflow-hidden pb-48 pt-16 px-4 sm:px-6 lg:px-8 transition-colors duration-500">
+  <header *ngIf="!isAyuda() && !isContacto()" class="relative bg-[#0a2540] text-white overflow-hidden pb-48 pt-16 px-4 sm:px-6 lg:px-8">
     
     <!-- Capa de Fondo Dinámica Bolivia (Salar de Uyuni + Billetes Bolivianos) -->
     <div 
-      [style.opacity]="tipoCambio() === 'BOB_TO_PEN' ? '0.35' : '0'"
+      [style.opacity]="tipoCambio() === 'BOB_TO_PEN' ? '0.45' : '0'"
       class="absolute inset-0 bg-[url('/bolivia_bg_banknotes.png')] bg-cover bg-center transition-opacity duration-700 pointer-events-none z-0">
     </div>
 
     <!-- Capa de Fondo Dinámica Perú (Machu Picchu + Billetes Soles) -->
     <div 
-      [style.opacity]="tipoCambio() === 'PEN_TO_BOB' ? '0.35' : '0'"
+      [style.opacity]="tipoCambio() === 'PEN_TO_BOB' ? '0.45' : '0'"
       class="absolute inset-0 bg-[url('/peru_bg_banknotes.png')] bg-cover bg-center transition-opacity duration-700 pointer-events-none z-0">
     </div>
 
     <!-- Capa de Overlay de Gradiente Oscuro para Legibilidad -->
-    <div [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'from-[#0f1f14]/85 via-[#132c1c]/90 to-[#07130b]/95' : 'from-[#260a0a]/85 via-[#3d0f0f]/90 to-[#1b0505]/95'" class="absolute inset-0 bg-gradient-to-br pointer-events-none z-0 transition-colors duration-500"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0a2540]/80 via-[#0a2540]/90 to-[#112d4e]/95 pointer-events-none z-0"></div>
 
     <!-- Glow decorativo superior -->
-    <div [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'bg-red-500/15' : 'bg-red-600/15'" class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl -mr-60 -mt-60 pointer-events-none z-0 transition-colors duration-500"></div>
-    <div [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'bg-yellow-500/10' : 'bg-rose-500/10'" class="absolute bottom-0 left-0 w-[600px] h-[400px] rounded-full blur-3xl -ml-80 -mb-40 pointer-events-none z-0 transition-colors duration-500"></div>
-    <div [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'bg-emerald-500/10' : 'hidden'" class="absolute top-1/2 left-1/3 w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none z-0 transition-colors duration-500"></div>
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl -mr-60 -mt-60 pointer-events-none z-0"></div>
+    <div class="absolute bottom-0 left-0 w-[600px] h-[400px] bg-blue-500/5 rounded-full blur-3xl -ml-80 -mb-40 pointer-events-none z-0"></div>
 
     <div class="max-w-7xl mx-auto relative z-20">
 
@@ -168,14 +165,7 @@
         <!-- Bloque Izquierdo: Copy y Estadísticas -->
         <div class="lg:col-span-7 space-y-8 relative">
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white font-display">
-            Cambia 
-            <span [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'from-red-400 via-yellow-300 to-emerald-400' : 'from-red-400 via-white to-red-400'" class="text-transparent bg-clip-text bg-gradient-to-r font-black">
-              Bolivianos y Soles
-            </span> 
-            online con 
-            <span [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'text-yellow-400' : 'text-red-400'" class="font-bold">
-              Cambia Altok
-            </span>
+            Cambia Bolivianos y Soles online con Cambia Altok
           </h1>
           <p class="text-lg text-white/80 max-w-xl font-light">
             La forma más rápida, segura y económica de cambiar bolivianos y soles en el Perú. Olvídate de los riesgos de la calle y las altas tasas de los bancos tradicionales.
@@ -192,7 +182,7 @@
                 <img 
                   src="/bolivia_hand_cash.png" 
                   alt="Billetes Bolivianos" 
-                  class="w-full h-full object-contain drop-shadow-[0_10px_20px_rgba(251,191,36,0.3)]" />
+                  class="w-full h-full object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.2)]" />
               </div>
             </div>
 
@@ -204,7 +194,7 @@
                 <img 
                   src="/peru_hand_cash.png" 
                   alt="Billetes Soles" 
-                  class="w-full h-full object-contain drop-shadow-[0_10px_20px_rgba(239,68,68,0.3)]" />
+                  class="w-full h-full object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.2)]" />
               </div>
             </div>
 
@@ -218,7 +208,7 @@
               <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
                 <!-- Info Section (7 cols) -->
                 <div class="md:col-span-7">
-                  <h3 [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'text-[#0e2a1a]' : 'text-[#300a0a]'" class="text-base sm:text-lg lg:text-xl font-bold font-display leading-tight">
+                  <h3 class="text-base sm:text-lg lg:text-xl font-bold text-[#1b3b6f] font-display leading-tight">
                     <svg class="w-5.5 h-4 rounded-sm shadow-sm inline-block shrink-0 align-middle mr-1" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
                       <rect width="3" height="2" fill="#007a33"/>
                       <rect width="3" height="1.33" fill="#fcd116"/>
@@ -238,11 +228,11 @@
                 <!-- Actions Section (5 cols) -->
                 <div class="md:col-span-5 flex flex-col gap-3">
                   <!-- Zona Dotted Upload -->
-                  <label [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'border-yellow-300/40 hover:bg-yellow-50/5' : 'border-red-300/40 hover:bg-red-50/5'" class="cursor-pointer border-2 border-dashed rounded-xl p-3 flex flex-col items-center justify-center transition relative overflow-hidden group w-full">
+                  <label class="cursor-pointer border-2 border-dashed border-blue-100 rounded-xl p-3 flex flex-col items-center justify-center hover:bg-blue-50/20 transition relative overflow-hidden group w-full">
                     <input type="file" class="hidden" (change)="onFileChange($event)" accept="image/*,.pdf" />
                     
                     <div class="text-center space-y-1" *ngIf="!uploadedFileName()">
-                      <div [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'bg-yellow-50 text-yellow-600' : 'bg-red-50 text-red-600'" class="w-7 h-7 rounded-full flex items-center justify-center group-hover:scale-110 transition mx-auto">
+                      <div class="w-7 h-7 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 group-hover:scale-110 transition mx-auto">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                           <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                         </svg>
@@ -252,12 +242,12 @@
 
                     <div class="text-center space-y-1" *ngIf="uploadedFileName()">
                       <span class="text-lg">📄</span>
-                      <p [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'text-emerald-700' : 'text-red-700'" class="text-xs font-semibold truncate max-w-[120px]">{{ uploadedFileName() }}</p>
+                      <p class="text-xs font-semibold text-[#1b3b6f] truncate max-w-[120px]">{{ uploadedFileName() }}</p>
                       <p class="text-[9px] text-slate-400">Archivo seleccionado</p>
                     </div>
                   </label>
 
-                  <button [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'bg-gradient-to-r from-red-600 via-yellow-500 to-green-600 shadow-md shadow-yellow-500/10' : 'bg-gradient-to-r from-red-600 to-rose-600 shadow-md shadow-red-500/10'" class="w-full text-white text-xs font-bold py-3.5 px-4 rounded-xl uppercase tracking-wider transition-all duration-300 hover:opacity-95">
+                  <button class="w-full bg-[#1b3b6f] hover:bg-[#215a9c] text-white text-xs font-bold py-3.5 px-4 rounded-xl uppercase tracking-wider transition-all duration-300 shadow-sm shadow-[#1b3b6f]/10">
                     {{ uploadedFileName() ? 'CAMBIAR ARCHIVO' : 'MEJORAMOS LA COTIZACIÓN' }}
                   </button>
                 </div>
@@ -268,7 +258,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-white/10 py-3">
               <!-- Stat 1 -->
               <div class="flex items-center gap-3.5 justify-center sm:justify-start">
-                <div [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'text-yellow-400' : 'text-red-400'" class="p-2.5 bg-white/10 rounded-xl transition-colors duration-500">
+                <div class="p-2.5 bg-white/10 rounded-xl text-blue-300 transition-colors duration-500">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <rect x="2" y="6" width="20" height="12" rx="2" />
                     <circle cx="12" cy="12" r="3" />
@@ -282,7 +272,7 @@
               </div>
               <!-- Stat 2 -->
               <div class="flex items-center gap-3.5 justify-center sm:justify-start sm:pl-6 pt-4 sm:pt-0">
-                <div [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'text-yellow-400' : 'text-red-400'" class="p-2.5 bg-white/10 rounded-xl transition-colors duration-500">
+                <div class="p-2.5 bg-white/10 rounded-xl text-blue-300 transition-colors duration-500">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                   </svg>
@@ -294,7 +284,7 @@
               </div>
               <!-- Stat 3 -->
               <div class="flex items-center gap-3.5 justify-center sm:justify-start sm:pl-6 pt-4 sm:pt-0">
-                <div [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'text-yellow-400' : 'text-red-400'" class="p-2.5 bg-white/10 rounded-xl transition-colors duration-500">
+                <div class="p-2.5 bg-white/10 rounded-xl text-blue-300 transition-colors duration-500">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                     <circle cx="9" cy="7" r="4" />
@@ -326,7 +316,7 @@
                 <img 
                   src="/bolivia_hand_cash.png" 
                   alt="Billetes Bolivianos" 
-                  class="w-full h-full object-contain drop-shadow-[0_15px_35px_rgba(251,191,36,0.35)]" />
+                  class="w-full h-full object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.2)]" />
               </div>
             </div>
 
@@ -338,7 +328,7 @@
                 <img 
                   src="/peru_hand_cash.png" 
                   alt="Billetes Soles" 
-                  class="w-full h-full object-contain drop-shadow-[0_15px_35px_rgba(239,68,68,0.35)]" />
+                  class="w-full h-full object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.2)]" />
               </div>
             </div>
 
@@ -442,10 +432,10 @@
             </div>
 
             <!-- Ahorro Estimado y Koinks -->
-            <div [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'bg-emerald-500/5 border-emerald-500/10' : 'bg-red-500/5 border-red-500/10'" class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mt-6 p-4 rounded-xl border text-sm shadow-sm transition-colors duration-500">
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mt-6 bg-blue-500/5 p-4 rounded-xl border border-blue-500/10 text-sm shadow-sm">
               <div class="flex items-center gap-2">
                 <span class="text-slate-500 font-medium">Ahorro Estimado:</span>
-                <span [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'text-emerald-700' : 'text-red-700'" class="font-extrabold font-display transition-colors duration-500">S/. {{ ahorroEstimado() | number:'1.2-2' }}</span>
+                <span class="font-extrabold text-[#1b3b6f] font-display">S/. {{ ahorroEstimado() | number:'1.2-2' }}</span>
               </div>
               <div class="flex items-center gap-2 bg-amber-500/10 text-amber-800 px-3 py-1 rounded-full border border-amber-500/20 self-start sm:self-auto">
                 <span class="font-medium text-xs">Koinks:</span>
@@ -456,7 +446,7 @@
 
             <!-- Botón Registro -->
             <div class="mt-6">
-              <button [ngClass]="tipoCambio() === 'BOB_TO_PEN' ? 'bg-gradient-to-r from-red-600 via-yellow-500 to-green-600 shadow-lg shadow-yellow-500/15 hover:brightness-105' : 'bg-gradient-to-r from-red-600 to-rose-600 shadow-lg shadow-red-500/15 hover:brightness-105'" class="w-full text-white font-extrabold py-4 px-6 rounded-2xl font-display transition-all duration-300 uppercase tracking-wider text-sm active:scale-[0.99] border-none cursor-pointer">
+              <button class="w-full bg-gradient-to-r from-[#1b3b6f] to-[#215a9c] hover:from-[#152e57] hover:to-[#1b3b6f] text-white font-extrabold py-4 px-6 rounded-2xl font-display shadow-lg shadow-[#1b3b6f]/20 hover:shadow-xl transition-all duration-300 uppercase tracking-wider text-sm active:scale-[0.99] border-none cursor-pointer">
                 Regístrate Ahora
               </button>
             </div>
@@ -845,9 +835,8 @@
       <!-- Glow background -->
       <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl"></div>
       
-      <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
-        
-        <!-- Left: Branding & Event Title -->
+      <!-- Slide 1: Radar Empresarial -->
+      <div *ngIf="activeRadarSlideIndex() === 0" class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10 animate-fade-in">
         <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
           <!-- Logo & Event Indicator -->
           <div class="flex items-center gap-3 shrink-0 border-b md:border-b-0 md:border-r border-white/10 pb-4 md:pb-0 md:pr-6">
@@ -885,14 +874,55 @@
         <button class="shrink-0 bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 hover:to-teal-300 text-slate-950 font-bold px-6 py-3 rounded-xl transition duration-300 text-xs uppercase tracking-wider font-display active:scale-95 shadow-md">
           REGISTRARME GRATIS
         </button>
+      </div>
 
+      <!-- Slide 2: Refiere y Gana -->
+      <div *ngIf="activeRadarSlideIndex() === 1" class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10 animate-fade-in">
+        <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+          <div class="flex items-center gap-3 shrink-0 border-b md:border-b-0 md:border-r border-white/10 pb-4 md:pb-0 md:pr-6">
+            <div class="h-10 w-10 text-yellow-400 flex items-center justify-center">
+              <span class="text-3xl">🎁</span>
+            </div>
+            <div>
+              <p class="text-[10px] font-bold uppercase tracking-widest text-yellow-400 leading-none">PROMOCIÓN</p>
+              <p class="text-sm font-extrabold tracking-tight font-display text-white mt-1 leading-none">Refiere y Gana</p>
+            </div>
+          </div>
+          <p class="text-base sm:text-lg font-bold font-display max-w-lg leading-snug">
+            Programa Refiere y Gana: ¡Comparte la experiencia de Cambia Altok con tus amigos y gana comisiones!
+          </p>
+        </div>
+        <button class="shrink-0 bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-300 hover:to-amber-400 text-slate-950 font-bold px-6 py-3 rounded-xl transition duration-300 text-xs uppercase tracking-wider font-display active:scale-95 shadow-md">
+          MÁS INFORMACIÓN
+        </button>
+      </div>
+
+      <!-- Slide 3: Primer Cambio Gana 25 Soles / Bs -->
+      <div *ngIf="activeRadarSlideIndex() === 2" class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10 animate-fade-in">
+        <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+          <div class="flex items-center gap-3 shrink-0 border-b md:border-b-0 md:border-r border-white/10 pb-4 md:pb-0 md:pr-6">
+            <div class="h-10 w-10 text-emerald-400 flex items-center justify-center">
+              <span class="text-3xl">💵</span>
+            </div>
+            <div>
+              <p class="text-[10px] font-bold uppercase tracking-widest text-emerald-400 leading-none">BIENVENIDA</p>
+              <p class="text-sm font-extrabold tracking-tight font-display text-white mt-1 leading-none">Bono de Regalo</p>
+            </div>
+          </div>
+          <p class="text-base sm:text-lg font-bold font-display max-w-lg leading-snug">
+            ¡Haz tu primer cambio y gana S/. 25 o Bs. 25 de regalo directo a tu cuenta bancaria!
+          </p>
+        </div>
+        <button class="shrink-0 bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 hover:to-teal-300 text-slate-950 font-bold px-6 py-3 rounded-xl transition duration-300 text-xs uppercase tracking-wider font-display active:scale-95 shadow-md">
+          CAMBIAR AHORA
+        </button>
       </div>
 
       <!-- Indicadores slider -->
       <div class="flex items-center justify-center gap-2 mt-6">
-        <span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>
-        <span class="w-5 h-1.5 rounded-full bg-emerald-400 transition-all"></span>
-        <span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>
+        <span [class]="activeRadarSlideIndex() === 0 ? 'w-5 h-1.5 bg-emerald-400' : 'w-1.5 h-1.5 bg-white/30'" class="rounded-full transition-all duration-300 cursor-pointer" (click)="activeRadarSlideIndex.set(0)"></span>
+        <span [class]="activeRadarSlideIndex() === 1 ? 'w-5 h-1.5 bg-yellow-400' : 'w-1.5 h-1.5 bg-white/30'" class="rounded-full transition-all duration-300 cursor-pointer" (click)="activeRadarSlideIndex.set(1)"></span>
+        <span [class]="activeRadarSlideIndex() === 2 ? 'w-5 h-1.5 bg-emerald-400' : 'w-1.5 h-1.5 bg-white/30'" class="rounded-full transition-all duration-300 cursor-pointer" (click)="activeRadarSlideIndex.set(2)"></span>
       </div>
     </div>
   </section>
