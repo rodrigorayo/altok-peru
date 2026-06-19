@@ -135,10 +135,26 @@
   </nav>
 
   <!-- ==================== BANNER PRINCIPAL (HERO) ==================== -->
-  <header *ngIf="!isAyuda() && !isContacto()" class="relative bg-gradient-to-br from-[#1b3b6f] via-[#215a9c] to-[#3887d6] text-white overflow-hidden pb-48 pt-16 px-4 sm:px-6 lg:px-8">
+  <header *ngIf="!isAyuda() && !isContacto()" class="relative bg-[#0a2540] text-white overflow-hidden pb-48 pt-16 px-4 sm:px-6 lg:px-8">
+    
+    <!-- Capa de Fondo Dinámica Bolivia (Salar de Uyuni + Billetes Bolivianos) -->
+    <div 
+      [style.opacity]="tipoCambio() === 'BOB_TO_PEN' ? '0.45' : '0'"
+      class="absolute inset-0 bg-[url('/bolivia_bg_banknotes.png')] bg-cover bg-center transition-opacity duration-700 pointer-events-none z-0">
+    </div>
+
+    <!-- Capa de Fondo Dinámica Perú (Machu Picchu + Billetes Soles) -->
+    <div 
+      [style.opacity]="tipoCambio() === 'PEN_TO_BOB' ? '0.45' : '0'"
+      class="absolute inset-0 bg-[url('/peru_bg_banknotes.png')] bg-cover bg-center transition-opacity duration-700 pointer-events-none z-0">
+    </div>
+
+    <!-- Capa de Overlay de Gradiente Oscuro para Legibilidad -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0a2540]/80 via-[#0a2540]/90 to-[#112d4e]/95 pointer-events-none z-0"></div>
+
     <!-- Glow decorativo superior -->
-    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl -mr-60 -mt-60 pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-[600px] h-[400px] bg-blue-500/5 rounded-full blur-3xl -ml-80 -mb-40 pointer-events-none"></div>
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl -mr-60 -mt-60 pointer-events-none z-0"></div>
+    <div class="absolute bottom-0 left-0 w-[600px] h-[400px] bg-blue-500/5 rounded-full blur-3xl -ml-80 -mb-40 pointer-events-none z-0"></div>
 
     <div class="max-w-7xl mx-auto relative z-20">
 
