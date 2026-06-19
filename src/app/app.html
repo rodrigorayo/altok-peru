@@ -10,7 +10,7 @@
       
       <!-- Lado Izquierdo: Logo -->
       <div class="flex items-center gap-2 cursor-pointer" (click)="isPersonas.set(true); isPromociones.set(false); isAyuda.set(false); isContacto.set(false)">
-        <img src="altok-logo.png" alt="Cambia Altok Logo" class="h-8 w-auto object-contain rounded-md" />
+        <img src="altok-logo.png" alt="Cambia Altok Logo" class="h-14 w-auto object-contain rounded-md" />
       </div>
 
       <!-- Centro: Links de Navegación -->
@@ -150,7 +150,7 @@
     </div>
 
     <!-- Capa de Overlay de Gradiente Oscuro para Legibilidad -->
-    <div class="absolute inset-0 bg-gradient-to-br from-[#0a2540]/80 via-[#0a2540]/90 to-[#112d4e]/95 pointer-events-none z-0"></div>
+    <div class="absolute inset-0 bg-black/25 pointer-events-none z-0"></div>
 
     <!-- Glow decorativo superior -->
     <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl -mr-60 -mt-60 pointer-events-none z-0"></div>
@@ -254,50 +254,6 @@
               </div>
             </div>
 
-            <!-- Estadísticas Horizontales -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-white/10 py-3">
-              <!-- Stat 1 -->
-              <div class="flex items-center gap-3.5 justify-center sm:justify-start">
-                <div class="p-2.5 bg-white/10 rounded-xl text-blue-300 transition-colors duration-500">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <rect x="2" y="6" width="20" height="12" rx="2" />
-                    <circle cx="12" cy="12" r="3" />
-                    <path d="M6 12h.01M18 12h.01" />
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-[10px] text-white/50 uppercase tracking-wide">Bolivianos cambiados</p>
-                  <p class="text-sm font-bold font-display text-white">+ 2 BILLONES</p>
-                </div>
-              </div>
-              <!-- Stat 2 -->
-              <div class="flex items-center gap-3.5 justify-center sm:justify-start sm:pl-6 pt-4 sm:pt-0">
-                <div class="p-2.5 bg-white/10 rounded-xl text-blue-300 transition-colors duration-500">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-[10px] text-white/50 uppercase tracking-wide">Órdenes realizadas</p>
-                  <p class="text-sm font-bold font-display text-white">+ 1 MILLÓN</p>
-                </div>
-              </div>
-              <!-- Stat 3 -->
-              <div class="flex items-center gap-3.5 justify-center sm:justify-start sm:pl-6 pt-4 sm:pt-0">
-                <div class="p-2.5 bg-white/10 rounded-xl text-blue-300 transition-colors duration-500">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75" />
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-[10px] text-white/50 uppercase tracking-wide">Clientes registrados</p>
-                  <p class="text-sm font-bold font-display text-white">+ 100 MIL</p>
-                </div>
-              </div>
-            </div>
-
           </div>
 
         </div>
@@ -337,21 +293,21 @@
           <div class="bg-white/95 backdrop-blur-md text-slate-900 rounded-3xl shadow-[0_20px_50px_rgba(27,59,111,0.25)] border border-white/60 relative p-6 sm:p-8">
             
             <!-- Encabezado Tipo Cambio (Estilo Deep Blue) -->
-            <div class="text-center mb-6">
-              <div class="flex flex-col items-center justify-center gap-1.5 mb-3 text-[#1b3b6f]">
-                <span class="text-xs font-bold uppercase tracking-wider text-center">Tipo de Cambio del Boliviano hoy en Perú</span>
+            <div class="text-center mb-4">
+              <div class="flex flex-col items-center justify-center gap-1 mb-2 text-[#1b3b6f]">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-center">Tipo de Cambio del Boliviano hoy en Perú</span>
               </div>
-              <div class="flex items-center justify-center gap-6 mt-2">
+              <div class="flex items-center justify-center gap-4 mt-1">
                 <div class="text-center flex-1">
-                  <span class="text-xs text-slate-500 font-bold block uppercase tracking-wider">Compra</span>
-                  <span class="text-[10px] font-bold block mt-0.5 text-slate-400">Bolivianos ➔ Soles</span>
-                  <span class="text-lg font-extrabold text-slate-900 font-display block mt-1">S/. {{ compraRate() | number:'1.3-3' }}</span>
+                  <span class="text-[10px] text-slate-500 font-bold block uppercase tracking-wider">Compra</span>
+                  <span class="text-[9px] font-bold block text-slate-400">Bolivianos ➔ Soles</span>
+                  <span class="text-base font-extrabold text-slate-900 font-display block mt-0.5">S/. {{ compraRate() | number:'1.3-3' }}</span>
                 </div>
-                <div class="h-10 w-px bg-blue-200/60 shrink-0"></div>
+                <div class="h-8 w-px bg-blue-200/60 shrink-0"></div>
                 <div class="text-center flex-1">
-                  <span class="text-xs text-slate-500 font-bold block uppercase tracking-wider">Venta</span>
-                  <span class="text-[10px] font-bold block mt-0.5 text-slate-400">Soles ➔ Bolivianos</span>
-                  <span class="text-lg font-extrabold text-slate-900 font-display block mt-1">S/. {{ ventaRate() | number:'1.3-3' }}</span>
+                  <span class="text-[10px] text-slate-500 font-bold block uppercase tracking-wider">Venta</span>
+                  <span class="text-[9px] font-bold block text-slate-400">Soles ➔ Bolivianos</span>
+                  <span class="text-base font-extrabold text-slate-900 font-display block mt-0.5">S/. {{ ventaRate() | number:'1.3-3' }}</span>
                 </div>
               </div>
             </div>
