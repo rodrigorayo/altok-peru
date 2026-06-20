@@ -28,17 +28,23 @@ export class App {
   isRegister = signal(false);
   tipoCambio = signal<'BOB_TO_PEN' | 'PEN_TO_BOB'>('BOB_TO_PEN'); // BOB_TO_PEN: Envia BOB, Recibe PEN
   activeRadarSlideIndex = signal(0);
+  activePromotionIndex = signal(0);
 
   constructor() {
     if (typeof window !== 'undefined') {
       setInterval(() => {
         this.nextRadarSlide();
+        this.nextPromotionSlide();
       }, 5000);
     }
   }
 
   nextRadarSlide() {
     this.activeRadarSlideIndex.set((this.activeRadarSlideIndex() + 1) % 3);
+  }
+
+  nextPromotionSlide() {
+    this.activePromotionIndex.set((this.activePromotionIndex() + 1) % 3);
   }
 
   // Form signals for Login

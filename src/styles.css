@@ -64,3 +64,23 @@ h1, h2, h3, h4, h5, h6 {
   animation: floatSway 6s ease-in-out infinite;
 }
 
+@keyframes floatSlow {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-8px) scale(1.04); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+@keyframes floatFast {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-5px) scale(1.08); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 4.5s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: floatFast 3s ease-in-out infinite;
+}
+
