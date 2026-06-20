@@ -262,7 +262,7 @@
         <div class="lg:col-span-5 relative">
           
           <!-- Ilustración Desktop de Billetes con Transición Subir/Bajar (Superpuesta en la esquina inferior izquierda - Reposicionada) -->
-          <div class="hidden lg:block absolute -left-52 -bottom-16 w-72 h-72 z-30 pointer-events-none select-none">
+          <div class="hidden lg:block absolute -left-52 -bottom-[115px] w-72 h-72 z-30 pointer-events-none select-none">
             
             <!-- Bolivia Desktop (Sube/Baja) -->
             <div 
@@ -314,9 +314,9 @@
                     class="bg-transparent text-xl font-bold text-slate-900 outline-none w-full border-none p-0 focus:ring-0" 
                     placeholder="0" />
                 </div>
-                <div class="w-[140px] bg-altok-deep text-white flex items-center justify-center gap-2 font-bold font-display shrink-0 border-l border-slate-200">
+                <div class="w-[150px] bg-altok-deep text-white flex items-center justify-center gap-3 font-bold font-display shrink-0 border-l border-slate-200">
                   <ng-container *ngIf="tipoCambio() === 'BOB_TO_PEN'">
-                    <svg class="w-5 h-3.5 rounded-sm shadow-sm shrink-0" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-9 h-6 rounded-sm shadow-sm shrink-0" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
                       <rect width="3" height="2" fill="#007a33"/>
                       <rect width="3" height="1.33" fill="#fcd116"/>
                       <rect width="3" height="0.67" fill="#d52b1e"/>
@@ -324,7 +324,7 @@
                     <span>Bolivianos</span>
                   </ng-container>
                   <ng-container *ngIf="tipoCambio() === 'PEN_TO_BOB'">
-                    <svg class="w-5 h-3.5 rounded-sm shadow-sm shrink-0" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-9 h-6 rounded-sm shadow-sm shrink-0" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
                       <rect width="3" height="2" fill="#d52b1e"/>
                       <rect x="1" width="1" height="2" fill="#ffffff"/>
                     </svg>
@@ -334,7 +334,7 @@
               </div>
 
               <!-- Botón SWAP flotante intermedio (Centrado en el divisor de la derecha) -->
-              <div class="absolute right-[120px] top-[64px] -translate-y-1/2 translate-x-1/2 z-10">
+              <div class="absolute right-[130px] top-[64px] -translate-y-1/2 translate-x-1/2 z-10">
                 <button 
                   (click)="swapCurrencies()"
                   class="w-7 h-7 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-all active:scale-95 duration-200 cursor-pointer">
@@ -355,16 +355,16 @@
                     class="bg-transparent text-xl font-bold text-slate-900 outline-none w-full border-none p-0 focus:ring-0" 
                     placeholder="0" />
                 </div>
-                <div class="w-[140px] bg-altok-deep text-white flex items-center justify-center gap-2 font-bold font-display shrink-0 border-l border-slate-200">
+                <div class="w-[150px] bg-altok-deep text-white flex items-center justify-center gap-3 font-bold font-display shrink-0 border-l border-slate-200">
                   <ng-container *ngIf="tipoCambio() === 'BOB_TO_PEN'">
-                    <svg class="w-5 h-3.5 rounded-sm shadow-sm shrink-0" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-9 h-6 rounded-sm shadow-sm shrink-0" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
                       <rect width="3" height="2" fill="#d52b1e"/>
                       <rect x="1" width="1" height="2" fill="#ffffff"/>
                     </svg>
                     <span>Soles</span>
                   </ng-container>
                   <ng-container *ngIf="tipoCambio() === 'PEN_TO_BOB'">
-                    <svg class="w-5 h-3.5 rounded-sm shadow-sm shrink-0" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-9 h-6 rounded-sm shadow-sm shrink-0" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
                       <rect width="3" height="2" fill="#007a33"/>
                       <rect width="3" height="1.33" fill="#fcd116"/>
                       <rect width="3" height="0.67" fill="#d52b1e"/>
