@@ -203,54 +203,48 @@
           <!-- Bloque Interno Vertical: Cotización y Estadísticas Horizontales -->
           <div class="space-y-6">
             
-            <!-- Caja Mejora tu Cotización (Diseño Vertical Rectangular y Muy Compacto) -->
-            <div class="bg-white text-slate-800 rounded-xl shadow-lg border border-slate-100 p-3.5 max-w-[280px] mx-auto lg:mx-0">
-              <!-- Header Section -->
-              <div class="mb-2.5">
-                <h3 class="text-xs sm:text-xs font-extrabold text-altok-night font-display leading-tight">
-                  Mejora tu cotización aquí
-                </h3>
-                <p class="text-[10px] text-slate-500 mt-0.5 leading-snug">
-                  ¿Tienes una cotización de otra casa de cambio?<br>
-                  Nosotros la mejoramos. <a href="#" class="text-[#0B63FF] font-semibold hover:underline">Aplica TyC</a>
-                </p>
-              </div>
+            <!-- Caja Mejora tu Cotización (Diseño Horizontal Rectangular y Muy Compacto) -->
+            <div class="bg-white text-slate-800 rounded-xl shadow-lg border border-slate-100 p-3.5 max-w-md mx-auto lg:mx-0">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <!-- Header Section -->
+                <div class="flex-1">
+                  <h3 class="text-xs sm:text-[13px] font-extrabold text-altok-night font-display leading-tight">
+                    Mejora tu cotización aquí
+                  </h3>
+                  <p class="text-[10px] text-slate-500 mt-0.5 leading-snug">
+                    ¿Tienes una cotización de otra casa de cambio? Nosotros la mejoramos. <a href="#" class="text-[#0B63FF] font-semibold hover:underline">Aplica TyC</a>
+                  </p>
+                </div>
 
-              <!-- Zona Dotted Upload -->
-              <label class="cursor-pointer border-2 border-dashed border-[#0B63FF] rounded-lg p-3 flex flex-col items-center justify-center bg-white hover:bg-blue-50/20 transition relative overflow-hidden group w-full">
-                <input type="file" class="hidden" (change)="onFileChange($event)" accept="image/*,.pdf" />
-                
-                <div class="flex flex-col items-center justify-center" *ngIf="!uploadedFileName()">
-                  <!-- Upload icon with light-blue shadow offset -->
-                  <div class="w-8 h-8 bg-white border border-slate-700 rounded-md flex items-center justify-center shadow-[2px_2px_0px_#93c5fd] group-hover:scale-105 transition duration-300 relative mb-2">
-                    <svg class="w-4.5 h-4.5 text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 6h14" />
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 18V8m0 0l-4 4m4-4l4 4" />
+                <!-- Zona Dotted Upload Compacta (Sin recuadro de imagen grande) -->
+                <label class="cursor-pointer border border-dashed border-[#0B63FF] rounded-lg px-3 py-1.5 flex items-center justify-center gap-2 bg-white hover:bg-blue-50/20 transition shrink-0 select-none text-[#0B63FF]">
+                  <input type="file" class="hidden" (change)="onFileChange($event)" accept="image/*,.pdf" />
+                  
+                  <ng-container *ngIf="!uploadedFileName()">
+                    <!-- Small Upload Icon -->
+                    <svg class="w-3.5 h-3.5 text-[#0B63FF]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 6h14M12 18V8m0 0l-4 4m4-4l4 4" />
                     </svg>
-                  </div>
-                  
-                  <p class="text-[10px] font-semibold text-slate-700 text-center leading-normal mb-3">
-                    Envíanos una captura de<br>tu cotización
-                  </p>
-                  
-                  <!-- Button border outline -->
-                  <span class="inline-block border border-[#0B63FF] text-[#0B63FF] font-bold px-4 py-1.5 rounded-full text-[9px] uppercase tracking-wider hover:bg-blue-50 transition duration-300">
-                    ENVIAR ARCHIVO
-                  </span>
-                </div>
+                    <!-- Small Button Text -->
+                    <span class="text-[#0B63FF] font-bold text-[9px] uppercase tracking-wider">
+                      ENVIAR ARCHIVO
+                    </span>
+                  </ng-container>
 
-                <div class="flex flex-col items-center justify-center text-center" *ngIf="uploadedFileName()">
-                  <span class="text-2xl mb-1.5">📄</span>
-                  <p class="text-[10px] font-semibold text-altok-night truncate max-w-[140px] mb-0.5">
-                    {{ uploadedFileName() }}
-                  </p>
-                  <p class="text-[8px] text-slate-400 mb-3">Archivo seleccionado</p>
-                  
-                  <span class="inline-block border border-[#0B63FF] text-[#0B63FF] font-bold px-4 py-1.5 rounded-full text-[9px] uppercase tracking-wider hover:bg-blue-50 transition duration-300">
-                    CAMBIAR ARCHIVO
-                  </span>
-                </div>
-              </label>
+                  <ng-container *ngIf="uploadedFileName()">
+                    <!-- Small File Icon -->
+                    <span class="text-xs">📄</span>
+                    <!-- Trimmed Filename -->
+                    <span class="text-altok-night font-bold text-[9px] truncate max-w-[90px]">
+                      {{ uploadedFileName() }}
+                    </span>
+                    <!-- Change indicator -->
+                    <span class="text-[#0B63FF] font-semibold text-[8px] uppercase">
+                      (Cambiar)
+                    </span>
+                  </ng-container>
+                </label>
+              </div>
             </div>
 
           </div>
@@ -669,21 +663,15 @@
             <span>Bancos Perú</span>
           </div>
           
-          <div class="flex flex-wrap gap-2">
+          <div class="flex flex-wrap items-center gap-5 mt-1.5">
             <!-- BCP -->
-            <div class="flex items-center justify-center bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors h-8">
-              <img src="/logo-bcp.png" alt="BCP" class="h-[16px] w-auto object-contain" />
-            </div>
+            <img src="/logo-bcp.png" alt="BCP" class="h-6 w-auto object-contain hover:scale-105 transition" />
 
             <!-- Interbank -->
-            <div class="flex items-center justify-center bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors h-8">
-              <img src="/logo-interbank.png" alt="Interbank" class="h-[16px] w-auto object-contain" />
-            </div>
+            <img src="/logo-interbank.png" alt="Interbank" class="h-6 w-auto object-contain hover:scale-105 transition" />
 
             <!-- BBVA -->
-            <div class="flex items-center justify-center bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors h-8">
-              <img src="/logo-bbva.png" alt="BBVA" class="h-[12px] w-auto object-contain" />
-            </div>
+            <img src="/logo-bbva.png" alt="BBVA" class="h-4.5 w-auto object-contain hover:scale-105 transition" />
           </div>
         </div>
 
@@ -698,21 +686,15 @@
             <span>Bancos Bolivia</span>
           </div>
 
-          <div class="flex flex-wrap gap-2">
+          <div class="flex flex-wrap items-center gap-5 mt-1.5">
             <!-- Banco Unión -->
-            <div class="flex items-center justify-center bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors h-8">
-              <img src="/logo-union.png" alt="Banco Unión" class="h-[16px] w-auto object-contain" />
-            </div>
+            <img src="/logo-union.png" alt="Banco Unión" class="h-6 w-auto object-contain hover:scale-105 transition" />
 
             <!-- BNB -->
-            <div class="flex items-center justify-center bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors h-8">
-              <img src="/logo-bnb.png" alt="BNB" class="h-[14px] w-auto object-contain" />
-            </div>
+            <img src="/logo-bnb.png" alt="BNB" class="h-5 w-auto object-contain hover:scale-105 transition" />
 
             <!-- Banco Económico -->
-            <div class="flex items-center justify-center bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors h-8">
-              <img src="/logo-economico.png" alt="Banco Económico" class="h-[14px] w-auto object-contain" />
-            </div>
+            <img src="/logo-economico.png" alt="Banco Económico" class="h-5 w-auto object-contain hover:scale-105 transition" />
           </div>
         </div>
       </div>
