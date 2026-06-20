@@ -203,55 +203,59 @@
           <!-- Bloque Interno Vertical: Cotización y Estadísticas Horizontales -->
           <div class="space-y-6">
             
-            <!-- Caja Mejora tu Cotización (Diseño Horizontal/Ancho - Compacto) -->
-            <div class="bg-white text-slate-800 rounded-2xl shadow-xl border border-slate-100 p-4 max-w-lg mx-auto lg:mx-0">
-              <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-                <!-- Info Section (7 cols) -->
-                <div class="md:col-span-7">
-                  <h3 class="text-xs sm:text-sm font-bold text-altok-night font-display leading-tight">
-                    <svg class="w-5.5 h-4 rounded-sm shadow-sm inline-block shrink-0 align-middle mr-1" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="3" height="2" fill="#007a33"/>
-                      <rect width="3" height="1.33" fill="#fcd116"/>
-                      <rect width="3" height="0.67" fill="#d52b1e"/>
-                    </svg>
-                    <svg class="w-5.5 h-4 rounded-sm shadow-sm inline-block shrink-0 align-middle mr-2" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="3" height="2" fill="#d52b1e"/>
-                      <rect x="1" width="1" height="2" fill="#ffffff"/>
-                    </svg>
-                    ¿Tienes una cotización de otra casa de cambio? Nosotros la mejoramos
-                  </h3>
-                  <p class="text-[11px] text-slate-500 mt-1">
-                    Sube tu captura y cotiza preferencialmente. <a href="#" class="text-altok-brand font-semibold underline hover:text-altok-light">Aplica TyC</a>
-                  </p>
-                </div>
-
-                <!-- Actions Section (5 cols) -->
-                <div class="md:col-span-5 flex flex-col gap-2.5">
-                  <!-- Zona Dotted Upload -->
-                  <label class="cursor-pointer border-2 border-dashed border-blue-100 rounded-xl p-2 flex flex-col items-center justify-center hover:bg-blue-50/20 transition relative overflow-hidden group w-full">
-                    <input type="file" class="hidden" (change)="onFileChange($event)" accept="image/*,.pdf" />
-                    
-                    <div class="text-center space-y-1" *ngIf="!uploadedFileName()">
-                      <div class="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 group-hover:scale-110 transition mx-auto">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                          <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                        </svg>
-                      </div>
-                      <p class="text-[9px] font-semibold text-slate-700">Envíanos captura de tu cotización</p>
-                    </div>
-
-                    <div class="text-center space-y-1" *ngIf="uploadedFileName()">
-                      <span class="text-sm">📄</span>
-                      <p class="text-[11px] font-semibold text-altok-night truncate max-w-[120px]">{{ uploadedFileName() }}</p>
-                      <p class="text-[8px] text-slate-400">Archivo seleccionado</p>
-                    </div>
-                  </label>
-
-                  <button class="w-full bg-altok-brand hover:bg-altok-light text-white text-[10px] font-bold py-2.5 px-4 rounded-xl uppercase tracking-wider transition-all duration-300 shadow-sm shadow-altok-brand/10">
-                    {{ uploadedFileName() ? 'CAMBIAR ARCHIVO' : 'MEJORAMOS LA COTIZACIÓN' }}
-                  </button>
-                </div>
+            <!-- Caja Mejora tu Cotización (Diseño Vertical - Formato Captura) -->
+            <div class="bg-white text-slate-800 rounded-2xl shadow-xl border border-slate-100 p-5 max-w-sm mx-auto lg:mx-0">
+              <!-- Header Section -->
+              <div class="mb-4">
+                <h3 class="text-sm sm:text-[15px] font-bold text-altok-night font-display leading-tight flex items-center flex-wrap">
+                  Mejora tu cotización aquí
+                  <!-- Icono de billete cian que imita el del screenshot -->
+                  <div class="inline-flex flex-col items-center justify-center w-5 h-5 rounded bg-cyan-400 text-white font-extrabold text-[10px] ml-1.5 shadow-sm border border-cyan-500/30 select-none relative overflow-hidden">
+                    <div class="w-full h-[3px] bg-cyan-500 absolute top-0"></div>
+                    <span class="mt-[2px] leading-none">$</span>
+                  </div>
+                </h3>
+                <p class="text-[11px] text-slate-500 mt-1 leading-snug">
+                  ¿Tienes una cotización de otra casa de cambio?<br>
+                  Nosotros la mejoramos. <a href="#" class="text-[#0B63FF] font-semibold hover:underline">Aplica TyC</a>
+                </p>
               </div>
+
+              <!-- Zona Dotted Upload -->
+              <label class="cursor-pointer border-2 border-dashed border-[#0B63FF] rounded-[20px] p-6 flex flex-col items-center justify-center bg-white hover:bg-blue-50/20 transition relative overflow-hidden group w-full">
+                <input type="file" class="hidden" (change)="onFileChange($event)" accept="image/*,.pdf" />
+                
+                <div class="flex flex-col items-center justify-center" *ngIf="!uploadedFileName()">
+                  <!-- Upload icon with light-blue shadow offset -->
+                  <div class="w-12 h-12 bg-white border border-slate-700 rounded-xl flex items-center justify-center shadow-[3px_3px_0px_#93c5fd] group-hover:scale-105 transition duration-300 relative mb-4">
+                    <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 6h14" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 18V8m0 0l-4 4m4-4l4 4" />
+                    </svg>
+                  </div>
+                  
+                  <p class="text-xs font-semibold text-slate-700 text-center leading-normal mb-5">
+                    Envíanos una captura de<br>tu cotización
+                  </p>
+                  
+                  <!-- Button border outline -->
+                  <span class="inline-block border border-[#0B63FF] text-[#0B63FF] font-bold px-6 py-2 rounded-full text-[10px] uppercase tracking-wider hover:bg-blue-50 transition duration-300">
+                    ENVIAR ARCHIVO
+                  </span>
+                </div>
+
+                <div class="flex flex-col items-center justify-center text-center" *ngIf="uploadedFileName()">
+                  <span class="text-3xl mb-2">📄</span>
+                  <p class="text-xs font-semibold text-altok-night truncate max-w-[180px] mb-1">
+                    {{ uploadedFileName() }}
+                  </p>
+                  <p class="text-[10px] text-slate-400 mb-4">Archivo seleccionado</p>
+                  
+                  <span class="inline-block border border-[#0B63FF] text-[#0B63FF] font-bold px-6 py-2 rounded-full text-[10px] uppercase tracking-wider hover:bg-blue-50 transition duration-300">
+                    CAMBIAR ARCHIVO
+                  </span>
+                </div>
+              </label>
             </div>
 
           </div>
@@ -672,36 +676,33 @@
           
           <div class="flex flex-wrap gap-2">
             <!-- BCP -->
-            <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors">
-              <span class="font-black text-[#002A54] leading-none tracking-tight flex items-center text-[12px]">
-                <span class="text-[#FF7900] mr-0.5 font-bold">&gt;</span>BCP
-              </span>
+            <div class="flex items-center justify-center bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors h-8">
+              <img src="/logo-bcp.png" alt="BCP" class="h-[16px] w-auto object-contain" />
             </div>
 
             <!-- Interbank -->
-            <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors">
-              <span class="w-2.5 h-2.5 bg-[#00B15A] rounded-sm shrink-0"></span>
-              <span class="font-bold text-slate-800 text-[11px] leading-none">Interbank</span>
+            <div class="flex items-center justify-center bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors h-8">
+              <img src="/logo-interbank.png" alt="Interbank" class="h-[16px] w-auto object-contain" />
             </div>
 
             <!-- BBVA -->
-            <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors">
-              <span class="font-black text-[#004481] leading-none tracking-tighter italic text-[12px]">BBVA</span>
+            <div class="flex items-center justify-center bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors h-8">
+              <img src="/logo-bbva.png" alt="BBVA" class="h-[12px] w-auto object-contain" />
             </div>
 
             <!-- Scotiabank -->
-            <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors">
+            <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors h-8">
               <svg class="w-2.5 h-2.5 text-[#EC1C24] shrink-0" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
               <span class="font-bold text-slate-800 text-[11px] leading-none">Scotiabank</span>
             </div>
 
             <!-- BanBif -->
-            <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors">
+            <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors h-8">
               <span class="font-black text-[#00A4E4] uppercase leading-none tracking-tighter text-[11px]">BanBif</span>
             </div>
 
             <!-- Pichincha -->
-            <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors">
+            <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors h-8">
               <span class="w-2.5 h-2.5 bg-[#FFDD00] rounded-full flex items-center justify-center text-[7px] font-bold text-[#002f34] shrink-0">*</span>
               <span class="font-bold text-[#002f34] text-[11px] leading-none">Pichincha</span>
             </div>
@@ -727,39 +728,36 @@
 
           <div class="flex flex-wrap gap-2">
             <!-- Banco Unión -->
-            <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors">
-              <span class="w-2.5 h-2.5 bg-[#004A8F] rounded-full flex items-center justify-center text-[6px] font-black text-[#FFD100] shrink-0">U</span>
-              <span class="font-bold text-slate-800 text-[11px] leading-none">B. Unión</span>
+            <div class="flex items-center justify-center bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors h-8">
+              <img src="/logo-union.png" alt="Banco Unión" class="h-[16px] w-auto object-contain" />
             </div>
 
             <!-- BNB -->
-            <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors">
-              <span class="w-2.5 h-2.5 bg-[#008A4B] rounded-sm shrink-0"></span>
-              <span class="font-bold text-slate-800 text-[11px] leading-none">BNB</span>
+            <div class="flex items-center justify-center bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors h-8">
+              <img src="/logo-bnb.png" alt="BNB" class="h-[14px] w-auto object-contain" />
             </div>
 
             <!-- Mercantil Santa Cruz -->
-            <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors">
+            <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors h-8">
               <span class="w-2.5 h-2.5 bg-[#002B49] rounded-full flex items-center justify-center text-[6px] font-black text-[#FFCC00] shrink-0">M</span>
               <span class="font-bold text-slate-800 text-[11px] leading-none">Mercantil</span>
             </div>
 
             <!-- Banco BISA -->
-            <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors">
+            <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors h-8">
               <span class="w-2.5 h-2.5 bg-[#006A4E] rounded-sm shrink-0"></span>
               <span class="font-bold text-slate-800 text-[11px] leading-none">BISA</span>
             </div>
 
             <!-- Banco Ganadero -->
-            <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors">
+            <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors h-8">
               <span class="w-2.5 h-2.5 bg-[#D91A2A] rounded-full shrink-0"></span>
               <span class="font-bold text-slate-800 text-[11px] leading-none">Ganadero</span>
             </div>
 
             <!-- Banco Económico -->
-            <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors">
-              <span class="w-2.5 h-2.5 bg-[#003B46] rounded-sm flex items-center justify-center text-[6px] font-black text-white shrink-0">e</span>
-              <span class="font-bold text-slate-800 text-[11px] leading-none">B. Económico</span>
+            <div class="flex items-center justify-center bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-colors h-8">
+              <img src="/logo-economico.png" alt="Banco Económico" class="h-[14px] w-auto object-contain" />
             </div>
           </div>
         </div>
