@@ -289,43 +289,32 @@
             </div>
 
           </div>
-          <!-- Contenedor Calculadora (Rediseño Premium Light Glass + Deep Blue Theme) -->
-          <div class="bg-white/95 backdrop-blur-md text-slate-900 rounded-3xl shadow-[0_20px_50px_rgba(27,59,111,0.25)] border border-white/60 relative p-6 sm:p-8">
+          <!-- Contenedor Calculadora (Diseño Rectangular Transparente - Estilo Kambista) -->
+          <div class="relative p-2 sm:p-4">
             
-            <!-- Encabezado Tipo Cambio (Estilo Deep Blue) -->
-            <div class="text-center mb-4">
-              <div class="flex flex-col items-center justify-center gap-1 mb-2 text-altok-night">
-                <span class="text-[10px] font-bold uppercase tracking-wider text-center">Tipo de Cambio del Boliviano hoy en Perú</span>
-              </div>
-              <div class="flex items-center justify-center gap-4 mt-1">
-                <div class="text-center flex-1">
-                  <span class="text-[10px] text-slate-500 font-bold block uppercase tracking-wider">Compra</span>
-                  <span class="text-[9px] font-bold block text-slate-400">Bolivianos ➔ Soles</span>
-                  <span class="text-base font-extrabold text-slate-900 font-display block mt-0.5">S/. {{ compraRate() | number:'1.3-3' }}</span>
-                </div>
-                <div class="h-8 w-px bg-blue-200/60 shrink-0"></div>
-                <div class="text-center flex-1">
-                  <span class="text-[10px] text-slate-500 font-bold block uppercase tracking-wider">Venta</span>
-                  <span class="text-[9px] font-bold block text-slate-400">Soles ➔ Bolivianos</span>
-                  <span class="text-base font-extrabold text-slate-900 font-display block mt-0.5">S/. {{ ventaRate() | number:'1.3-3' }}</span>
-                </div>
-              </div>
+            <!-- Encabezado Tipo Cambio (Estilo Compacto Kambista) -->
+            <div class="text-center mb-4 text-white">
+              <p class="text-[10px] text-slate-300 uppercase tracking-wider font-semibold">Tipo de Cambio del boliviano hoy en Perú</p>
+              <p class="text-xs font-bold mt-0.5">
+                Compra: <span class="text-altok-cyan font-extrabold">{{ compraRate() | number:'1.3-3' }}</span> &nbsp;|&nbsp; 
+                Venta: <span class="text-altok-cyan font-extrabold">{{ ventaRate() | number:'1.3-3' }}</span>
+              </p>
             </div>
 
-            <!-- Calculadora Inputs -->
-            <div class="space-y-4 relative">
+            <!-- Calculadora Inputs Stacked -->
+            <div class="space-y-2 relative">
               
               <!-- Input: Tú Envías -->
-              <div class="bg-slate-50/80 border border-slate-200/80 rounded-2xl p-4 flex items-center justify-between hover:border-slate-300 focus-within:border-altok-brand focus-within:bg-white transition shadow-sm">
-                <div class="flex flex-col flex-1 min-w-0 pr-4">
-                  <label class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1">Tú Envías</label>
+              <div class="flex items-stretch bg-white border border-slate-200 rounded-xl overflow-hidden h-16 shadow-md">
+                <div class="flex-1 p-3 flex flex-col justify-between">
+                  <label class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Tú Envías</label>
                   <input 
                     type="number" 
                     [(ngModel)]="montoEnviar" 
-                    class="bg-transparent text-2xl font-bold font-display text-slate-900 outline-none w-full border-none p-0 focus:ring-0" 
+                    class="bg-transparent text-xl font-bold text-slate-900 outline-none w-full border-none p-0 focus:ring-0" 
                     placeholder="0" />
                 </div>
-                <div class="bg-white text-slate-800 px-4 py-3 rounded-xl font-bold font-display shadow-sm min-w-[145px] flex items-center justify-center gap-2 select-none border border-slate-200/80">
+                <div class="w-[140px] bg-altok-deep text-white flex items-center justify-center gap-2 font-bold font-display shrink-0 border-l border-slate-200">
                   <ng-container *ngIf="tipoCambio() === 'BOB_TO_PEN'">
                     <svg class="w-5 h-3.5 rounded-sm shadow-sm shrink-0" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
                       <rect width="3" height="2" fill="#007a33"/>
@@ -344,29 +333,29 @@
                 </div>
               </div>
 
-              <!-- Botón SWAP flotante intermedio -->
-              <div class="absolute left-1/2 top-[74px] -translate-x-1/2 -translate-y-1/2 z-10">
+              <!-- Botón SWAP flotante intermedio (Centrado en el divisor de la derecha) -->
+              <div class="absolute right-[120px] top-[64px] -translate-y-1/2 translate-x-1/2 z-10">
                 <button 
                   (click)="swapCurrencies()"
-                  class="w-10 h-10 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-all active:scale-95 duration-200">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  class="w-7 h-7 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-all active:scale-95 duration-200 cursor-pointer">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
                   </svg>
                 </button>
               </div>
 
               <!-- Input: Tú Recibes -->
-              <div class="bg-slate-50/80 border border-slate-200/80 rounded-2xl p-4 flex items-center justify-between hover:border-slate-300 focus-within:border-altok-brand focus-within:bg-white transition shadow-sm">
-                <div class="flex flex-col flex-1 min-w-0 pr-4">
-                  <label class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1">Tú Recibes</label>
+              <div class="flex items-stretch bg-white border border-slate-200 rounded-xl overflow-hidden h-16 shadow-md">
+                <div class="flex-1 p-3 flex flex-col justify-between">
+                  <label class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Tú Recibes</label>
                   <input 
                     type="number" 
                     [ngModel]="montoRecibir()"
                     (ngModelChange)="updateMontoRecibir($event)"
-                    class="bg-transparent text-2xl font-bold font-display text-slate-900 outline-none w-full border-none p-0 focus:ring-0" 
+                    class="bg-transparent text-xl font-bold text-slate-900 outline-none w-full border-none p-0 focus:ring-0" 
                     placeholder="0" />
                 </div>
-                <div class="bg-white text-slate-800 px-4 py-3 rounded-xl font-bold font-display shadow-sm min-w-[145px] flex items-center justify-center gap-2 select-none border border-slate-200/80">
+                <div class="w-[140px] bg-altok-deep text-white flex items-center justify-center gap-2 font-bold font-display shrink-0 border-l border-slate-200">
                   <ng-container *ngIf="tipoCambio() === 'BOB_TO_PEN'">
                     <svg class="w-5 h-3.5 rounded-sm shadow-sm shrink-0" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
                       <rect width="3" height="2" fill="#d52b1e"/>
@@ -387,29 +376,29 @@
 
             </div>
 
-            <!-- Ahorro Estimado y Koinks -->
-            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mt-6 bg-blue-500/5 p-4 rounded-xl border border-blue-500/10 text-sm shadow-sm">
-              <div class="flex items-center gap-2">
-                <span class="text-slate-500 font-medium">Ahorro Estimado:</span>
-                <span class="font-extrabold text-altok-night font-display">S/. {{ ahorroEstimado() | number:'1.2-2' }}</span>
+            <!-- Ahorro Estimado y Koinks (Texto Blanco) -->
+            <div class="flex items-center justify-between mt-4 text-[11px] text-white/90 px-1">
+              <div>
+                <span>Ahorro Estimado:</span>
+                <span class="font-extrabold text-altok-cyan ml-1">S/. {{ ahorroEstimado() | number:'1.2-2' }}</span>
               </div>
-              <div class="flex items-center gap-2 bg-amber-500/10 text-amber-800 px-3 py-1 rounded-full border border-amber-500/20 self-start sm:self-auto">
-                <span class="font-medium text-xs">Koinks:</span>
-                <span class="font-extrabold font-display text-xs">{{ koinks() | number }}</span>
+              <div class="flex items-center gap-1">
+                <span>Koinks:</span>
+                <span class="font-extrabold text-amber-400">{{ koinks() | number }}</span>
                 <span class="text-xs">🪙</span>
               </div>
             </div>
 
-            <!-- Botón Registro -->
-            <div class="mt-6">
-              <button class="w-full bg-gradient-to-r from-altok-brand to-altok-cyan hover:from-altok-light hover:to-altok-brand text-white font-extrabold py-4 px-6 rounded-2xl font-display shadow-lg shadow-altok-brand/20 hover:shadow-xl transition-all duration-300 uppercase tracking-wider text-sm active:scale-[0.99] border-none cursor-pointer">
+            <!-- Botón Registro (Estilo Píldora Turquesa de Kambista) -->
+            <div class="mt-5">
+              <button class="w-full bg-altok-turquoise hover:bg-altok-cyan text-altok-night font-extrabold py-3.5 px-6 rounded-full font-display shadow-lg shadow-altok-turquoise/15 hover:shadow-xl transition-all duration-300 uppercase tracking-wider text-xs active:scale-[0.99] border-none cursor-pointer">
                 Regístrate Ahora
               </button>
             </div>
 
             <!-- Solicitud Especial -->
-            <div class="flex items-start gap-2.5 mt-5 text-[11px] text-slate-500 leading-normal">
-              <svg class="w-4 h-4 text-altok-night shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <div class="flex items-start gap-2 mt-4 text-[11px] text-white/70 leading-normal px-1">
+              <svg class="w-4 h-4 text-altok-cyan shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 111.085 1.085l-.04.042m0 0a.75.75 0 11-1.085-1.085l.04-.042m0 0a3.375 3.375 0 100-6.75 3.375 3.375 0 000 6.75zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <span>
