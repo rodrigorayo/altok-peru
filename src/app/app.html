@@ -634,59 +634,59 @@
 
   </header>
 
-  <!-- ==================== BANCOS & TRANSFERENCIAS UNIFICADO ==================== -->
+  <!-- ==================== BANCOS & TRANSFERENCIAS SEPARADOS ==================== -->
   <section *ngIf="!isAyuda() && !isContacto()" class="relative z-20 -mt-20 sm:-mt-28 lg:-mt-36 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="bg-white rounded-2xl shadow-xl border border-slate-100 p-4 flex flex-col lg:flex-row items-stretch gap-6 justify-between overflow-hidden">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
       
-      <!-- Lado Izquierdo: Anuncios que van circulando (Promociones Slider Compacto) -->
-      <div class="flex-1 w-full lg:max-w-2xl bg-slate-900 text-white rounded-xl p-4 sm:p-5 relative overflow-hidden shadow-sm flex flex-col justify-center min-h-[90px] lg:min-h-0">
+      <!-- Tarjeta 1 (Izquierda): Anuncios que van circulando (Promociones Slider Compacto) -->
+      <div class="lg:col-span-5 w-full bg-slate-900 text-white rounded-2xl p-4 sm:p-5 relative overflow-hidden shadow-xl border border-white/5 flex flex-col justify-center min-h-[90px] lg:min-h-0">
         <!-- Glow background decorativo -->
         <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-2xl"></div>
         
-        <!-- Slide 1: Radar Empresarial -->
+        <!-- Slide 1: Webinar -->
         <div *ngIf="activeRadarSlideIndex() === 0" class="flex items-center justify-between gap-3 h-full animate-fade-in relative z-10">
-          <div class="flex items-center gap-2.5">
+          <div class="flex items-center gap-2">
             <span class="text-xl">📢</span>
             <div>
               <span class="text-[8px] font-bold text-emerald-400 uppercase tracking-wider block">WEBINAR</span>
-              <p class="text-[11px] sm:text-xs font-bold text-white leading-tight max-w-[280px] sm:max-w-md">
-                Radar Empresarial 2026: Cómo gestionar el boliviano, las tasas y tus excedentes ante el ruido electoral.
+              <p class="text-[10px] sm:text-xs font-bold text-white leading-tight max-w-[200px] sm:max-w-xs">
+                Radar Empresarial 2026: Cómo gestionar el boliviano, las tasas y excedentes.
               </p>
             </div>
           </div>
-          <button class="shrink-0 bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-bold px-3 py-1.5 rounded-lg text-[9px] uppercase tracking-wider transition active:scale-95">
+          <button class="shrink-0 bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-bold px-2.5 py-1.5 rounded-lg text-[9px] uppercase tracking-wider transition active:scale-95">
             REGISTRARME
           </button>
         </div>
 
         <!-- Slide 2: Refiere y Gana -->
         <div *ngIf="activeRadarSlideIndex() === 1" class="flex items-center justify-between gap-3 h-full animate-fade-in relative z-10">
-          <div class="flex items-center gap-2.5">
+          <div class="flex items-center gap-2">
             <span class="text-xl">🎁</span>
             <div>
               <span class="text-[8px] font-bold text-yellow-400 uppercase tracking-wider block">PROMOCIÓN</span>
-              <p class="text-[11px] sm:text-xs font-bold text-white leading-tight max-w-[280px] sm:max-w-md">
-                Programa Refiere y Gana: ¡Comparte la experiencia de Cambia Altok con tus amigos y gana comisiones!
+              <p class="text-[10px] sm:text-xs font-bold text-white leading-tight max-w-[200px] sm:max-w-xs">
+                Programa Refiere y Gana: ¡Comparte y gana comisiones!
               </p>
             </div>
           </div>
-          <button class="shrink-0 bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-bold px-3 py-1.5 rounded-lg text-[9px] uppercase tracking-wider transition active:scale-95">
+          <button class="shrink-0 bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-bold px-2.5 py-1.5 rounded-lg text-[9px] uppercase tracking-wider transition active:scale-95">
             MÁS INFO
           </button>
         </div>
 
         <!-- Slide 3: Primer Cambio Gana 25 Soles / Bs -->
         <div *ngIf="activeRadarSlideIndex() === 2" class="flex items-center justify-between gap-3 h-full animate-fade-in relative z-10">
-          <div class="flex items-center gap-2.5">
+          <div class="flex items-center gap-2">
             <span class="text-xl">💵</span>
             <div>
               <span class="text-[8px] font-bold text-emerald-400 uppercase tracking-wider block">BIENVENIDA</span>
-              <p class="text-[11px] sm:text-xs font-bold text-white leading-tight max-w-[280px] sm:max-w-md">
-                ¡Haz tu primer cambio y gana S/. 25 o Bs. 25 de regalo directo a tu cuenta!
+              <p class="text-[10px] sm:text-xs font-bold text-white leading-tight max-w-[200px] sm:max-w-xs">
+                ¡Haz tu primer cambio y gana S/. 25 o Bs. 25 de regalo!
               </p>
             </div>
           </div>
-          <button class="shrink-0 bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-bold px-3 py-1.5 rounded-lg text-[9px] uppercase tracking-wider transition active:scale-95">
+          <button class="shrink-0 bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-bold px-2.5 py-1.5 rounded-lg text-[9px] uppercase tracking-wider transition active:scale-95">
             CAMBIAR AHORA
           </button>
         </div>
@@ -699,18 +699,18 @@
         </div>
       </div>
 
-      <!-- Lado Derecho: Logos Bancos con Info de Velocidad Integrada -->
-      <div class="flex-1 w-full flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-slate-100 pt-4 lg:pt-0 lg:pl-6">
+      <!-- Tarjeta 2 (Derecha): Logos Bancos con Info de Velocidad Integrada -->
+      <div class="lg:col-span-7 w-full bg-white rounded-2xl shadow-xl border border-slate-100 p-4 sm:p-5 flex flex-col justify-center">
         <!-- Speed data inside the banks box -->
-        <div class="flex items-center gap-1.5 text-[9px] font-bold text-altok-brand uppercase tracking-wider mb-2.5">
+        <div class="flex items-center gap-1.5 text-[10px] font-bold text-altok-brand uppercase tracking-wider mb-3">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
           Transferencias inmediatas (~15 minutos)
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- Columna 1: Bancos Perú -->
-          <div class="flex flex-col gap-1.5 border-b md:border-b-0 md:border-r border-slate-100 pb-3 md:pb-0 md:pr-4">
-            <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-700">
+          <div class="flex flex-col gap-2 border-b md:border-b-0 md:border-r border-slate-100 pb-3 md:pb-0 md:pr-6">
+            <div class="flex items-center gap-1.5 text-[11px] font-bold text-slate-700">
               <svg class="w-3.5 h-2.5 rounded-sm shadow-sm" viewBox="0 0 3 2">
                 <rect width="1" height="2" fill="#d91414"/>
                 <rect x="1" width="1" height="2" fill="#fff"/>
@@ -719,21 +719,21 @@
               <span>Bancos Perú</span>
             </div>
             
-            <div class="flex flex-wrap items-center gap-4 mt-1">
+            <div class="flex flex-wrap items-center gap-5 mt-1">
               <!-- BCP -->
-              <img src="/logo-bcp.png" alt="BCP" class="h-5 w-auto object-contain hover:scale-105 transition" />
+              <img src="/logo-bcp.png" alt="BCP" class="h-8 w-auto object-contain hover:scale-105 transition" />
 
               <!-- Interbank -->
-              <img src="/logo-interbank.png" alt="Interbank" class="h-5 w-auto object-contain hover:scale-105 transition" />
+              <img src="/logo-interbank.png" alt="Interbank" class="h-8 w-auto object-contain hover:scale-105 transition" />
 
               <!-- BBVA -->
-              <img src="/logo-bbva.png" alt="BBVA" class="h-4.5 w-auto object-contain hover:scale-105 transition" />
+              <img src="/logo-bbva.png" alt="BBVA" class="h-6 w-auto object-contain hover:scale-105 transition" />
             </div>
           </div>
 
           <!-- Columna 2: Bancos Bolivia -->
-          <div class="flex flex-col gap-1.5 pb-1 md:pb-0">
-            <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-700">
+          <div class="flex flex-col gap-2 pb-1 md:pb-0 md:pl-2">
+            <div class="flex items-center gap-1.5 text-[11px] font-bold text-slate-700">
               <svg class="w-3.5 h-2.5 rounded-sm shadow-sm" viewBox="0 0 3 2">
                 <rect width="3" height="0.66" fill="#F42A2A"/>
                 <rect y="0.66" width="3" height="0.68" fill="#F4E42A"/>
@@ -742,15 +742,15 @@
               <span>Bancos Bolivia</span>
             </div>
 
-            <div class="flex flex-wrap items-center gap-4 mt-1">
+            <div class="flex flex-wrap items-center gap-5 mt-1">
               <!-- Banco Unión -->
-              <img src="/logo-union.png" alt="Banco Unión" class="h-5 w-auto object-contain hover:scale-105 transition" />
+              <img src="/logo-union.png" alt="Banco Unión" class="h-8 w-auto object-contain hover:scale-105 transition" />
 
               <!-- BNB -->
-              <img src="/logo-bnb.png" alt="BNB" class="h-4.5 w-auto object-contain hover:scale-105 transition" />
+              <img src="/logo-bnb.png" alt="BNB" class="h-6.5 w-auto object-contain hover:scale-105 transition" />
 
               <!-- Banco Económico -->
-              <img src="/logo-economico.png" alt="Banco Económico" class="h-4.5 w-auto object-contain hover:scale-105 transition" />
+              <img src="/logo-economico.png" alt="Banco Económico" class="h-6.5 w-auto object-contain hover:scale-105 transition" />
             </div>
           </div>
         </div>
