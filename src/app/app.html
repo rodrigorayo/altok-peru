@@ -137,20 +137,20 @@
   <!-- ==================== BANNER PRINCIPAL (HERO) ==================== -->
   <header *ngIf="!isAyuda() && !isContacto()" class="relative bg-gradient-to-b from-[#04142E] via-altok-night to-altok-deep text-white overflow-hidden pb-48 pt-16 px-4 sm:px-6 lg:px-8">
     
-    <!-- Capa de Fondo Dinámica Bolivia (Salar de Uyuni + Billetes Bolivianos) -->
+    <!-- Capa de Fondo Dinámica Bolivia (Salar de Uyuni) -->
     <div 
-      [style.opacity]="tipoCambio() === 'BOB_TO_PEN' ? '0.45' : '0'"
-      class="absolute inset-0 bg-[url('/bolivia_bg_banknotes.png')] bg-cover bg-center transition-opacity duration-700 pointer-events-none z-0">
+      [style.opacity]="tipoCambio() === 'BOB_TO_PEN' ? '0.75' : '0'"
+      class="absolute inset-0 bg-[url('/salar-de-uyuni.jpg')] bg-cover bg-center transition-opacity duration-700 pointer-events-none z-0">
     </div>
 
-    <!-- Capa de Fondo Dinámica Perú (Machu Picchu + Billetes Soles) -->
+    <!-- Capa de Fondo Dinámica Perú (Machu Picchu) -->
     <div 
-      [style.opacity]="tipoCambio() === 'PEN_TO_BOB' ? '0.45' : '0'"
-      class="absolute inset-0 bg-[url('/peru_bg_banknotes.png')] bg-cover bg-center transition-opacity duration-700 pointer-events-none z-0">
+      [style.opacity]="tipoCambio() === 'PEN_TO_BOB' ? '0.75' : '0'"
+      class="absolute inset-0 bg-[url('/machu-picchu.jpg')] bg-cover bg-center transition-opacity duration-700 pointer-events-none z-0">
     </div>
 
-    <!-- Capa de Overlay de Gradiente Oscuro para Legibilidad -->
-    <div class="absolute inset-0 bg-black/25 pointer-events-none z-0"></div>
+    <!-- Capa de Overlay de Gradiente Oscuro de Izquierda a Derecha para Legibilidad -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/25 pointer-events-none z-0"></div>
 
     <!-- Glow decorativo superior -->
     <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl -mr-60 -mt-60 pointer-events-none z-0"></div>
