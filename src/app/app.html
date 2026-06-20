@@ -5,12 +5,12 @@
   <div *ngIf="!isLogin() && !isRegister()" class="flex flex-col min-h-screen">
 
   <!-- ==================== HEADER ESTÁTICO / NAVEGACIÓN ==================== -->
-  <nav class="sticky top-0 z-50 bg-[#1b3b6f]/95 backdrop-blur-md border-b border-white/10 text-white py-4 px-4 sm:px-6 lg:px-8 shadow-md">
+  <nav class="sticky top-0 z-50 bg-[#1b3b6f]/95 backdrop-blur-md border-b border-white/10 text-white py-2.5 px-4 sm:px-6 lg:px-8 shadow-md">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       
       <!-- Lado Izquierdo: Logo -->
       <div class="flex items-center gap-2 cursor-pointer" (click)="isPersonas.set(true); isPromociones.set(false); isAyuda.set(false); isContacto.set(false)">
-        <img src="altok-logo.png" alt="Cambia Altok Logo" class="h-14 w-auto object-contain rounded-md" />
+        <img src="altok-logo.png" alt="Cambia Altok Logo" class="h-10 w-auto object-contain rounded-md" />
       </div>
 
       <!-- Centro: Links de Navegación -->
