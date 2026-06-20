@@ -5,9 +5,24 @@
 @theme {
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
-  --color-brand-dark: #0a2540;
-  --color-brand-teal: #0052ff;
-  --color-brand-accent: #00a2ff;
+  
+  /* Cambia Altok Color Palette mapping to theme variables */
+  --color-brand-dark: #061B3D;       /* Azul noche */
+  --color-brand-teal: #0B63FF;       /* Azul marca */
+  --color-brand-accent: #12D6EB;     /* Cian */
+  
+  /* Additional Altok Colors */
+  --color-altok-night: #061B3D;
+  --color-altok-deep: #0A2A5C;
+  --color-altok-brand: #0B63FF;
+  --color-altok-light: #1E9BFF;
+  --color-altok-cyan: #12D6EB;
+  --color-altok-turquoise: #21F0D2;
+  --color-altok-white: #FFFFFF;
+  --color-altok-gray-light: #F4F7FB;
+  --color-altok-gray-text: #6B7890;
+  --color-altok-success: #10D98A;
+  --color-altok-alert: #F6C84C;
 }
 
 body {

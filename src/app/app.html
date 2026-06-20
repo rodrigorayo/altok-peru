@@ -5,7 +5,7 @@
   <div *ngIf="!isLogin() && !isRegister()" class="flex flex-col min-h-screen">
 
   <!-- ==================== HEADER ESTÁTICO / NAVEGACIÓN ==================== -->
-  <nav class="sticky top-0 z-50 bg-[#1b3b6f]/95 backdrop-blur-md border-b border-white/10 text-white py-2.5 px-4 sm:px-6 lg:px-8 shadow-md">
+  <nav class="sticky top-0 z-50 bg-altok-night/95 backdrop-blur-md border-b border-white/10 text-white py-2.5 px-4 sm:px-6 lg:px-8 shadow-md">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       
       <!-- Lado Izquierdo: Logo -->
@@ -33,25 +33,25 @@
 
         <button 
           (click)="isPromociones.set(true); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)"
-          [class]="isPromociones() && !isAyuda() && !isContacto() ? 'text-brand-accent font-semibold' : 'hover:text-brand-accent text-white/80'"
+          [class]="isPromociones() && !isAyuda() && !isContacto() ? 'text-altok-cyan font-semibold' : 'hover:text-altok-cyan text-white/80'"
           class="transition duration-200 cursor-pointer bg-transparent border-none p-0 text-sm font-medium text-left">
           Promociones
         </button>
         <a 
           (click)="isPersonas.set(true); isPromociones.set(false); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)" 
           href="#como-funciona" 
-          class="hover:text-brand-accent transition duration-200">
+          class="hover:text-altok-cyan transition duration-200">
           Cómo funciona
         </a>
         <button 
           (click)="isAyuda.set(true); isPromociones.set(false); isContacto.set(false); isMobileMenuOpen.set(false)"
-          [class]="isAyuda() ? 'text-brand-accent font-semibold' : 'hover:text-brand-accent text-white/80'"
+          [class]="isAyuda() ? 'text-altok-cyan font-semibold' : 'hover:text-altok-cyan text-white/80'"
           class="transition duration-200 cursor-pointer bg-transparent border-none p-0 text-sm font-medium text-left">
           Ayuda
         </button>
         <button 
           (click)="isContacto.set(true); isPromociones.set(false); isAyuda.set(false); isMobileMenuOpen.set(false)"
-          [class]="isContacto() ? 'text-brand-accent font-semibold' : 'hover:text-brand-accent text-white/80'"
+          [class]="isContacto() ? 'text-altok-cyan font-semibold' : 'hover:text-altok-cyan text-white/80'"
           class="transition duration-200 cursor-pointer bg-transparent border-none p-0 text-sm font-medium text-left">
           Contacto
         </button>
@@ -59,8 +59,8 @@
 
       <!-- Lado Derecho: Iniciar Sesión y Registro -->
       <div class="hidden lg:flex items-center gap-4 text-sm font-semibold">
-        <button (click)="showLogin()" class="text-white/80 hover:text-brand-accent transition duration-200 bg-transparent border-none cursor-pointer font-semibold">Iniciar Sesión</button>
-        <button (click)="showRegister()" class="bg-gradient-to-r from-brand-teal to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white px-5 py-2.5 rounded-xl transition-all duration-300 shadow-md shadow-brand-teal/15 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] border-none cursor-pointer font-semibold">Registro</button>
+        <button (click)="showLogin()" class="text-white/80 hover:text-altok-cyan transition duration-200 bg-transparent border-none cursor-pointer font-semibold">Iniciar Sesión</button>
+        <button (click)="showRegister()" class="bg-gradient-to-r from-altok-brand to-altok-cyan hover:from-altok-light hover:to-altok-brand text-white px-5 py-2.5 rounded-xl transition-all duration-300 shadow-md shadow-altok-brand/15 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] border-none cursor-pointer font-semibold">Registro</button>
       </div>
 
       <!-- Botón Menú Móvil -->
@@ -102,7 +102,7 @@
         <button 
           (click)="isPromociones.set(true); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)" 
           [class]="isPromociones() && !isAyuda() && !isContacto() ? (tipoCambio() === 'BOB_TO_PEN' ? 'text-yellow-400 font-semibold' : 'text-red-400 font-semibold') : 'text-white/80'"
-          class="text-left hover:text-brand-accent transition text-sm py-1 bg-transparent border-none p-0 font-medium">
+          class="text-left hover:text-altok-cyan transition text-sm py-1 bg-transparent border-none p-0 font-medium">
           Promociones
         </button>
         <a 
@@ -115,27 +115,27 @@
         <button 
           (click)="isAyuda.set(true); isPromociones.set(false); isContacto.set(false); isMobileMenuOpen.set(false)" 
           [class]="isAyuda() ? (tipoCambio() === 'BOB_TO_PEN' ? 'text-yellow-400 font-semibold' : 'text-red-400 font-semibold') : 'text-white/80'"
-          class="text-left hover:text-brand-accent transition text-sm py-1 bg-transparent border-none p-0 font-medium">
+          class="text-left hover:text-altok-cyan transition text-sm py-1 bg-transparent border-none p-0 font-medium">
           Ayuda
         </button>
         <button 
           (click)="isContacto.set(true); isPromociones.set(false); isAyuda.set(false); isMobileMenuOpen.set(false)" 
           [class]="isContacto() ? (tipoCambio() === 'BOB_TO_PEN' ? 'text-yellow-400 font-semibold' : 'text-red-400 font-semibold') : 'text-white/80'"
-          class="text-left hover:text-brand-accent transition text-sm py-1 bg-transparent border-none p-0 font-medium">
+          class="text-left hover:text-altok-cyan transition text-sm py-1 bg-transparent border-none p-0 font-medium">
           Contacto
         </button>
       </div>
 
       <div class="border-t border-white/10 pt-4 flex flex-col gap-3">
-        <button (click)="showLogin()" class="text-center text-white/80 hover:text-brand-accent transition text-sm py-2.5 bg-transparent border-none cursor-pointer font-semibold">Iniciar Sesión</button>
-        <button (click)="showRegister()" class="text-center bg-gradient-to-r from-brand-teal to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white py-2.5 rounded-xl font-bold transition duration-300 border-none cursor-pointer">Registro</button>
+        <button (click)="showLogin()" class="text-center text-white/80 hover:text-altok-cyan transition text-sm py-2.5 bg-transparent border-none cursor-pointer font-semibold">Iniciar Sesión</button>
+        <button (click)="showRegister()" class="text-center bg-gradient-to-r from-altok-brand to-altok-cyan hover:from-altok-light hover:to-altok-brand text-white py-2.5 rounded-xl font-bold transition duration-300 border-none cursor-pointer">Registro</button>
       </div>
 
     </div>
   </nav>
 
   <!-- ==================== BANNER PRINCIPAL (HERO) ==================== -->
-  <header *ngIf="!isAyuda() && !isContacto()" class="relative bg-[#0a2540] text-white overflow-hidden pb-48 pt-16 px-4 sm:px-6 lg:px-8">
+  <header *ngIf="!isAyuda() && !isContacto()" class="relative bg-gradient-to-b from-[#04142E] via-altok-night to-altok-deep text-white overflow-hidden pb-48 pt-16 px-4 sm:px-6 lg:px-8">
     
     <!-- Capa de Fondo Dinámica Bolivia (Salar de Uyuni + Billetes Bolivianos) -->
     <div 
@@ -208,7 +208,7 @@
               <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
                 <!-- Info Section (7 cols) -->
                 <div class="md:col-span-7">
-                  <h3 class="text-base sm:text-lg lg:text-xl font-bold text-[#1b3b6f] font-display leading-tight">
+                  <h3 class="text-base sm:text-lg lg:text-xl font-bold text-altok-night font-display leading-tight">
                     <svg class="w-5.5 h-4 rounded-sm shadow-sm inline-block shrink-0 align-middle mr-1" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
                       <rect width="3" height="2" fill="#007a33"/>
                       <rect width="3" height="1.33" fill="#fcd116"/>
@@ -221,7 +221,7 @@
                     ¿Tienes una cotización de otra casa de cambio? Nosotros la mejoramos
                   </h3>
                   <p class="text-xs text-slate-500 mt-2">
-                    Sube tu captura y cotiza preferencialmente. <a href="#" class="text-[#1b3b6f] font-semibold underline hover:text-[#215a9c]">Aplica TyC</a>
+                    Sube tu captura y cotiza preferencialmente. <a href="#" class="text-altok-night font-semibold underline hover:text-altok-light">Aplica TyC</a>
                   </p>
                 </div>
 
@@ -242,12 +242,12 @@
 
                     <div class="text-center space-y-1" *ngIf="uploadedFileName()">
                       <span class="text-lg">📄</span>
-                      <p class="text-xs font-semibold text-[#1b3b6f] truncate max-w-[120px]">{{ uploadedFileName() }}</p>
+                      <p class="text-xs font-semibold text-altok-night truncate max-w-[120px]">{{ uploadedFileName() }}</p>
                       <p class="text-[9px] text-slate-400">Archivo seleccionado</p>
                     </div>
                   </label>
 
-                  <button class="w-full bg-[#1b3b6f] hover:bg-[#215a9c] text-white text-xs font-bold py-3.5 px-4 rounded-xl uppercase tracking-wider transition-all duration-300 shadow-sm shadow-[#1b3b6f]/10">
+                  <button class="w-full bg-altok-brand hover:bg-altok-light text-white text-xs font-bold py-3.5 px-4 rounded-xl uppercase tracking-wider transition-all duration-300 shadow-sm shadow-altok-brand/10">
                     {{ uploadedFileName() ? 'CAMBIAR ARCHIVO' : 'MEJORAMOS LA COTIZACIÓN' }}
                   </button>
                 </div>
@@ -294,7 +294,7 @@
             
             <!-- Encabezado Tipo Cambio (Estilo Deep Blue) -->
             <div class="text-center mb-4">
-              <div class="flex flex-col items-center justify-center gap-1 mb-2 text-[#1b3b6f]">
+              <div class="flex flex-col items-center justify-center gap-1 mb-2 text-altok-night">
                 <span class="text-[10px] font-bold uppercase tracking-wider text-center">Tipo de Cambio del Boliviano hoy en Perú</span>
               </div>
               <div class="flex items-center justify-center gap-4 mt-1">
@@ -316,7 +316,7 @@
             <div class="space-y-4 relative">
               
               <!-- Input: Tú Envías -->
-              <div class="bg-slate-50/80 border border-slate-200/80 rounded-2xl p-4 flex items-center justify-between hover:border-slate-300 focus-within:border-[#1b3b6f] focus-within:bg-white transition shadow-sm">
+              <div class="bg-slate-50/80 border border-slate-200/80 rounded-2xl p-4 flex items-center justify-between hover:border-slate-300 focus-within:border-altok-brand focus-within:bg-white transition shadow-sm">
                 <div class="flex flex-col flex-1 min-w-0 pr-4">
                   <label class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1">Tú Envías</label>
                   <input 
@@ -356,7 +356,7 @@
               </div>
 
               <!-- Input: Tú Recibes -->
-              <div class="bg-slate-50/80 border border-slate-200/80 rounded-2xl p-4 flex items-center justify-between hover:border-slate-300 focus-within:border-[#1b3b6f] focus-within:bg-white transition shadow-sm">
+              <div class="bg-slate-50/80 border border-slate-200/80 rounded-2xl p-4 flex items-center justify-between hover:border-slate-300 focus-within:border-altok-brand focus-within:bg-white transition shadow-sm">
                 <div class="flex flex-col flex-1 min-w-0 pr-4">
                   <label class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1">Tú Recibes</label>
                   <input 
@@ -391,7 +391,7 @@
             <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mt-6 bg-blue-500/5 p-4 rounded-xl border border-blue-500/10 text-sm shadow-sm">
               <div class="flex items-center gap-2">
                 <span class="text-slate-500 font-medium">Ahorro Estimado:</span>
-                <span class="font-extrabold text-[#1b3b6f] font-display">S/. {{ ahorroEstimado() | number:'1.2-2' }}</span>
+                <span class="font-extrabold text-altok-night font-display">S/. {{ ahorroEstimado() | number:'1.2-2' }}</span>
               </div>
               <div class="flex items-center gap-2 bg-amber-500/10 text-amber-800 px-3 py-1 rounded-full border border-amber-500/20 self-start sm:self-auto">
                 <span class="font-medium text-xs">Koinks:</span>
@@ -402,14 +402,14 @@
 
             <!-- Botón Registro -->
             <div class="mt-6">
-              <button class="w-full bg-gradient-to-r from-[#1b3b6f] to-[#215a9c] hover:from-[#152e57] hover:to-[#1b3b6f] text-white font-extrabold py-4 px-6 rounded-2xl font-display shadow-lg shadow-[#1b3b6f]/20 hover:shadow-xl transition-all duration-300 uppercase tracking-wider text-sm active:scale-[0.99] border-none cursor-pointer">
+              <button class="w-full bg-gradient-to-r from-altok-brand to-altok-cyan hover:from-altok-light hover:to-altok-brand text-white font-extrabold py-4 px-6 rounded-2xl font-display shadow-lg shadow-altok-brand/20 hover:shadow-xl transition-all duration-300 uppercase tracking-wider text-sm active:scale-[0.99] border-none cursor-pointer">
                 Regístrate Ahora
               </button>
             </div>
 
             <!-- Solicitud Especial -->
             <div class="flex items-start gap-2.5 mt-5 text-[11px] text-slate-500 leading-normal">
-              <svg class="w-4 h-4 text-[#1b3b6f] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-altok-night shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 111.085 1.085l-.04.042m0 0a.75.75 0 11-1.085-1.085l.04-.042m0 0a3.375 3.375 0 100-6.75 3.375 3.375 0 000 6.75zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <span>
@@ -449,7 +449,7 @@
           <div class="absolute -top-6 -left-6 w-12 h-12 bg-blue-500/20 rounded-full blur-xl"></div>
           
           <!-- Contenedor Formulario -->
-          <div class="bg-white text-slate-800 rounded-3xl shadow-2xl shadow-[#1b3b6f]/15 border border-slate-100 relative p-6 sm:p-8">
+          <div class="bg-white text-slate-800 rounded-3xl shadow-2xl shadow-altok-brand/15 border border-slate-100 relative p-6 sm:p-8">
             <h2 class="text-xl sm:text-2xl font-bold font-display text-slate-900 leading-snug">
               ¿Tienes dudas? <span class="text-slate-500 font-light">Déjanos tus datos para</span> contactarte
             </h2>
@@ -459,11 +459,11 @@
               <div class="grid grid-cols-2 gap-4">
                 <div class="space-y-1.5">
                   <label class="font-bold text-slate-500 uppercase tracking-wide">Nombre<span class="text-red-500">*</span></label>
-                  <input type="text" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:outline-none focus:border-[#1b3b6f] transition text-slate-800 font-semibold" placeholder="Nombre" required />
+                  <input type="text" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:outline-none focus:border-altok-brand transition text-slate-800 font-semibold" placeholder="Nombre" required />
                 </div>
                 <div class="space-y-1.5">
                   <label class="font-bold text-slate-500 uppercase tracking-wide">Apellido</label>
-                  <input type="text" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:outline-none focus:border-[#1b3b6f] transition text-slate-800 font-semibold" placeholder="Apellido" />
+                  <input type="text" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:outline-none focus:border-altok-brand transition text-slate-800 font-semibold" placeholder="Apellido" />
                 </div>
               </div>
 
@@ -471,11 +471,11 @@
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="space-y-1.5">
                   <label class="font-bold text-slate-500 uppercase tracking-wide">Correo electrónico<span class="text-red-500">*</span></label>
-                  <input type="email" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:outline-none focus:border-[#1b3b6f] transition text-slate-800 font-semibold" placeholder="ejemplo@correo.com" required />
+                  <input type="email" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:outline-none focus:border-altok-brand transition text-slate-800 font-semibold" placeholder="ejemplo@correo.com" required />
                 </div>
                 <div class="space-y-1.5">
                   <label class="font-bold text-slate-500 uppercase tracking-wide">Número de teléfono<span class="text-red-500">*</span></label>
-                  <div class="flex bg-slate-50 border border-slate-200 rounded-xl overflow-hidden focus-within:border-[#1b3b6f] transition">
+                  <div class="flex bg-slate-50 border border-slate-200 rounded-xl overflow-hidden focus-within:border-altok-brand transition">
                     <div class="flex items-center gap-1 bg-slate-100 border-r border-slate-200 px-3 py-2 text-slate-600 font-semibold select-none cursor-pointer">
                       <span>🇵🇪</span>
                       <span>+51</span>
@@ -489,7 +489,7 @@
               <div class="space-y-1.5">
                 <label class="font-bold text-slate-500 uppercase tracking-wide">¿Por qué medio deseas ser contactado?</label>
                 <div class="relative">
-                  <select class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 appearance-none focus:outline-none focus:border-[#1b3b6f] transition text-slate-800 font-semibold pr-10">
+                  <select class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 appearance-none focus:outline-none focus:border-altok-brand transition text-slate-800 font-semibold pr-10">
                     <option value="correo">Correo</option>
                     <option value="telefono">Llamada Telefónica</option>
                     <option value="whatsapp">WhatsApp</option>
@@ -505,12 +505,12 @@
               <!-- Comentario -->
               <div class="space-y-1.5">
                 <label class="font-bold text-slate-500 uppercase tracking-wide">Deja aquí tu duda o comentario</label>
-                <textarea rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:outline-none focus:border-[#1b3b6f] transition text-slate-800 font-semibold resize-none" placeholder="Escribe tu mensaje..."></textarea>
+                <textarea rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:outline-none focus:border-altok-brand transition text-slate-800 font-semibold resize-none" placeholder="Escribe tu mensaje..."></textarea>
               </div>
 
               <!-- Botón Enviar -->
               <div class="pt-2 text-center">
-                <button type="submit" class="bg-gradient-to-r from-[#1b3b6f] to-[#215a9c] hover:from-[#152e57] hover:to-[#1b3b6f] text-white font-bold py-3.5 px-12 rounded-2xl text-xs uppercase tracking-wider transition-all duration-300 shadow-md font-display inline-block active:scale-95 border-none cursor-pointer">
+                <button type="submit" class="bg-gradient-to-r from-altok-brand to-altok-cyan hover:from-altok-light hover:to-altok-brand text-white font-bold py-3.5 px-12 rounded-2xl text-xs uppercase tracking-wider transition-all duration-300 shadow-md font-display inline-block active:scale-95 border-none cursor-pointer">
                   Enviar
                 </button>
               </div>
@@ -663,7 +663,7 @@
       
       <!-- Lado Izquierdo: Titulo e Icono -->
       <div class="flex items-center gap-3.5 border-b lg:border-b-0 lg:border-r border-slate-100 pb-3 lg:pb-0 lg:pr-6 shrink-0 w-full lg:w-auto justify-center lg:justify-start">
-        <div class="w-12 h-12 bg-[#1b3b6f] text-white rounded-full flex flex-col items-center justify-center shrink-0 shadow-md">
+        <div class="w-12 h-12 bg-altok-brand text-white rounded-full flex flex-col items-center justify-center shrink-0 shadow-md">
           <span class="text-sm font-bold font-display leading-none">15</span>
           <span class="text-[8px] uppercase font-bold tracking-wider opacity-85 leading-none mt-0.5">MIN</span>
         </div>
@@ -2057,11 +2057,11 @@
         <!-- Logo Altok -->
         <div class="flex items-center gap-2 cursor-pointer" (click)="closeAuth()">
           <img src="altok-logo.png" alt="Cambia Altok Logo" class="h-8 w-auto object-contain rounded-md" />
-          <span class="text-xl font-bold tracking-tight font-display text-brand-dark">Cambia Altok</span>
+          <span class="text-xl font-bold tracking-tight font-display text-altok-night">Cambia Altok</span>
         </div>
         
         <!-- Volver a Inicio -->
-        <button (click)="closeAuth()" class="text-xs font-semibold text-slate-500 hover:text-brand-teal transition flex items-center gap-1 bg-transparent border-none cursor-pointer">
+        <button (click)="closeAuth()" class="text-xs font-semibold text-slate-500 hover:text-altok-brand transition flex items-center gap-1 bg-transparent border-none cursor-pointer">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
@@ -2072,7 +2072,7 @@
       <!-- Formulario Central -->
       <div class="max-w-md w-full mx-auto my-auto py-10">
         <div class="space-y-2 mb-8">
-          <h2 class="text-3xl font-extrabold text-brand-dark tracking-tight font-display">¡Bienvenido de nuevo!</h2>
+          <h2 class="text-3xl font-extrabold text-altok-night tracking-tight font-display">¡Bienvenido de nuevo!</h2>
           <p class="text-sm text-slate-400 font-medium">Ingresa a tu cuenta de Cambia Altok para continuar operando.</p>
         </div>
 
@@ -2095,7 +2095,7 @@
         <form (submit)="handleLogin($event)" class="space-y-5">
           <!-- Campo Email -->
           <div class="space-y-1">
-            <label for="login-email" class="text-xs font-bold text-brand-dark uppercase tracking-wider">Correo Electrónico</label>
+            <label for="login-email" class="text-xs font-bold text-altok-night uppercase tracking-wider">Correo Electrónico</label>
             <div class="relative">
               <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -2109,7 +2109,7 @@
                 [ngModel]="loginEmail()"
                 (ngModelChange)="loginEmail.set($event)"
                 name="loginEmail"
-                class="w-full bg-slate-50 border border-slate-100 focus:border-brand-teal focus:bg-white text-sm text-slate-800 rounded-2xl py-3.5 pl-11 pr-4 outline-none transition duration-200"
+                class="w-full bg-slate-50 border border-slate-100 focus:border-altok-brand focus:bg-white text-sm text-slate-800 rounded-2xl py-3.5 pl-11 pr-4 outline-none transition duration-200"
                 required
               />
             </div>
@@ -2118,8 +2118,8 @@
           <!-- Campo Contraseña -->
           <div class="space-y-1">
             <div class="flex justify-between items-center">
-              <label for="login-password" class="text-xs font-bold text-brand-dark uppercase tracking-wider">Contraseña</label>
-              <a href="#" class="text-xs font-semibold text-brand-teal hover:underline" (click)="$event.preventDefault()">¿Olvidaste tu contraseña?</a>
+              <label for="login-password" class="text-xs font-bold text-altok-night uppercase tracking-wider">Contraseña</label>
+              <a href="#" class="text-xs font-semibold text-altok-brand hover:underline" (click)="$event.preventDefault()">¿Olvidaste tu contraseña?</a>
             </div>
             <div class="relative">
               <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400">
@@ -2134,7 +2134,7 @@
                 [ngModel]="loginPassword()"
                 (ngModelChange)="loginPassword.set($event)"
                 name="loginPassword"
-                class="w-full bg-slate-50 border border-slate-100 focus:border-brand-teal focus:bg-white text-sm text-slate-800 rounded-2xl py-3.5 pl-11 pr-12 outline-none transition duration-200"
+                class="w-full bg-slate-50 border border-slate-100 focus:border-altok-brand focus:bg-white text-sm text-slate-800 rounded-2xl py-3.5 pl-11 pr-12 outline-none transition duration-200"
                 required
               />
               <button 
@@ -2161,7 +2161,7 @@
                 [ngModel]="loginRememberMe()" 
                 (ngModelChange)="loginRememberMe.set($event)" 
                 name="loginRememberMe" 
-                class="w-4 h-4 rounded text-brand-teal border-slate-300 focus:ring-brand-teal" 
+                class="w-4 h-4 rounded text-altok-brand border-slate-300 focus:ring-altok-brand" 
               />
               Recordarme en este dispositivo
             </label>
@@ -2171,7 +2171,7 @@
           <button 
             type="submit" 
             [disabled]="authLoading()"
-            class="w-full bg-brand-teal hover:bg-blue-600 disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold py-4 px-6 rounded-2xl transition duration-300 shadow-md shadow-brand-teal/10 hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer border-none"
+            class="w-full bg-gradient-to-r from-altok-brand to-altok-cyan hover:from-altok-light hover:to-altok-brand disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold py-4 px-6 rounded-2xl transition duration-300 shadow-md shadow-altok-brand/10 hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer border-none"
           >
             <svg *ngIf="authLoading()" class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -2186,16 +2186,16 @@
       <div class="text-center">
         <p class="text-xs text-slate-500 font-semibold">
           ¿No tienes una cuenta? 
-          <button (click)="showRegister()" class="text-brand-teal hover:underline font-bold bg-transparent border-none cursor-pointer">Regístrate gratis</button>
+          <button (click)="showRegister()" class="text-altok-brand hover:underline font-bold bg-transparent border-none cursor-pointer">Regístrate gratis</button>
         </p>
       </div>
     </div>
 
     <!-- Lado Derecho: Visual / Branding -->
-    <div class="hidden lg:flex lg:w-[55%] bg-gradient-to-br from-brand-dark via-[#112d4e] to-[#1e3e62] text-white p-16 flex-col justify-between relative overflow-hidden">
+    <div class="hidden lg:flex lg:w-[55%] bg-gradient-to-br from-[#04142E] via-altok-night to-altok-deep text-white p-16 flex-col justify-between relative overflow-hidden">
       <!-- Glows -->
       <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-brand-accent/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-altok-cyan/5 rounded-full blur-3xl pointer-events-none"></div>
       <div class="space-y-3">
         <h3 class="text-2xl font-bold font-display tracking-tight text-white">Cambia seguro, ahorra siempre</h3>
         <p class="text-sm text-blue-200/80 leading-relaxed font-light">En Cambia Altok nos tomamos tu seguridad con la máxima seriedad. Regulados por la SBS.</p>
@@ -2214,11 +2214,11 @@
         <!-- Logo Altok -->
         <div class="flex items-center gap-2 cursor-pointer" (click)="closeAuth()">
           <img src="altok-logo.png" alt="Cambia Altok Logo" class="h-8 w-auto object-contain rounded-md" />
-          <span class="text-xl font-bold tracking-tight font-display text-brand-dark">Cambia Altok</span>
+          <span class="text-xl font-bold tracking-tight font-display text-altok-night">Cambia Altok</span>
         </div>
         
         <!-- Volver a Inicio -->
-        <button (click)="closeAuth()" class="text-xs font-semibold text-slate-500 hover:text-brand-teal transition flex items-center gap-1 bg-transparent border-none cursor-pointer">
+        <button (click)="closeAuth()" class="text-xs font-semibold text-slate-500 hover:text-altok-brand transition flex items-center gap-1 bg-transparent border-none cursor-pointer">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
@@ -2230,7 +2230,7 @@
       <!-- Formulario Central -->
       <div class="max-w-md w-full mx-auto my-auto py-6">
         <div class="space-y-1 mb-6">
-          <h2 class="text-3xl font-extrabold text-brand-dark tracking-tight font-display">Crea tu cuenta gratis</h2>
+          <h2 class="text-3xl font-extrabold text-altok-night tracking-tight font-display">Crea tu cuenta gratis</h2>
           <p class="text-sm text-slate-400 font-medium">Únete a Cambia Altok hoy y accede a la mejor tasa de cambio.</p>
         </div>
 
@@ -2253,7 +2253,7 @@
         <form (submit)="handleRegister($event)" class="space-y-4">
           <!-- Campo Nombre -->
           <div class="space-y-1">
-            <label for="reg-name" class="text-xs font-bold text-brand-dark uppercase tracking-wider">Nombre Completo</label>
+            <label for="reg-name" class="text-xs font-bold text-altok-night uppercase tracking-wider">Nombre Completo</label>
             <input 
               id="reg-name" 
               type="text" 
@@ -2261,14 +2261,14 @@
               [ngModel]="registerName()"
               (ngModelChange)="registerName.set($event)"
               name="registerName"
-              class="w-full bg-slate-50 border border-slate-100 rounded-2xl py-3.5 px-4 outline-none focus:border-brand-teal focus:bg-white text-sm text-slate-800 transition duration-200" 
+              class="w-full bg-slate-50 border border-slate-100 rounded-2xl py-3.5 px-4 outline-none focus:border-altok-brand focus:bg-white text-sm text-slate-800 transition duration-200" 
               required 
             />
           </div>
 
           <!-- Campo Email -->
           <div class="space-y-1">
-            <label for="reg-email" class="text-xs font-bold text-brand-dark uppercase tracking-wider">Correo Electrónico</label>
+            <label for="reg-email" class="text-xs font-bold text-altok-night uppercase tracking-wider">Correo Electrónico</label>
             <input 
               id="reg-email" 
               type="email" 
@@ -2276,14 +2276,14 @@
               [ngModel]="registerEmail()"
               (ngModelChange)="registerEmail.set($event)"
               name="registerEmail"
-              class="w-full bg-slate-50 border border-slate-100 rounded-2xl py-3.5 px-4 outline-none focus:border-brand-teal focus:bg-white text-sm text-slate-800 transition duration-200" 
+              class="w-full bg-slate-50 border border-slate-100 rounded-2xl py-3.5 px-4 outline-none focus:border-altok-brand focus:bg-white text-sm text-slate-800 transition duration-200" 
               required 
             />
           </div>
 
           <!-- Campo Contraseña -->
           <div class="space-y-1">
-            <label for="reg-password" class="text-xs font-bold text-brand-dark uppercase tracking-wider">Contraseña</label>
+            <label for="reg-password" class="text-xs font-bold text-altok-night uppercase tracking-wider">Contraseña</label>
             <div class="relative">
               <input 
                 id="reg-password" 
@@ -2292,7 +2292,7 @@
                 [ngModel]="registerPassword()"
                 (ngModelChange)="registerPassword.set($event)"
                 name="registerPassword"
-                class="w-full bg-slate-50 border border-slate-100 rounded-2xl py-3.5 pl-4 pr-12 outline-none focus:border-brand-teal focus:bg-white text-sm text-slate-800 transition duration-200" 
+                class="w-full bg-slate-50 border border-slate-100 rounded-2xl py-3.5 pl-4 pr-12 outline-none focus:border-altok-brand focus:bg-white text-sm text-slate-800 transition duration-200" 
                 required 
               />
               <button 
@@ -2351,10 +2351,10 @@
                 [ngModel]="registerTerms()" 
                 (ngModelChange)="registerTerms.set($event)" 
                 name="registerTerms" 
-                class="w-4 h-4 rounded text-brand-teal border-slate-300 focus:ring-brand-teal mt-0.5" 
+                class="w-4 h-4 rounded text-altok-brand border-slate-300 focus:ring-altok-brand mt-0.5" 
                 required 
               />
-              <span>Acepto los <a href="#" class="text-brand-teal hover:underline font-bold" (click)="$event.preventDefault()">Términos y Condiciones</a> y la <a href="#" class="text-brand-teal hover:underline font-bold" (click)="$event.preventDefault()">Política de Privacidad</a> de Cambia Altok.</span>
+              <span>Acepto los <a href="#" class="text-altok-brand hover:underline font-bold" (click)="$event.preventDefault()">Términos y Condiciones</a> y la <a href="#" class="text-altok-brand hover:underline font-bold" (click)="$event.preventDefault()">Política de Privacidad</a> de Cambia Altok.</span>
             </label>
           </div>
 
@@ -2362,7 +2362,7 @@
           <button 
             type="submit" 
             [disabled]="authLoading()"
-            class="w-full bg-brand-teal hover:bg-blue-600 disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold py-4 px-6 rounded-2xl transition duration-300 shadow-md shadow-brand-teal/10 hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer border-none"
+            class="w-full bg-gradient-to-r from-altok-brand to-altok-cyan hover:from-altok-light hover:to-altok-brand disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold py-4 px-6 rounded-2xl transition duration-300 shadow-md shadow-altok-brand/10 hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer border-none"
           >
             <svg *ngIf="authLoading()" class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -2377,13 +2377,13 @@
       <div class="text-center">
         <p class="text-xs text-slate-500 font-semibold">
           ¿Ya tienes cuenta? 
-          <button (click)="showLogin()" class="text-brand-teal hover:underline font-bold bg-transparent border-none cursor-pointer">Inicia sesión</button>
+          <button (click)="showLogin()" class="text-altok-brand hover:underline font-bold bg-transparent border-none cursor-pointer">Inicia sesión</button>
         </p>
       </div>
     </div>
 
     <!-- Lado Derecho: Visual / Branding -->
-    <div class="hidden lg:flex lg:w-[55%] bg-gradient-to-br from-brand-dark via-[#112d4e] to-[#1e3e62] text-white p-16 flex-col justify-between relative overflow-hidden">
+    <div class="hidden lg:flex lg:w-[55%] bg-gradient-to-br from-[#04142E] via-altok-night to-altok-deep text-white p-16 flex-col justify-between relative overflow-hidden">
       <div class="space-y-3">
         <h3 class="text-2xl font-bold font-display tracking-tight text-white">Regístrate en 2 minutos</h3>
         <p class="text-sm text-blue-200/80 leading-relaxed font-light">Accede a tasas corporativas y beneficios exclusivos.</p>
