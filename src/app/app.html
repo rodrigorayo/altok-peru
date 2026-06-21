@@ -521,7 +521,7 @@
       <!-- ==================== CONTENIDO HERO: PROMOCIONES ==================== -->
       <div *ngIf="isPromociones()" class="max-w-4xl mx-auto text-center space-y-8 animate-fade-in py-10" id="promociones-top">
         <h1 class="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight leading-tight text-white font-display">
-          Cupones Kambista
+          Cupones Cambia Altok
         </h1>
 
         <!-- 3D Ticket & Cash Illustration (SVG) -->
@@ -624,7 +624,7 @@
               
               <!-- Ticket Text Right (Main) -->
               <text x="70" y="22" font-family="Outfit" font-size="14" font-weight="900" fill="#002f34" text-anchor="middle" letter-spacing="-0.3">Cupón</text>
-              <text x="70" y="35" font-family="Inter" font-size="7" font-weight="700" fill="#002f34" text-anchor="middle" letter-spacing="1">Kambista.com</text>
+              <text x="70" y="35" font-family="Inter" font-size="7" font-weight="700" fill="#002f34" text-anchor="middle" letter-spacing="1">CambiaAltok.com</text>
             </g>
 
             <!-- Fingers wrapping over the ticket -->
@@ -640,7 +640,7 @@
         </div>
 
         <p class="text-sm sm:text-base text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
-          Cada sol cuenta y queremos que ahorres aún más. Por eso, hemos creado estos <strong>cupones Kambista</strong>, especialmente pensados para ti. <span class="text-[#00f2d1] font-semibold">Aplícalos y cambia tus bolivianos y soles con un mejor precio.</span>
+          Cada sol cuenta y queremos que ahorres aún más. Por eso, hemos creado estos <strong>cupones Cambia Altok</strong>, especialmente pensados para ti. <span class="text-[#00f2d1] font-semibold">Aplícalos y cambia tus bolivianos y soles con un mejor precio.</span>
         </p>
       </div>
 
@@ -914,31 +914,100 @@
 
 
   <div *ngIf="isPersonas() && !isPromociones() && !isAyuda() && !isContacto()">
-    <!-- ==================== ¿QUÉ ES KAMBISTA? & ¿CÓMO USAR? ==================== -->
-    <section class="py-12 sm:py-16 lg:py-20 bg-white mt-8 sm:mt-12 lg:mt-16 border-t border-slate-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- ¿Qué es Kambista? -->
-      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 lg:mb-20 space-y-4">
-        <h2 class="text-2xl sm:text-3xl sm:text-4xl font-extrabold text-[#002f34] font-display">
-          ¿Qué es Kambista?
-        </h2>
-        <div class="w-12 h-1 bg-[#00f2d1] mx-auto rounded-full"></div>
-        <p class="text-slate-600 font-light leading-relaxed text-base pt-2">
-          Kambista es la primera casa de cambio online en Perú para cambiar bolivianos y soles.
-        </p>
-        <p class="text-slate-500 font-light leading-relaxed text-sm">
-          Con un enfoque centrado en ofrecer un buen tipo de cambio por boliviano hoy, transacciones cada vez más rápidas y la atención más personalizada del mercado, se mantiene como líder del sector.
-        </p>
-      </div>
+    <!-- ==================== ¿QUÉ ES CAMBIA ALTOK? & ¿CÓMO USAR? ==================== -->
+    <section class="py-16 sm:py-20 bg-gradient-to-b from-slate-50/50 to-white mt-8 sm:mt-12 lg:mt-16 border-t border-slate-100 relative overflow-hidden">
+      <!-- Decoración de fondo en el modo claro -->
+      <div class="absolute top-0 left-0 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-3xl -ml-60 -mt-60 pointer-events-none z-0"></div>
+      <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-3xl -mr-80 -mb-80 pointer-events-none z-0"></div>
 
-      <!-- ¿Cómo usar Kambista? -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <!-- ¿Qué es Cambia Altok? (Tarjeta de Diseño Claro Premium) -->
+        <div class="bg-white rounded-3xl border border-slate-100 p-8 sm:p-12 shadow-xl shadow-slate-100/70 max-w-5xl mx-auto mb-16 sm:mb-20">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Bloque de Imagen / Ilustración Minimalista (Lado Izquierdo) -->
+            <div class="lg:col-span-5 flex justify-center relative">
+              <div class="relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center">
+                <!-- Círculos de fondo decorativos -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-altok-brand/10 to-altok-cyan/5 rounded-full animate-pulse-slow"></div>
+                <div class="absolute inset-10 bg-white rounded-full shadow-lg border border-slate-50 flex items-center justify-center">
+                  <!-- Logo de Cambia Altok o Mascota de forma premium -->
+                  <img src="/mascota.png" alt="Cambia Altok" class="w-40 h-auto object-contain drop-shadow-[0_8px_16px_rgba(11,99,255,0.15)] animate-float" />
+                </div>
+                <!-- Mini tarjetas flotantes para darle dinamismo -->
+                <div class="absolute top-8 -right-4 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-lg border border-slate-100/80 flex items-center gap-2 animate-float-sway">
+                  <div class="w-7 h-7 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 text-xs">✓</div>
+                  <div class="flex flex-col">
+                    <span class="text-[10px] font-bold text-slate-800 leading-tight">Seguridad SBS</span>
+                    <span class="text-[8px] text-slate-500">Reg. SBS: 00335-2017</span>
+                  </div>
+                </div>
+                <div class="absolute bottom-6 -left-4 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-lg border border-slate-100/80 flex items-center gap-2 animate-float-sway [animation-delay:1.5s]">
+                  <div class="w-7 h-7 rounded-full bg-altok-brand/10 flex items-center justify-center text-altok-brand text-xs">⚡</div>
+                  <div class="flex flex-col">
+                    <span class="text-[10px] font-bold text-slate-800 leading-tight">15 Minutos</span>
+                    <span class="text-[8px] text-slate-500">Liquidación express</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bloque de Texto (Lado Derecho) -->
+            <div class="lg:col-span-7 space-y-5 sm:space-y-6 text-left">
+              <div class="space-y-2">
+                <span class="text-xs uppercase tracking-widest font-black text-altok-brand">SOBRE NOSOTROS</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#04142E] font-display tracking-tight leading-tight">
+                  ¿Qué es <span class="text-transparent bg-clip-text bg-gradient-to-r from-altok-brand to-altok-cyan">Cambia Altok</span>?
+                </h2>
+              </div>
+              
+              <p class="text-slate-700 font-medium text-base sm:text-lg leading-relaxed">
+                Cambia Altok es la primera casa de cambio online en Perú para cambiar bolivianos y soles de forma rápida, segura y conveniente.
+              </p>
+              
+              <p class="text-slate-500 font-light leading-relaxed text-sm sm:text-base">
+                Con un enfoque centrado en ofrecer el mejor tipo de cambio por boliviano hoy, transacciones cada vez más rápidas y la atención más personalizada del mercado, nos mantenemos como la plataforma digital preferida por miles de peruanos y empresas.
+              </p>
+
+              <!-- Características destacadas -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-100">
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-altok-brand/15 flex items-center justify-center text-altok-brand shrink-0">
+                    <svg class="w-4.5 h-4.5 text-altok-brand" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Garantía SBS</h4>
+                    <p class="text-[11px] text-slate-500 mt-0.5">Operaciones 100% reguladas y seguras.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-altok-cyan/15 flex items-center justify-center text-altok-brand shrink-0">
+                    <svg class="w-4.5 h-4.5 text-altok-cyan" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider">En 15 Minutos</h4>
+                    <p class="text-[11px] text-slate-500 mt-0.5">Liquidación ultra rápida a tu cuenta bancaria.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      <!-- ¿Cómo usar Cambia Altok? -->
       <div id="como-funciona" class="space-y-12 scroll-mt-24">
         <div class="text-center">
-          <h2 class="text-3xl font-extrabold text-[#002f34] font-display">
-            ¿Cómo usar Kambista?
+          <h2 class="text-3xl font-extrabold text-[#04142E] font-display">
+            ¿Cómo usar Cambia Altok?
           </h2>
-          <div class="w-12 h-1 bg-[#00f2d1] mx-auto rounded-full mt-2"></div>
+          <div class="w-12 h-1 bg-altok-cyan mx-auto rounded-full mt-2"></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 pt-4 max-w-4xl mx-auto">
@@ -1130,7 +1199,7 @@
               Alertas de <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#12D6EB] to-[#0B63FF]">Tipo de Cambio</span>
             </h2>
             <p class="text-slate-400 font-light leading-relaxed text-sm sm:text-base max-w-lg">
-              En Kambista, puedes programar alertas para que te notifiquemos cuando el tipo de cambio alcance el valor que deseas, ya sea para comprar o vender bolivianos. ¡Recibe notificaciones en el momento justo y haz tus cambios de manera inteligente!
+              En Cambia Altok, puedes programar alertas para que te notifiquemos cuando el tipo de cambio alcance el valor que deseas, ya sea para comprar o vender bolivianos. ¡Recibe notificaciones en el momento justo y haz tus cambios de manera inteligente!
             </p>
           </div>
 
@@ -1347,7 +1416,7 @@
               Alertas de tipo de cambio
             </h3>
             <p class="text-sm text-slate-500 leading-relaxed font-light px-2 flex-grow">
-              Te notificamos cuando el boliviano llegue al precio que buscas. Crea tu alarma desde la <strong>App Kambista</strong>.
+              Te notificamos cuando el boliviano llegue al precio que buscas. Crea tu alarma desde la <strong>App Cambia Altok</strong>.
             </p>
           </div>
           
@@ -1903,7 +1972,7 @@
         </h1>
         <div class="w-16 h-1 bg-[#00f2d1] mx-auto rounded-full"></div>
         <p class="text-sm sm:text-base text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
-          ¿Tienes preguntas acerca de Kambista? ¡Esperamos que esta lista de preguntas frecuentes pueda ayudarte!
+          ¿Tienes preguntas acerca de Cambia Altok? ¡Esperamos que esta lista de preguntas frecuentes pueda ayudarte!
         </p>
       </div>
     </header>
@@ -1923,7 +1992,7 @@
               <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_1']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['proceso_1']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
-              Para cambiar soles o bolivianos, primero cotiza tu operación en nuestra calculadora, selecciona tu cuenta de destino, realiza la transferencia desde la app o web de tu banco a la cuenta de Kambista que te indiquemos y, finalmente, ingresa tu número de operación. ¡Tu dinero estará en tu cuenta en un promedio de 15 minutos!
+              Para cambiar soles o bolivianos, primero cotiza tu operación en nuestra calculadora, selecciona tu cuenta de destino, realiza la transferencia desde la app o web de tu banco a la cuenta de Cambia Altok que te indiquemos y, finalmente, ingresa tu número de operación. ¡Tu dinero estará en tu cuenta en un promedio de 15 minutos!
             </div>
           </div>
 
@@ -1967,14 +2036,14 @@
               <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_5']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['proceso_5']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
-              Por razones de máxima seguridad, Kambista no tiene acceso para debitar dinero directamente de tus cuentas bancarias. Eres tú quien debe ingresar a la app de tu banco y hacer la transferencia de forma manual hacia la cuenta de destino de Kambista provista durante la operación.
+              Por razones de máxima seguridad, Cambia Altok no tiene acceso para debitar dinero directamente de tus cuentas bancarias. Eres tú quien debe ingresar a la app de tu banco y hacer la transferencia de forma manual hacia la cuenta de destino de Cambia Altok provista durante la operación.
             </div>
           </div>
 
           <!-- Q6 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('proceso_6')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Hasta qué monto puedo cambiar en Kambista?</span>
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Hasta qué monto puedo cambiar en Cambia Altok?</span>
               <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_6']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['proceso_6']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
@@ -2015,11 +2084,11 @@
           <!-- Q1 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('seguridad_1')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Cuáles son las plataformas oficiales de Kambista?</span>
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Cuáles son las plataformas oficiales de Cambia Altok?</span>
               <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_1']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['seguridad_1']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
-              Nuestras únicas plataformas oficiales son el portal web oficial (https://kambista.com) y nuestras aplicaciones móviles oficiales disponibles en Google Play (Android), App Store (iOS) y AppGallery (Huawei). No realices operaciones fuera de estas plataformas.
+              Nuestras únicas plataformas oficiales son el portal web oficial (https://cambiaaltok.com) y nuestras aplicaciones móviles oficiales disponibles en Google Play (Android), App Store (iOS) y AppGallery (Huawei). No realices operaciones fuera de estas plataformas.
             </div>
           </div>
 
@@ -2048,11 +2117,11 @@
           <!-- Q4 (Italics) -->
           <div class="group">
             <button (click)="toggleAyudaFaq('seguridad_4')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition italic">¿Kambista es seguro?</span>
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition italic">¿Cambia Altok es seguro?</span>
               <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_4']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['seguridad_4']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
-              Sí. Kambista es una empresa regulada por la SBS mediante Resolución de Registro Nro. 00335-2017. Manejamos altos estándares de cifrado SSL/TLS de grado bancario para proteger toda tu información y operaciones financieras.
+              Sí. Cambia Altok es una empresa regulada por la SBS mediante Resolución de Registro Nro. 00335-2017. Manejamos altos estándares de cifrado SSL/TLS de grado bancario para proteger toda tu información y operaciones financieras.
             </div>
           </div>
 
@@ -2063,18 +2132,18 @@
               <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_5']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['seguridad_5']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
-              No. Por regulaciones estrictas contra el fraude y lavado de dinero, todas las transferencias de origen y las cuentas bancarias de destino deben pertenecer única y exclusivamente al mismo titular que está registrado en Kambista.
+              No. Por regulaciones estrictas contra el fraude y lavado de dinero, todas las transferencias de origen y las cuentas bancarias de destino deben pertenecer única y exclusivamente al mismo titular que está registrado en Cambia Altok.
             </div>
           </div>
 
           <!-- Q6 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('seguridad_6')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Kambista cambia criptomonedas u ofrece servicios de inversión?</span>
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Cambia Altok cambia criptomonedas u ofrece servicios de inversión?</span>
               <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_6']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['seguridad_6']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
-              No. Kambista funciona únicamente como una plataforma digital de cambio de bolivianos y soles físicas de curso legal (soles peruanos y bolivianos americanos). No gestionamos criptomonedas, acciones o carteras de inversión.
+              No. Cambia Altok funciona únicamente como una plataforma digital de cambio de bolivianos y soles físicas de curso legal (soles peruanos y bolivianos americanos). No gestionamos criptomonedas, acciones o carteras de inversión.
             </div>
           </div>
 
@@ -2134,14 +2203,14 @@
               <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['otras_1']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['otras_1']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
-              El ahorro acumulado es un indicador de referencia en tu perfil que muestra la suma total aproximada que has ahorrado al operar con Kambista en vez de cambiar con los bancos tradicionales. No constituye un saldo en efectivo y no es retirable.
+              El ahorro acumulado es un indicador de referencia en tu perfil que muestra la suma total aproximada que has ahorrado al operar con Cambia Altok en vez de cambiar con los bancos tradicionales. No constituye un saldo en efectivo y no es retirable.
             </div>
           </div>
 
           <!-- Q2 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('otras_2')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Hay algún cobro/comisión de parte de Kambista por el cambio que haga?</span>
+              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Hay algún cobro/comisión de parte de Cambia Altok por el cambio que haga?</span>
               <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['otras_2']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['otras_2']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
@@ -2175,7 +2244,7 @@
               <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['legal_1']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['legal_1']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
-              Nuestros Términos y Condiciones regulan el acuerdo legal, las obligaciones operativas, los plazos bancarios, y las responsabilidades del usuario al utilizar la plataforma de Kambista. Puedes consultarlos al completo en el enlace del pie de página.
+              Nuestros Términos y Condiciones regulan el acuerdo legal, las obligaciones operativas, los plazos bancarios, y las responsabilidades del usuario al utilizar la plataforma de Cambia Altok. Puedes consultarlos al completo en el enlace del pie de página.
             </div>
           </div>
 
@@ -2564,7 +2633,7 @@
             <li>
               <a href="#" class="hover:text-[#12D6EB] transition-colors duration-200 flex items-center gap-1.5 group">
                 <span class="w-0 group-hover:w-2 h-px bg-[#12D6EB] transition-all duration-300"></span>
-                ¿Qué es Kambista?
+                ¿Qué es Cambia Altok?
               </a>
             </li>
           </ul>
