@@ -375,40 +375,38 @@
           </div>
 
           <!-- Caja Mejora tu Cotización (Abajo de la calculadora - Ancho adaptado y Fondo Transparente) -->
-          <div class="bg-slate-950/40 backdrop-blur-xl text-white rounded-xl shadow-lg border border-white/10 p-4 max-w-[390px] mx-auto lg:mr-0 lg:ml-auto mt-4 relative z-20">
+          <div class="bg-white/5 backdrop-blur-md text-white rounded-xl shadow-lg border border-white/10 p-4 max-w-[390px] mx-auto lg:mr-0 lg:ml-auto mt-4 relative z-20">
             <div class="flex flex-col gap-4">
               <!-- Header Section -->
               <div class="flex-1">
-                <div class="mb-1.5">
-                  <h3 class="text-sm sm:text-base font-extrabold text-white font-display leading-snug">
-                    ¿Tienes una cotización de otra casa de cambio? Nosotros la mejoramos
-                  </h3>
-                </div>
-                <p class="text-[11px] sm:text-xs text-white/80 leading-snug pl-0.5 mt-1">
+                <h3 class="text-sm sm:text-base font-extrabold text-white font-display leading-snug mb-1.5">
+                  ¿Tienes una cotización de otra casa de cambio? Nosotros la mejoramos
+                </h3>
+                <p class="text-[11px] sm:text-xs text-white/70 leading-snug pl-0.5 mt-1">
                   Sube tu archivo y te ofrecemos una mejor tasa. <a href="#" class="text-altok-cyan font-bold hover:underline">Aplica TyC</a>
                 </p>
               </div>
 
-              <!-- Zona Dotted Upload Compacta -->
-              <label class="cursor-pointer border border-white/10 rounded-xl px-4 py-3 flex items-center justify-center gap-2.5 bg-white text-slate-900 hover:bg-slate-100 hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 shadow-xl shrink-0 select-none w-full">
+              <!-- Zona Upload Sólido y Visible (Fondo Blanco para Alto Contraste) -->
+              <label class="cursor-pointer border border-transparent rounded-xl px-4 py-3 flex items-center justify-center gap-2 bg-white hover:bg-slate-100 transition-all duration-300 shadow-lg hover:shadow-xl shrink-0 select-none text-[#04142E] w-full">
                 <input type="file" class="hidden" (change)="onFileChange($event)" accept="image/*,.pdf" />
                 
                 <ng-container *ngIf="!uploadedFileName()">
-                  <!-- Small Upload Icon -->
-                  <svg class="w-4.5 h-4.5 text-slate-800" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                  <!-- Icono de Subida Oscuro -->
+                  <svg class="w-4 h-4 text-[#04142E]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 6h14M12 18V8m0 0l-4 4m4-4l4 4" />
                   </svg>
-                  <span class="text-slate-900 font-extrabold text-xs uppercase tracking-wider">
+                  <span class="font-extrabold text-[10px] uppercase tracking-wider">
                     ENVIAR ARCHIVO
                   </span>
                 </ng-container>
 
                 <ng-container *ngIf="uploadedFileName()">
                   <span class="text-xs">📄</span>
-                  <span class="text-slate-900 font-bold text-xs truncate max-w-[180px]">
+                  <span class="font-bold text-[10px] truncate max-w-[150px]">
                     {{ uploadedFileName() }}
                   </span>
-                  <span class="text-altok-cyan font-bold text-[9px] uppercase ml-1">
+                  <span class="text-[#0B63FF] font-extrabold text-[8px] uppercase ml-1">
                     (Cambiar)
                   </span>
                 </ng-container>
