@@ -261,8 +261,8 @@
             
             <!-- Encabezado Tipo Cambio (Estilo Compacto Kambista) -->
             <div class="text-center mb-4 text-white">
-              <p class="text-[10px] text-slate-300 uppercase tracking-wider font-semibold">Tipo de Cambio del boliviano hoy en Perú</p>
-              <p class="text-xs font-bold mt-0.5">
+              <p class="text-[10px] text-white uppercase tracking-wider font-bold">Tipo de Cambio del boliviano hoy en Perú</p>
+              <p class="text-xs font-bold mt-0.5 text-white">
                 Compra: <span class="text-altok-cyan font-extrabold">{{ compraRate() | number:'1.3-3' }}</span> &nbsp;|&nbsp; 
                 Venta: <span class="text-altok-cyan font-extrabold">{{ ventaRate() | number:'1.3-3' }}</span>
               </p>
@@ -272,16 +272,16 @@
             <div class="space-y-2 relative">
               
               <!-- Input: Tú Envías (Fondo Transparente) -->
-              <div class="flex items-stretch bg-slate-950/40 border border-white/10 rounded-xl overflow-hidden h-16 shadow-md backdrop-blur-sm">
+              <div class="flex items-stretch bg-black/15 hover:bg-black/25 border border-white/20 rounded-xl overflow-hidden h-16 shadow-inner transition-colors duration-300">
                 <div class="flex-1 p-3 flex flex-col justify-between">
-                  <label class="text-[9px] uppercase font-bold text-white/50 tracking-wider">Tú Envías</label>
+                  <label class="text-[9px] uppercase font-extrabold text-white/90 tracking-wider">Tú Envías</label>
                   <input 
                     type="number" 
                     [(ngModel)]="montoEnviar" 
-                    class="bg-transparent text-xl font-bold text-white outline-none w-full border-none p-0 focus:ring-0 placeholder-white/30" 
+                    class="bg-transparent text-xl font-bold text-white outline-none w-full border-none p-0 focus:ring-0 placeholder-white/60" 
                     placeholder="0" />
                 </div>
-                <div class="w-[150px] bg-slate-900/60 text-white flex items-center justify-center gap-3 font-bold font-display shrink-0 border-l border-white/10">
+                <div class="w-[150px] bg-black/35 text-white flex items-center justify-center gap-3 font-bold font-display shrink-0 border-l border-white/20">
                   <ng-container *ngIf="tipoCambio() === 'BOB_TO_PEN'">
                     <svg class="w-9 h-6 rounded-sm shadow-sm shrink-0" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
                       <rect width="3" height="2" fill="#007a33"/>
@@ -312,17 +312,17 @@
               </div>
 
               <!-- Input: Tú Recibes (Fondo Transparente) -->
-              <div class="flex items-stretch bg-slate-950/40 border border-white/10 rounded-xl overflow-hidden h-16 shadow-md backdrop-blur-sm">
+              <div class="flex items-stretch bg-black/15 hover:bg-black/25 border border-white/20 rounded-xl overflow-hidden h-16 shadow-inner transition-colors duration-300">
                 <div class="flex-1 p-3 flex flex-col justify-between">
-                  <label class="text-[9px] uppercase font-bold text-white/50 tracking-wider">Tú Recibes</label>
+                  <label class="text-[9px] uppercase font-extrabold text-white/90 tracking-wider">Tú Recibes</label>
                   <input 
                     type="number" 
                     [ngModel]="montoRecibir()"
                     (ngModelChange)="updateMontoRecibir($event)"
-                    class="bg-transparent text-xl font-bold text-white outline-none w-full border-none p-0 focus:ring-0 placeholder-white/30" 
+                    class="bg-transparent text-xl font-bold text-white outline-none w-full border-none p-0 focus:ring-0 placeholder-white/60" 
                     placeholder="0" />
                 </div>
-                <div class="w-[150px] bg-slate-900/60 text-white flex items-center justify-center gap-3 font-bold font-display shrink-0 border-l border-white/10">
+                <div class="w-[150px] bg-black/35 text-white flex items-center justify-center gap-3 font-bold font-display shrink-0 border-l border-white/20">
                   <ng-container *ngIf="tipoCambio() === 'BOB_TO_PEN'">
                     <svg class="w-9 h-6 rounded-sm shadow-sm shrink-0" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
                       <rect width="3" height="2" fill="#d52b1e"/>
@@ -344,7 +344,7 @@
             </div>
 
             <!-- Ahorro Estimado y Koinks (Texto Blanco) -->
-            <div class="flex items-center justify-between mt-4 text-[11px] text-white/90 px-1">
+            <div class="flex items-center justify-between mt-4 text-[11px] text-white px-1">
               <div>
                 <span>Ahorro Estimado:</span>
                 <span class="font-extrabold text-altok-cyan ml-1">S/. {{ ahorroEstimado() | number:'1.2-2' }}</span>
@@ -364,7 +364,7 @@
             </div>
 
             <!-- Solicitud Especial -->
-            <div class="flex items-start gap-2 mt-4 text-[11px] text-white/70 leading-normal px-1">
+            <div class="flex items-start gap-2 mt-4 text-[11px] text-white/90 leading-normal px-1">
               <svg class="w-4 h-4 text-altok-cyan shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 111.085 1.085l-.04.042m0 0a.75.75 0 11-1.085-1.085l.04-.042m0 0a3.375 3.375 0 100-6.75 3.375 3.375 0 000 6.75zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -389,21 +389,21 @@
                     Mejora tu cotización aquí
                   </h3>
                 </div>
-                <p class="text-[11px] sm:text-xs text-white/70 leading-snug pl-0.5">
+                <p class="text-[11px] sm:text-xs text-white/90 leading-snug pl-0.5">
                   ¿Tienes una cotización de otra casa de cambio? Nosotros la mejoramos. <a href="#" class="text-altok-cyan font-bold hover:underline">Aplica TyC</a>
                 </p>
               </div>
 
               <!-- Zona Dotted Upload Compacta -->
-              <label class="cursor-pointer border border-dashed border-white/20 rounded-lg px-4 py-2 flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 transition shrink-0 select-none text-white">
+              <label class="cursor-pointer border border-dashed border-white/30 rounded-lg px-4 py-2 flex items-center justify-center gap-2 bg-black/15 hover:bg-black/25 transition shrink-0 select-none text-white">
                 <input type="file" class="hidden" (change)="onFileChange($event)" accept="image/*,.pdf" />
                 
                 <ng-container *ngIf="!uploadedFileName()">
                   <!-- Small Upload Icon -->
-                  <svg class="w-3.5 h-3.5 text-white/80" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 6h14M12 18V8m0 0l-4 4m4-4l4 4" />
                   </svg>
-                  <span class="text-white/90 font-bold text-[10px] uppercase tracking-wider">
+                  <span class="text-white font-bold text-[10px] uppercase tracking-wider">
                     ENVIAR ARCHIVO
                   </span>
                 </ng-container>
