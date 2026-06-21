@@ -78,6 +78,22 @@ export class App {
   });
 
   // Action methods
+  scrollTo(id: string) {
+    this.isPersonas.set(true);
+    this.isPromociones.set(false);
+    this.isAyuda.set(false);
+    this.isContacto.set(false);
+    this.isMobileMenuOpen.set(false);
+    if (typeof window !== 'undefined') {
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 50);
+    }
+  }
+
   showLogin() {
     this.isLogin.set(true);
     this.isRegister.set(false);

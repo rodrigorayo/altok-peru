@@ -5,7 +5,7 @@
   <div *ngIf="!isLogin() && !isRegister()" class="flex flex-col min-h-screen">
 
   <!-- ==================== HEADER ESTÁTICO / NAVEGACIÓN ==================== -->
-  <nav class="sticky top-0 z-50 bg-altok-night/95 backdrop-blur-md border-b border-white/10 text-white py-2.5 px-4 sm:px-6 lg:px-8 shadow-md">
+  <nav class="sticky top-0 z-50 bg-[#04142E]/95 backdrop-blur-md border-b border-white/10 text-white py-2.5 px-4 sm:px-6 lg:px-8 shadow-md">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       
       <!-- Lado Izquierdo: Logo -->
@@ -37,12 +37,11 @@
           class="transition duration-200 cursor-pointer bg-transparent border-none p-0 text-sm font-medium text-left">
           Promociones
         </button>
-        <a 
-          (click)="isPersonas.set(true); isPromociones.set(false); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)" 
-          href="#como-funciona" 
-          class="hover:text-altok-cyan transition duration-200">
+        <button 
+          (click)="scrollTo('como-funciona')" 
+          class="hover:text-altok-cyan transition duration-200 cursor-pointer bg-transparent border-none p-0 text-sm font-medium text-left text-white/80">
           Cómo funciona
-        </a>
+        </button>
         <button 
           (click)="isAyuda.set(true); isPromociones.set(false); isContacto.set(false); isMobileMenuOpen.set(false)"
           [class]="isAyuda() ? 'text-altok-cyan font-semibold' : 'hover:text-altok-cyan text-white/80'"
@@ -105,13 +104,12 @@
           class="text-left hover:text-altok-cyan transition text-sm py-1 bg-transparent border-none p-0 font-medium">
           Promociones
         </button>
-        <a 
-          (click)="isPersonas.set(true); isPromociones.set(false); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)" 
-          href="#como-funciona" 
+        <button 
+          (click)="scrollTo('como-funciona')" 
           [class]="tipoCambio() === 'BOB_TO_PEN' ? 'hover:text-yellow-400' : 'hover:text-red-400'"
-          class="text-white/80 transition text-sm py-1">
+          class="text-left hover:text-altok-cyan transition text-sm py-1 bg-transparent border-none p-0 font-medium text-white/80">
           Cómo funciona
-        </a>
+        </button>
         <button 
           (click)="isAyuda.set(true); isPromociones.set(false); isContacto.set(false); isMobileMenuOpen.set(false)" 
           [class]="isAyuda() ? (tipoCambio() === 'BOB_TO_PEN' ? 'text-yellow-400 font-semibold' : 'text-red-400 font-semibold') : 'text-white/80'"
@@ -620,11 +618,11 @@
               <line x1="25" y1="5" x2="25" y2="41" stroke="#003c42" stroke-width="1" stroke-dasharray="3 2"/>
               
               <!-- Ticket Text Left (Small) -->
-              <text x="12" y="27" font-family="Outfit" font-size="12" font-weight="900" fill="#002f34" text-anchor="middle" transform="rotate(-90 12 25)">%</text>
+              <text x="12" y="27" font-family="Outfit" font-size="12" font-weight="900" fill="#04142E" text-anchor="middle" transform="rotate(-90 12 25)">%</text>
               
               <!-- Ticket Text Right (Main) -->
-              <text x="70" y="22" font-family="Outfit" font-size="14" font-weight="900" fill="#002f34" text-anchor="middle" letter-spacing="-0.3">Cupón</text>
-              <text x="70" y="35" font-family="Inter" font-size="7" font-weight="700" fill="#002f34" text-anchor="middle" letter-spacing="1">CambiaAltok.com</text>
+              <text x="70" y="22" font-family="Outfit" font-size="14" font-weight="900" fill="#04142E" text-anchor="middle" letter-spacing="-0.3">Cupón</text>
+              <text x="70" y="35" font-family="Inter" font-size="7" font-weight="700" fill="#04142E" text-anchor="middle" letter-spacing="1">CambiaAltok.com</text>
             </g>
 
             <!-- Fingers wrapping over the ticket -->
@@ -640,7 +638,7 @@
         </div>
 
         <p class="text-sm sm:text-base text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
-          Cada sol cuenta y queremos que ahorres aún más. Por eso, hemos creado estos <strong>cupones Cambia Altok</strong>, especialmente pensados para ti. <span class="text-[#00f2d1] font-semibold">Aplícalos y cambia tus bolivianos y soles con un mejor precio.</span>
+          Cada sol cuenta y queremos que ahorres aún más. Por eso, hemos creado estos <strong>cupones Cambia Altok</strong>, especialmente pensados para ti. <span class="text-[#12D6EB] font-semibold">Aplícalos y cambia tus bolivianos y soles con un mejor precio.</span>
         </p>
       </div>
 
@@ -709,8 +707,8 @@
 
             <!-- Pichincha -->
             <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200/60 px-2.5 py-1 rounded-lg hover:bg-slate-100/70 transition-all h-8">
-              <span class="w-2.5 h-2.5 bg-[#FFDD00] rounded-full flex items-center justify-center text-[7px] font-bold text-[#002f34] shrink-0">*</span>
-              <span class="font-bold text-[#002f34] text-[11px] leading-none">Pichincha</span>
+              <span class="w-2.5 h-2.5 bg-[#FFDD00] rounded-full flex items-center justify-center text-[7px] font-bold text-[#04142E] shrink-0">*</span>
+              <span class="font-bold text-[#04142E] text-[11px] leading-none">Pichincha</span>
             </div>
 
 
@@ -922,76 +920,76 @@
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <!-- ¿Qué es Cambia Altok? (Tarjeta de Diseño Claro Premium) -->
-        <div class="bg-white rounded-3xl border border-slate-100 p-8 sm:p-12 shadow-xl shadow-slate-100/70 max-w-5xl mx-auto mb-16 sm:mb-20">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <!-- ¿Qué es Cambia Altok? (Sin recuadro, Más grande todo) -->
+        <div class="max-w-6xl mx-auto mb-16 sm:mb-24 px-4 sm:px-6 relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             
-            <!-- Bloque de Imagen / Ilustración Minimalista (Lado Izquierdo) -->
+            <!-- Bloque de Imagen / Ilustración Minimalista (Lado Izquierdo - Agrandado) -->
             <div class="lg:col-span-5 flex justify-center relative">
-              <div class="relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center">
+              <div class="relative w-80 h-80 sm:w-96 sm:h-96 flex items-center justify-center">
                 <!-- Círculos de fondo decorativos -->
-                <div class="absolute inset-0 bg-gradient-to-tr from-altok-brand/10 to-altok-cyan/5 rounded-full animate-pulse-slow"></div>
-                <div class="absolute inset-10 bg-white rounded-full shadow-lg border border-slate-50 flex items-center justify-center">
+                <div class="absolute inset-0 bg-gradient-to-tr from-altok-brand/12 to-altok-cyan/8 rounded-full animate-pulse-slow"></div>
+                <div class="absolute inset-14 bg-white rounded-full shadow-xl border border-slate-100/50 flex items-center justify-center">
                   <!-- Logo de Cambia Altok o Mascota de forma premium -->
-                  <img src="/mascota.png" alt="Cambia Altok" class="w-40 h-auto object-contain drop-shadow-[0_8px_16px_rgba(11,99,255,0.15)] animate-float" />
+                  <img src="/mascota.png" alt="Cambia Altok" class="w-48 sm:w-56 h-auto object-contain drop-shadow-[0_12px_24px_rgba(11,99,255,0.18)] animate-float" />
                 </div>
-                <!-- Mini tarjetas flotantes para darle dinamismo -->
-                <div class="absolute top-8 -right-4 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-lg border border-slate-100/80 flex items-center gap-2 animate-float-sway">
-                  <div class="w-7 h-7 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 text-xs">✓</div>
+                <!-- Mini tarjetas flotantes para darle dinamismo - Más grandes -->
+                <div class="absolute top-10 -right-6 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-slate-100/80 flex items-center gap-2.5 animate-float-sway z-20">
+                  <div class="w-9 h-9 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-600 text-sm font-bold">✓</div>
                   <div class="flex flex-col">
-                    <span class="text-[10px] font-bold text-slate-800 leading-tight">Seguridad SBS</span>
-                    <span class="text-[8px] text-slate-500">Reg. SBS: 00335-2017</span>
+                    <span class="text-xs font-extrabold text-slate-800 leading-tight">Seguridad SBS</span>
+                    <span class="text-[9px] text-slate-500 font-medium">Reg. SBS: 00335-2017</span>
                   </div>
                 </div>
-                <div class="absolute bottom-6 -left-4 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-lg border border-slate-100/80 flex items-center gap-2 animate-float-sway [animation-delay:1.5s]">
-                  <div class="w-7 h-7 rounded-full bg-altok-brand/10 flex items-center justify-center text-altok-brand text-xs">⚡</div>
+                <div class="absolute bottom-10 -left-6 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-slate-100/80 flex items-center gap-2.5 animate-float-sway [animation-delay:1.5s] z-20">
+                  <div class="w-9 h-9 rounded-full bg-altok-brand/10 flex items-center justify-center text-altok-brand text-sm">⚡</div>
                   <div class="flex flex-col">
-                    <span class="text-[10px] font-bold text-slate-800 leading-tight">15 Minutos</span>
-                    <span class="text-[8px] text-slate-500">Liquidación express</span>
+                    <span class="text-xs font-extrabold text-slate-800 leading-tight">15 Minutos</span>
+                    <span class="text-[9px] text-slate-500 font-medium">Liquidación express</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Bloque de Texto (Lado Derecho) -->
-            <div class="lg:col-span-7 space-y-5 sm:space-y-6 text-left">
-              <div class="space-y-2">
-                <span class="text-xs uppercase tracking-widest font-black text-altok-brand">SOBRE NOSOTROS</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#04142E] font-display tracking-tight leading-tight">
+            <!-- Bloque de Texto (Lado Derecho - Agrandado) -->
+            <div class="lg:col-span-7 space-y-6 sm:space-y-8 text-left">
+              <div class="space-y-3">
+                <span class="text-sm uppercase tracking-widest font-black text-altok-brand">SOBRE NOSOTROS</span>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#04142E] font-display tracking-tight leading-tight">
                   ¿Qué es <span class="text-transparent bg-clip-text bg-gradient-to-r from-altok-brand to-altok-cyan">Cambia Altok</span>?
                 </h2>
               </div>
               
-              <p class="text-slate-700 font-medium text-base sm:text-lg leading-relaxed">
+              <p class="text-slate-800 font-semibold text-lg sm:text-xl lg:text-2xl leading-relaxed">
                 Cambia Altok es la primera casa de cambio online en Perú para cambiar bolivianos y soles de forma rápida, segura y conveniente.
               </p>
               
-              <p class="text-slate-500 font-light leading-relaxed text-sm sm:text-base">
+              <p class="text-slate-600 font-light leading-relaxed text-base sm:text-lg">
                 Con un enfoque centrado en ofrecer el mejor tipo de cambio por boliviano hoy, transacciones cada vez más rápidas y la atención más personalizada del mercado, nos mantenemos como la plataforma digital preferida por miles de peruanos y empresas.
               </p>
 
-              <!-- Características destacadas -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-100">
-                <div class="flex items-start gap-3">
-                  <div class="w-8 h-8 rounded-lg bg-altok-brand/15 flex items-center justify-center text-altok-brand shrink-0">
-                    <svg class="w-4.5 h-4.5 text-altok-brand" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <!-- Características destacadas (Más grandes) -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-slate-100">
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-altok-brand/10 flex items-center justify-center text-altok-brand shrink-0">
+                    <svg class="w-5 h-5 text-altok-brand" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
                     </svg>
                   </div>
                   <div>
-                    <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Garantía SBS</h4>
-                    <p class="text-[11px] text-slate-500 mt-0.5">Operaciones 100% reguladas y seguras.</p>
+                    <h4 class="text-sm sm:text-base font-bold text-slate-800 uppercase tracking-wider">Garantía SBS</h4>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Operaciones 100% reguladas y seguras.</p>
                   </div>
                 </div>
-                <div class="flex items-start gap-3">
-                  <div class="w-8 h-8 rounded-lg bg-altok-cyan/15 flex items-center justify-center text-altok-brand shrink-0">
-                    <svg class="w-4.5 h-4.5 text-altok-cyan" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-altok-cyan/15 flex items-center justify-center text-altok-brand shrink-0">
+                    <svg class="w-5 h-5 text-altok-brand" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   <div>
                     <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider">En 15 Minutos</h4>
-                    <p class="text-[11px] text-slate-500 mt-0.5">Liquidación ultra rápida a tu cuenta bancaria.</p>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Liquidación ultra rápida a tu cuenta bancaria.</p>
                   </div>
                 </div>
               </div>
@@ -1002,159 +1000,166 @@
         </div>
 
       <!-- ¿Cómo usar Cambia Altok? -->
-      <div id="como-funciona" class="space-y-12 scroll-mt-24">
-        <div class="text-center">
-          <h2 class="text-3xl font-extrabold text-[#04142E] font-display">
-            ¿Cómo usar Cambia Altok?
+      <div id="como-funciona" class="space-y-12 sm:space-y-16 scroll-mt-24">
+        
+        <!-- Rediseño del Título (Más Premium) -->
+        <div class="text-center space-y-3">
+          <h2 class="text-3xl sm:text-5xl font-black text-[#04142E] font-display tracking-tight leading-tight">
+            ¿Cómo usar <span class="text-transparent bg-clip-text bg-gradient-to-r from-altok-brand to-altok-cyan">Cambia Altok</span>?
           </h2>
-          <div class="w-12 h-1 bg-altok-cyan mx-auto rounded-full mt-2"></div>
+          <p class="text-slate-500 font-light max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
+            Realiza tu cambio de soles y bolivianos en solo tres pasos desde cualquier dispositivo, de forma segura y sin complicaciones.
+          </p>
+          <div class="w-20 h-1.5 bg-gradient-to-r from-altok-brand to-altok-cyan mx-auto rounded-full mt-4"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 pt-4 max-w-4xl mx-auto">
-           <!-- Paso 1 -->
-           <div class="bg-white rounded-[32px] p-6 sm:p-8 border border-slate-100 flex flex-col items-start text-left space-y-5 hover:shadow-2xl hover:border-slate-200/50 transition-all duration-500 relative group shadow-md shadow-slate-100/50 min-h-[300px] sm:min-h-[340px]">
-             <!-- Corner Accents (Top-Right and Bottom-Left) -->
-             <div class="absolute -top-[1.5px] -right-[1.5px] w-14 h-14 border-t-[3.5px] border-r-[3.5px] border-[#061B3D] rounded-tr-[32px] pointer-events-none"></div>
-             <div class="absolute -bottom-[1.5px] -left-[1.5px] w-14 h-14 border-b-[3.5px] border-l-[3.5px] border-[#061B3D] rounded-bl-[32px] pointer-events-none"></div>
-             
-             <!-- Step Number Badge -->
-             <span class="absolute top-6 right-8 font-black text-3xl text-slate-100 font-display select-none">01</span>
+        <div class="relative max-w-6xl mx-auto pt-8">
+          
+          <!-- Dashed Zigzag Line for Desktop (md and up) -->
+          <svg class="absolute inset-x-0 top-0 w-full h-[280px] hidden md:block pointer-events-none z-0" viewBox="0 0 1000 280" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 166.6,88 L 500,192 L 833.3,88" stroke="#0B63FF" stroke-width="2.5" stroke-dasharray="8 6" stroke-linecap="round" opacity="0.25" vector-effect="non-scaling-stroke"/>
+          </svg>
 
-             <!-- Icon Box (Top-Left) -->
-             <div class="w-24 h-24 flex items-center justify-center group-hover:scale-105 transition duration-300">
-               <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                 <!-- Background decorative circles -->
-                 <circle cx="50" cy="50" r="40" fill="url(#gradStep1)" opacity="0.05"/>
-                 <!-- Calculator base (narrower and taller) -->
-                 <rect x="32" y="16" width="36" height="68" rx="6" fill="#061B3D" stroke="#0B63FF" stroke-width="2.5"/>
-                 <!-- Screen -->
-                 <rect x="37" y="22" width="26" height="12" rx="2" fill="#0B63FF" fill-opacity="0.2" stroke="#12D6EB" stroke-width="1.5"/>
-                 <!-- Screen value -->
-                 <text x="59" y="31" font-family="Outfit" font-size="8" font-weight="900" fill="#12D6EB" text-anchor="end">1,487</text>
-                 <!-- Calculator keys (re-aligned to narrow grid) -->
-                 <rect x="37" y="38" width="6" height="6" rx="1.5" fill="#12D6EB" opacity="0.8"/>
-                 <rect x="47" y="38" width="6" height="6" rx="1.5" fill="#12D6EB" opacity="0.8"/>
-                 <rect x="57" y="38" width="6" height="6" rx="1.5" fill="#0B63FF"/>
-                 <rect x="37" y="48" width="6" height="6" rx="1.5" fill="#ffffff" opacity="0.2"/>
-                 <rect x="47" y="48" width="6" height="6" rx="1.5" fill="#ffffff" opacity="0.2"/>
-                 <rect x="57" y="48" width="6" height="6" rx="1.5" fill="#ffffff" opacity="0.2"/>
-                 <rect x="37" y="58" width="6" height="6" rx="1.5" fill="#ffffff" opacity="0.2"/>
-                 <rect x="47" y="58" width="6" height="6" rx="1.5" fill="#ffffff" opacity="0.2"/>
-                 <rect x="57" y="58" width="6" height="6" rx="1.5" fill="#ffffff" opacity="0.2"/>
-                 <rect x="37" y="68" width="6" height="6" rx="1.5" fill="#ffffff" opacity="0.2"/>
-                 <rect x="47" y="68" width="16" height="6" rx="1.5" fill="#12D6EB"/>
-                 
-                 <!-- Floating coins (stacked more vertically) -->
-                 <circle cx="24" cy="32" r="12" fill="#061B3D" stroke="#12D6EB" stroke-width="2"/>
-                 <text x="24" y="36" font-family="Outfit" font-size="9" font-weight="900" fill="#12D6EB" text-anchor="middle">S/.</text>
-                 <circle cx="76" cy="68" r="12" fill="#061B3D" stroke="#0B63FF" stroke-width="2"/>
-                 <text x="76" y="73" font-family="Outfit" font-size="11" font-weight="900" fill="#12D6EB" text-anchor="middle">$</text>
-                 
-                 <defs>
-                   <linearGradient id="gradStep1" x1="0" y1="0" x2="100" y2="100">
-                     <stop offset="0%" stop-color="#0B63FF"/>
-                     <stop offset="100%" stop-color="#12D6EB"/>
-                   </linearGradient>
-                 </defs>
-               </svg>
-             </div>
+          <!-- Dashed Vertical Line for Mobile -->
+          <div class="absolute left-1/2 top-22 bottom-44 w-0.5 -translate-x-1/2 border-l-2 border-dashed border-slate-200 block md:hidden z-0"></div>
 
-             <div class="space-y-2">
-               <h3 class="font-bold text-[#061B3D] font-display text-xl group-hover:text-[#0B63FF] transition duration-200">Cotiza</h3>
-               <p class="text-sm text-slate-500 leading-relaxed font-light">
-                 Usa nuestra calculadora para saber cuánto valdrá tu dinero al cambiarlo.
-               </p>
-             </div>
-           </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-10 relative z-10">
+            <!-- Paso 1 -->
+            <div class="flex flex-col items-center text-center justify-start gap-5 h-auto md:h-[280px] relative group">
+              <!-- Circle Icon Container -->
+              <div class="w-44 h-44 rounded-full bg-white border border-slate-100/80 flex items-center justify-center relative shadow-lg shadow-slate-100/70 group-hover:shadow-xl group-hover:scale-105 group-hover:border-altok-brand/20 transition-all duration-300 z-10 shrink-0">
+                <!-- Step Number Badge -->
+                <span class="absolute -top-1 -left-1 w-10 h-10 rounded-full bg-[#0b63ff] text-white flex items-center justify-center font-bold text-base border-2 border-white shadow-sm font-display select-none">1</span>
+                
+                <svg class="w-36 h-36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Background decorative circles -->
+                  <circle cx="50" cy="50" r="40" fill="url(#gradStep1)" opacity="0.06"/>
+                  <!-- Calculator base -->
+                  <rect x="32" y="16" width="36" height="68" rx="6" fill="#04142E" stroke="#0B63FF" stroke-width="3"/>
+                  <!-- Screen -->
+                  <rect x="37" y="22" width="26" height="12" rx="2" fill="#0B63FF" fill-opacity="0.25" stroke="#12D6EB" stroke-width="2"/>
+                  <!-- Screen value -->
+                  <text x="59" y="31" font-family="Outfit" font-size="10" font-weight="950" fill="#12D6EB" text-anchor="end">1,487</text>
+                  <!-- Calculator keys -->
+                  <rect x="37" y="38" width="6" height="6" rx="1.5" fill="#12D6EB" opacity="0.9"/>
+                  <rect x="47" y="38" width="6" height="6" rx="1.5" fill="#12D6EB" opacity="0.9"/>
+                  <rect x="57" y="38" width="6" height="6" rx="1.5" fill="#0B63FF"/>
+                  <rect x="37" y="48" width="6" height="6" rx="1.5" fill="#ffffff" opacity="0.25"/>
+                  <rect x="47" y="48" width="6" height="6" rx="1.5" fill="#ffffff" opacity="0.25"/>
+                  <rect x="57" y="48" width="6" height="6" rx="1.5" fill="#ffffff" opacity="0.25"/>
+                  <rect x="37" y="58" width="6" height="6" rx="1.5" fill="#ffffff" opacity="0.25"/>
+                  <rect x="47" y="58" width="6" height="6" rx="1.5" fill="#ffffff" opacity="0.25"/>
+                  <rect x="57" y="58" width="6" height="6" rx="1.5" fill="#ffffff" opacity="0.25"/>
+                  <rect x="37" y="68" width="6" height="6" rx="1.5" fill="#ffffff" opacity="0.25"/>
+                  <rect x="47" y="68" width="16" height="6" rx="1.5" fill="#12D6EB"/>
+                  
+                  <!-- Floating coins -->
+                  <circle cx="22" cy="30" r="13" fill="#04142E" stroke="#12D6EB" stroke-width="2.5"/>
+                  <text x="22" y="34" font-family="Outfit" font-size="10" font-weight="950" fill="#12D6EB" text-anchor="middle">S/.</text>
+                  <circle cx="78" cy="68" r="13" fill="#04142E" stroke="#0B63FF" stroke-width="2.5"/>
+                  <text x="78" y="73" font-family="Outfit" font-size="12" font-weight="950" fill="#12D6EB" text-anchor="middle">$</text>
+                  
+                  <defs>
+                    <linearGradient id="gradStep1" x1="0" y1="0" x2="100" y2="100">
+                      <stop offset="0%" stop-color="#0B63FF"/>
+                      <stop offset="100%" stop-color="#12D6EB"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
 
-           <!-- Paso 2 -->
-           <div class="bg-white rounded-[32px] p-6 sm:p-8 border border-slate-100 flex flex-col items-start text-left space-y-5 hover:shadow-2xl hover:border-slate-200/50 transition-all duration-500 relative group shadow-md shadow-slate-100/50 min-h-[300px] sm:min-h-[340px]">
-             <!-- Corner Accents (Top-Right and Bottom-Left) -->
-             <div class="absolute -top-[1.5px] -right-[1.5px] w-14 h-14 border-t-[3.5px] border-r-[3.5px] border-[#061B3D] rounded-tr-[32px] pointer-events-none"></div>
-             <div class="absolute -bottom-[1.5px] -left-[1.5px] w-14 h-14 border-b-[3.5px] border-l-[3.5px] border-[#061B3D] rounded-bl-[32px] pointer-events-none"></div>
-             
-             <!-- Step Number Badge -->
-             <span class="absolute top-6 right-8 font-black text-3xl text-slate-100 font-display select-none">02</span>
+              <!-- Text Container -->
+              <div class="space-y-2">
+                <h3 class="font-extrabold text-[#04142E] font-display text-2xl group-hover:text-altok-brand transition duration-200">Cotiza</h3>
+                <p class="text-sm sm:text-base text-slate-500 leading-relaxed font-light max-w-[260px] mx-auto">
+                  Usa nuestra calculadora para saber cuánto valdrá tu dinero al cambiarlo.
+                </p>
+              </div>
+            </div>
 
-             <!-- Icon Box (Top-Left) -->
-             <div class="w-24 h-24 flex items-center justify-center group-hover:scale-105 transition duration-300">
-               <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                 <!-- Mobile phone representation (tall & narrow) -->
-                 <rect x="32" y="16" width="36" height="68" rx="7" fill="#061B3D" stroke="#0B63FF" stroke-width="2.5"/>
-                 <!-- Speaker & Camera -->
-                 <line x1="45" y1="21" x2="55" y2="21" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
-                 <!-- Check Circle on screen -->
-                 <circle cx="50" cy="44" r="12" fill="#12D6EB" fill-opacity="0.15" stroke="#12D6EB" stroke-width="1.5"/>
-                 <!-- Check icon -->
-                 <path d="M46 44L49 47L55 41" stroke="#0B63FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                 <!-- Transfer arrows (brought closer horizontally) -->
-                 <path d="M26 32C28 26 31 22 36 22" stroke="#12D6EB" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="2 2"/>
-                 <path d="M72 68C72 74 69 78 64 78" stroke="#12D6EB" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="2 2"/>
-                 <!-- Voucher / Receipt flying out (brought closer) -->
-                 <g transform="translate(22, 58)">
-                   <!-- Voucher body -->
-                   <path d="M0 0H24V20L20 18L16 20L12 18L8 20L4 18L0 20V0Z" fill="#12D6EB" stroke="#061B3D" stroke-width="1.5"/>
-                   <!-- Lines -->
-                   <line x1="4" y1="5" x2="20" y2="5" stroke="#061B3D" stroke-width="1.5" stroke-linecap="round"/>
-                   <line x1="4" y1="9" x2="16" y2="9" stroke="#061B3D" stroke-width="1.5" stroke-linecap="round"/>
-                   <!-- text "VCH" -->
-                   <text x="12" y="15" font-family="Outfit" font-size="5" font-weight="900" fill="#061B3D" text-anchor="middle">VCH</text>
-                 </g>
-               </svg>
-             </div>
+            <!-- Paso 2 -->
+            <div class="flex flex-col md:flex-col-reverse items-center text-center justify-start gap-5 h-auto md:h-[280px] relative group">
+              <!-- Circle Icon Container -->
+              <div class="w-44 h-44 rounded-full bg-white border border-slate-100/80 flex items-center justify-center relative shadow-lg shadow-slate-100/70 group-hover:shadow-xl group-hover:scale-105 group-hover:border-altok-brand/20 transition-all duration-300 z-10 shrink-0">
+                <!-- Step Number Badge -->
+                <span class="absolute -top-1 -left-1 w-10 h-10 rounded-full bg-[#0b63ff] text-white flex items-center justify-center font-bold text-base border-2 border-white shadow-sm font-display select-none">2</span>
+                
+                <svg class="w-36 h-36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="50" r="40" fill="url(#gradStep1)" opacity="0.06"/>
+                  <!-- Mobile phone representation -->
+                  <rect x="32" y="14" width="36" height="70" rx="7" fill="#04142E" stroke="#0B63FF" stroke-width="3"/>
+                  <!-- Speaker & Camera -->
+                  <line x1="45" y1="19" x2="55" y2="19" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+                  <!-- Check Circle on screen -->
+                  <circle cx="50" cy="44" r="13" fill="#12D6EB" fill-opacity="0.2" stroke="#12D6EB" stroke-width="2"/>
+                  <!-- Check icon -->
+                  <path d="M45.5 44L48.5 47L54.5 41" stroke="#0B63FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- Transfer arrows -->
+                  <path d="M22 30C24 22 28 18 34 18" stroke="#12D6EB" stroke-width="3" stroke-linecap="round" stroke-dasharray="3 2"/>
+                  <path d="M76 68C76 76 72 80 66 80" stroke="#12D6EB" stroke-width="3" stroke-linecap="round" stroke-dasharray="3 2"/>
+                  <!-- Voucher / Receipt flying out -->
+                  <g transform="translate(18, 56)">
+                    <!-- Voucher body -->
+                    <path d="M0 0H26V22L21.5 20L17 22L12.5 20L8 22L3.5 20L0 22V0Z" fill="#12D6EB" stroke="#04142E" stroke-width="2"/>
+                    <!-- Lines -->
+                    <line x1="4" y1="5" x2="22" y2="5" stroke="#04142E" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="4" y1="10" x2="18" y2="10" stroke="#04142E" stroke-width="2" stroke-linecap="round"/>
+                    <!-- text "VCH" -->
+                    <text x="13" y="16" font-family="Outfit" font-size="6" font-weight="950" fill="#04142E" text-anchor="middle">VCH</text>
+                  </g>
+                </svg>
+              </div>
 
-             <div class="space-y-2">
-               <h3 class="font-bold text-[#061B3D] font-display text-xl group-hover:text-[#0B63FF] transition duration-200">Transfiere</h3>
-               <p class="text-sm text-slate-500 leading-relaxed font-light">
-                 Deposítanos el dinero desde tu banco y guarda el voucher.
-               </p>
-             </div>
-           </div>
+              <!-- Text Container -->
+              <div class="space-y-2">
+                <h3 class="font-extrabold text-[#04142E] font-display text-2xl group-hover:text-altok-brand transition duration-200">Transfiere</h3>
+                <p class="text-sm sm:text-base text-slate-500 leading-relaxed font-light max-w-[260px] mx-auto">
+                  Deposítanos el dinero desde tu banco y guarda el voucher.
+                </p>
+              </div>
+            </div>
 
-           <!-- Paso 3 -->
-           <div class="bg-white rounded-[32px] p-6 sm:p-8 border border-slate-100 flex flex-col items-start text-left space-y-5 hover:shadow-2xl hover:border-slate-200/50 transition-all duration-500 relative group shadow-md shadow-slate-100/50 min-h-[300px] sm:min-h-[340px]">
-             <!-- Corner Accents (Top-Right and Bottom-Left) -->
-             <div class="absolute -top-[1.5px] -right-[1.5px] w-14 h-14 border-t-[3.5px] border-r-[3.5px] border-[#061B3D] rounded-tr-[32px] pointer-events-none"></div>
-             <div class="absolute -bottom-[1.5px] -left-[1.5px] w-14 h-14 border-b-[3.5px] border-l-[3.5px] border-[#061B3D] rounded-bl-[32px] pointer-events-none"></div>
-             
-             <!-- Step Number Badge -->
-             <span class="absolute top-6 right-8 font-black text-3xl text-slate-100 font-display select-none">03</span>
+            <!-- Paso 3 -->
+            <div class="flex flex-col items-center text-center justify-start gap-5 h-auto md:h-[280px] relative group">
+              <!-- Circle Icon Container -->
+              <div class="w-44 h-44 rounded-full bg-white border border-slate-100/80 flex items-center justify-center relative shadow-lg shadow-slate-100/70 group-hover:shadow-xl group-hover:scale-105 group-hover:border-altok-brand/20 transition-all duration-300 z-10 shrink-0">
+                <!-- Step Number Badge -->
+                <span class="absolute -top-1 -left-1 w-10 h-10 rounded-full bg-[#0b63ff] text-white flex items-center justify-center font-bold text-base border-2 border-white shadow-sm font-display select-none">3</span>
+                
+                <svg class="w-36 h-36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Shield / Safe or Wallet background glow -->
+                  <circle cx="50" cy="50" r="38" fill="#12D6EB" fill-opacity="0.06"/>
+                  <!-- Banknotes Stack in colors -->
+                  <!-- Back note -->
+                  <rect x="28" y="20" width="28" height="50" rx="3.5" fill="#0B63FF" stroke="#04142E" stroke-width="2" transform="rotate(-15 42 45)"/>
+                  <!-- Middle note -->
+                  <rect x="33" y="22" width="28" height="50" rx="3.5" fill="#12D6EB" stroke="#04142E" stroke-width="2" transform="rotate(10 47 47)"/>
+                  <!-- Front note -->
+                  <rect x="36" y="25" width="28" height="50" rx="3.5" fill="#90CAF9" stroke="#04142E" stroke-width="2"/>
+                  <circle cx="50" cy="50" r="9" fill="#04142E" stroke="#12D6EB" stroke-width="2"/>
+                  <text x="50" y="54" font-family="Outfit" font-size="13" font-weight="950" fill="#12D6EB" text-anchor="middle">$</text>
+                  
+                  <!-- Fast speed/time lines -->
+                  <path d="M14 40H22M12 46H20M15 52H22" stroke="#12D6EB" stroke-width="2.5" stroke-linecap="round"/>
+                  <!-- Happy flying coins -->
+                  <circle cx="78" cy="32" r="7" fill="#04142E" stroke="#12D6EB" stroke-width="2"/>
+                  <circle cx="76" cy="62" r="6" fill="#04142E" stroke="#0B63FF" stroke-width="2"/>
+                </svg>
+              </div>
 
-             <!-- Icon Box (Top-Left) -->
-             <div class="w-24 h-24 flex items-center justify-center group-hover:scale-105 transition duration-300">
-               <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                 <!-- Shield / Safe or Wallet background glow -->
-                 <circle cx="50" cy="50" r="36" fill="#12D6EB" fill-opacity="0.05"/>
-                 <!-- Banknotes Stack in colors (vertical alignment) -->
-                 <!-- Back note -->
-                 <rect x="30" y="22" width="26" height="48" rx="3" fill="#0B63FF" stroke="#061B3D" stroke-width="1.5" transform="rotate(-15 43 46)"/>
-                 <!-- Middle note -->
-                 <rect x="34" y="24" width="26" height="48" rx="3" fill="#12D6EB" stroke="#061B3D" stroke-width="1.5" transform="rotate(10 47 48)"/>
-                 <!-- Front note -->
-                 <rect x="37" y="26" width="26" height="48" rx="3" fill="#90CAF9" stroke="#061B3D" stroke-width="1.5"/>
-                 <circle cx="50" cy="50" r="8" fill="#061B3D" stroke="#12D6EB" stroke-width="1.5"/>
-                 <text x="50" y="54" font-family="Outfit" font-size="12" font-weight="900" fill="#12D6EB" text-anchor="middle">$</text>
-                 
-                 <!-- Fast speed/time lines (representing 15 mins) -->
-                 <path d="M16 40H24M14 46H22M18 52H24" stroke="#12D6EB" stroke-width="2" stroke-linecap="round"/>
-                 <!-- Happy flying coins -->
-                 <circle cx="78" cy="34" r="6" fill="#061B3D" stroke="#12D6EB" stroke-width="1.5"/>
-                 <circle cx="76" cy="62" r="5" fill="#061B3D" stroke="#0B63FF" stroke-width="1.5"/>
-               </svg>
-             </div>
-
-             <div class="space-y-2">
-               <h3 class="font-bold text-[#061B3D] font-display text-xl group-hover:text-[#0B63FF] transition duration-200">Recibe</h3>
-               <p class="text-sm text-slate-500 leading-relaxed font-light">
-                 Enviaremos tu cambio a cualquier banco en un estimado de 15 minutos (Aplican T&C).
-               </p>
-             </div>
-           </div>
+              <!-- Text Container -->
+              <div class="space-y-2">
+                <h3 class="font-extrabold text-[#04142E] font-display text-2xl group-hover:text-altok-brand transition duration-200">Recibe</h3>
+                <p class="text-sm sm:text-base text-slate-500 leading-relaxed font-light max-w-[260px] mx-auto">
+                  Enviaremos tu cambio a cualquier banco en un estimado de 15 minutos (Aplican T&C).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
          </div>
 
       </div>
-
-    </div>
   </section>
 
   <!-- ==================== ALERTAS Y DESCARGA (PROMO APP) ==================== -->
@@ -1189,9 +1194,6 @@
         <!-- ===== LADO IZQUIERDO: Copy + Botones ===== -->
         <div class="lg:col-span-6 space-y-8">
 
-          <!-- Badge live -->
-          <div class="inline-flex items-center gap-2.5 bg-[#12D6EB]/10 border border-[#12D6EB]/20 px-4 py-1.5 rounded-full">
-          </div>
 
           <!-- Título -->
           <div class="space-y-4">
@@ -1388,91 +1390,106 @@
 
 
   <!-- ==================== ¿POR QUÉ CAMBIAR CON NOSOTROS? ==================== -->
-  <section id="ayuda" class="py-12 sm:py-16 lg:py-20 bg-white border-b border-slate-100 scroll-mt-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="ayuda" class="relative scroll-mt-24">
+    <!-- Top Banner (Dark Navy with brand gradient) -->
+    <div class="bg-[#061B3D] pt-20 pb-44 text-center relative overflow-hidden">
+      <!-- Glow Orbs -->
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-[-80px] left-[-80px] w-96 h-96 bg-[#0B63FF]/20 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-[-80px] right-[-80px] w-96 h-96 bg-[#12D6EB]/15 rounded-full blur-[100px]"></div>
+      </div>
       
-      <!-- Título de sección -->
-      <div class="text-center mb-10 sm:mb-12 lg:mb-16">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#002f34] font-display">
+      <!-- HUD grid line overlay -->
+      <div class="absolute inset-0 pointer-events-none opacity-[0.03]"
+           style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 48px 48px;">
+      </div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-display tracking-tight">
           ¿Por qué cambiar con nosotros?
         </h2>
-        <div class="w-12 h-1 bg-[#00f2d1] mx-auto rounded-full mt-2"></div>
+        <div class="w-16 h-1 bg-gradient-to-r from-altok-brand to-altok-cyan mx-auto rounded-full mt-3"></div>
       </div>
+    </div>
 
-      <!-- Grid de Beneficios -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+    <!-- Bottom Wrapper (White background where cards sit) -->
+    <div class="bg-white pb-20 border-b border-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- Beneficio 1 -->
-        <div class="bg-white rounded-[32px] p-8 border border-slate-100 hover:shadow-2xl hover:border-slate-200/50 transition-all duration-500 flex flex-col min-h-[360px] group text-center shadow-md shadow-slate-100/50">
-          <div class="space-y-4 flex-grow flex flex-col justify-start">
-            <!-- Icono Campana (Centered, circular border, pastel bg) -->
-            <div class="w-20 h-20 rounded-full border-2 border-teal-500/20 bg-[#e6fcf9] text-teal-600 flex items-center justify-center mx-auto transition duration-300 group-hover:scale-105 shrink-0">
-              <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+        <!-- Cards Grid (Overlaps the navy banner) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto -mt-28 relative z-20">
+          
+          <!-- Beneficio 1: Alertas -->
+          <div class="bg-white/75 backdrop-blur-md rounded-3xl p-8 border border-white/40 shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 flex flex-col justify-between min-h-[340px] text-left group">
+            <div>
+              <!-- Icono Campana (Top-Left, Solid circle, brand blue) -->
+              <div class="w-14 h-14 rounded-full bg-[#0B63FF] text-white flex items-center justify-center mb-6 transition duration-300 group-hover:scale-105 shrink-0 shadow-md shadow-[#0B63FF]/20">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+              </div>
+              
+              <h3 class="text-xl sm:text-2xl font-black text-[#04142E] font-display leading-tight mb-3">
+                Alertas de tipo de cambio
+              </h3>
+              <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-light">
+                Te notificamos cuando el boliviano llegue al precio que buscas. Crea tu alarma desde la App Cambia Altok.
+              </p>
             </div>
             
-            <h3 class="text-xl font-bold text-[#061B3D] font-display leading-tight pt-2">
-              Alertas de tipo de cambio
-            </h3>
-            <p class="text-sm text-slate-500 leading-relaxed font-light px-2 flex-grow">
-              Te notificamos cuando el boliviano llegue al precio que buscas. Crea tu alarma desde la <strong>App Cambia Altok</strong>.
-            </p>
+            <a href="#" class="text-xs font-bold uppercase tracking-wider text-[#0B63FF] group-hover:text-altok-cyan transition-colors duration-300 flex items-center gap-1.5 mt-6 shrink-0">
+              CREAR ALERTA <span class="group-hover:translate-x-1 transition-transform duration-300">&rarr;</span>
+            </a>
           </div>
-          
-          <a href="#" class="w-full max-w-[180px] mx-auto py-3 bg-teal-500 hover:bg-teal-600 text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-md shadow-teal-500/20 text-center hover:scale-105 transition duration-300 mt-6 shrink-0">
-            CREAR ALERTA
-          </a>
-        </div>
 
-        <!-- Beneficio 2 -->
-        <div class="bg-white rounded-[32px] p-8 border border-slate-100 hover:shadow-2xl hover:border-slate-200/50 transition-all duration-500 flex flex-col min-h-[360px] group text-center shadow-md shadow-slate-100/50">
-          <div class="space-y-4 flex-grow flex flex-col justify-start">
-            <!-- Icono Caja Fuerte (Centered, circular border, pastel bg) -->
-            <div class="w-20 h-20 rounded-full border-2 border-sky-500/20 bg-[#f0f9ff] text-sky-600 flex items-center justify-center mx-auto transition duration-300 group-hover:scale-105 shrink-0">
-              <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
+          <!-- Beneficio 2: TC Preferencial -->
+          <div class="bg-white/75 backdrop-blur-md rounded-3xl p-8 border border-white/40 shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 flex flex-col justify-between min-h-[340px] text-left group">
+            <div>
+              <!-- Icono TC Preferencial (Top-Left, Solid circle, brand blue) -->
+              <div class="w-14 h-14 rounded-full bg-[#0B63FF] text-white flex items-center justify-center mb-6 transition duration-300 group-hover:scale-105 shrink-0 shadow-md shadow-[#0B63FF]/20">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z" />
+                </svg>
+              </div>
+              
+              <h3 class="text-xl sm:text-2xl font-black text-[#04142E] font-display leading-tight mb-3">
+                TC Preferencial
+              </h3>
+              <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-light">
+                Obtén un tipo de cambio preferencial por WhatsApp para grandes montos corporativos o personales.
+              </p>
             </div>
-
-            <h3 class="text-xl font-bold text-[#061B3D] font-display leading-tight pt-2">
-              TC Preferencial
-            </h3>
-            <p class="text-sm text-slate-500 leading-relaxed font-light px-2 flex-grow">
-              Obtén un <strong>tipo de cambio preferencial</strong> por WhatsApp para grandes montos corporativos o personales.
-            </p>
+            
+            <a href="#" class="text-xs font-bold uppercase tracking-wider text-[#0B63FF] group-hover:text-altok-cyan transition-colors duration-300 flex items-center gap-1.5 mt-6 shrink-0">
+              SOLICITAR TASA <span class="group-hover:translate-x-1 transition-transform duration-300">&rarr;</span>
+            </a>
           </div>
 
-          <a href="#" class="w-full max-w-[180px] mx-auto py-3 bg-sky-500 hover:bg-sky-600 text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-md shadow-sky-500/20 text-center hover:scale-105 transition duration-300 mt-6 shrink-0">
-            SOLICITAR TASA
-          </a>
-        </div>
-
-        <!-- Beneficio 3 -->
-        <div class="bg-white rounded-[32px] p-8 border border-slate-100 hover:shadow-2xl hover:border-slate-200/50 transition-all duration-500 flex flex-col min-h-[360px] group text-center shadow-md shadow-slate-100/50">
-          <div class="space-y-4 flex-grow flex flex-col justify-start">
-            <!-- Icono Piggy/WhatsApp (Centered, circular border, pastel bg) -->
-            <div class="w-20 h-20 rounded-full border-2 border-emerald-500/20 bg-[#f0fdf4] text-emerald-600 flex items-center justify-center mx-auto transition duration-300 group-hover:scale-105 shrink-0">
-              <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-              </svg>
+          <!-- Beneficio 3: WhatsApp -->
+          <div class="bg-white/75 backdrop-blur-md rounded-3xl p-8 border border-white/40 shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 flex flex-col justify-between min-h-[340px] text-left group">
+            <div>
+              <!-- Icono Chat (Top-Left, Solid circle, brand blue) -->
+              <div class="w-14 h-14 rounded-full bg-[#0B63FF] text-white flex items-center justify-center mb-6 transition duration-300 group-hover:scale-105 shrink-0 shadow-md shadow-[#0B63FF]/20">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+              </div>
+              
+              <h3 class="text-xl sm:text-2xl font-black text-[#04142E] font-display leading-tight mb-3">
+                Atención por WhatsApp
+              </h3>
+              <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-light">
+                ¿Tienes alguna duda? Escríbenos por WhatsApp al 922 340 125 para ayudarte en tiempo real.
+              </p>
             </div>
-
-            <h3 class="text-xl font-bold text-[#061B3D] font-display leading-tight pt-2">
-              Atención por WhatsApp
-            </h3>
-            <p class="text-sm text-slate-500 leading-relaxed font-light px-2 flex-grow">
-              ¿Tienes alguna duda? Escríbenos por WhatsApp al <strong>922 340 125</strong> para ayudarte en tiempo real.
-            </p>
+            
+            <a href="https://wa.me/51922340125" target="_blank" class="text-xs font-bold uppercase tracking-wider text-[#0B63FF] group-hover:text-altok-cyan transition-colors duration-300 flex items-center gap-1.5 mt-6 shrink-0">
+              CONTACTAR <span class="group-hover:translate-x-1 transition-transform duration-300">&rarr;</span>
+            </a>
           </div>
 
-          <a href="https://wa.me/51922340125" target="_blank" class="w-full max-w-[180px] mx-auto py-3 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-md shadow-emerald-500/20 text-center hover:scale-105 transition duration-300 mt-6 shrink-0">
-            CONTACTAR
-          </a>
         </div>
-
       </div>
-
     </div>
   </section>
 
@@ -1500,13 +1517,13 @@
     <div class="absolute top-1/2 left-[5%] w-1 h-1 bg-white/50 rounded-full opacity-30 animate-ping" style="animation-duration:4s; animation-delay:1.5s;"></div>
 
     <!-- Contenedor principal -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14 relative z-10">
       
       <!-- Cifras de Confianza - Título + Estadísticas -->
-      <div class="space-y-8 sm:space-y-12 lg:space-y-16 mb-16 sm:mb-20 lg:mb-28">
+      <div class="space-y-10 sm:space-y-12">
 
         <!-- Título y Descripción Centrados (ahora en blanco) -->
-        <div class="text-center max-w-3xl mx-auto space-y-5">
+        <div class="text-center max-w-3xl mx-auto space-y-4">
           <h2 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-white font-display leading-tight">
             Números que inspiran <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#12D6EB] to-[#0B63FF]">confianza</span> al momento de cambiar bolivianos y soles
           </h2>
@@ -1515,51 +1532,51 @@
           </p>
         </div>
 
-        <!-- Estadísticas en cuadrícula grande -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl max-w-5xl mx-auto">
+        <!-- Estadísticas en cuadrícula sin recuadros transparentes -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 max-w-5xl mx-auto pt-4">
 
           <!-- Cifra 1 -->
-          <div class="bg-[#061B3D]/60 backdrop-blur-sm px-4 sm:px-6 py-8 sm:py-10 flex flex-col items-center justify-center text-center space-y-3 group hover:bg-[#0B63FF]/20 transition-all duration-300">
-            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0B63FF]/30 to-[#12D6EB]/20 flex items-center justify-center border border-[#12D6EB]/20 mb-1 group-hover:scale-110 transition-transform duration-300">
-              <svg class="w-6 h-6 text-[#12D6EB]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <div class="flex flex-col items-center justify-center text-center space-y-2.5 group">
+            <div class="text-[#12D6EB] mb-1 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
-            <span class="text-2xl sm:text-3xl lg:text-4xl font-black text-white font-display tracking-tight leading-none">+ 2M</span>
-            <span class="text-xs text-slate-400 font-medium uppercase tracking-widest leading-tight">Operaciones<br>realizadas</span>
+            <span class="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-display tracking-tight leading-none">+ 2M</span>
+            <span class="text-xs sm:text-sm text-slate-400 font-medium uppercase tracking-widest leading-normal">Operaciones<br>realizadas</span>
           </div>
 
           <!-- Cifra 2 -->
-          <div class="bg-[#061B3D]/60 backdrop-blur-sm px-4 sm:px-6 py-8 sm:py-10 flex flex-col items-center justify-center text-center space-y-3 group hover:bg-[#0B63FF]/20 transition-all duration-300">
-            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0B63FF]/30 to-[#12D6EB]/20 flex items-center justify-center border border-[#12D6EB]/20 mb-1 group-hover:scale-110 transition-transform duration-300">
-              <svg class="w-6 h-6 text-[#12D6EB]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <div class="flex flex-col items-center justify-center text-center space-y-2.5 group">
+            <div class="text-[#12D6EB] mb-1 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <span class="text-2xl sm:text-3xl lg:text-4xl font-black text-white font-display tracking-tight leading-none">+ 400K</span>
-            <span class="text-xs text-slate-400 font-medium uppercase tracking-widest leading-tight">Usuarios<br>registrados</span>
+            <span class="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-display tracking-tight leading-none">+ 400K</span>
+            <span class="text-xs sm:text-sm text-slate-400 font-medium uppercase tracking-widest leading-normal">Usuarios<br>registrados</span>
           </div>
 
           <!-- Cifra 3 -->
-          <div class="bg-[#061B3D]/60 backdrop-blur-sm px-4 sm:px-6 py-8 sm:py-10 flex flex-col items-center justify-center text-center space-y-3 group hover:bg-[#0B63FF]/20 transition-all duration-300">
-            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0B63FF]/30 to-[#12D6EB]/20 flex items-center justify-center border border-[#12D6EB]/20 mb-1 group-hover:scale-110 transition-transform duration-300">
-              <svg class="w-6 h-6 text-[#12D6EB]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <div class="flex flex-col items-center justify-center text-center space-y-2.5 group">
+            <div class="text-[#12D6EB] mb-1 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <span class="text-2xl sm:text-3xl lg:text-4xl font-black text-white font-display tracking-tight leading-none">+ S/20M</span>
-            <span class="text-xs text-slate-400 font-medium uppercase tracking-widest leading-tight">Ahorrados<br>por usuarios</span>
+            <span class="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-display tracking-tight leading-none">+ S/20M</span>
+            <span class="text-xs sm:text-sm text-slate-400 font-medium uppercase tracking-widest leading-normal">Ahorrados<br>por usuarios</span>
           </div>
 
           <!-- Cifra 4 -->
-          <div class="bg-[#061B3D]/60 backdrop-blur-sm px-4 sm:px-6 py-8 sm:py-10 flex flex-col items-center justify-center text-center space-y-3 group hover:bg-[#0B63FF]/20 transition-all duration-300">
-            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0B63FF]/30 to-[#12D6EB]/20 flex items-center justify-center border border-[#12D6EB]/20 mb-1 group-hover:scale-110 transition-transform duration-300">
-              <svg class="w-6 h-6 text-[#12D6EB]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <div class="flex flex-col items-center justify-center text-center space-y-2.5 group">
+            <div class="text-[#12D6EB] mb-1 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
               </svg>
             </div>
-            <span class="text-2xl sm:text-3xl lg:text-4xl font-black text-white font-display tracking-tight leading-none">+ Bs3B</span>
-            <span class="text-xs text-slate-400 font-medium uppercase tracking-widest leading-tight">Bolivianos<br>cambiados</span>
+            <span class="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-display tracking-tight leading-none">+ Bs3B</span>
+            <span class="text-xs sm:text-sm text-slate-400 font-medium uppercase tracking-widest leading-normal">Bolivianos<br>cambiados</span>
           </div>
         </div>
       </div>
@@ -1965,12 +1982,12 @@
   <!-- ==================== CONTENIDO EXCLUSIVO: AYUDA ==================== -->
   <div *ngIf="isAyuda()" class="space-y-0 animate-fade-in bg-white min-h-[60vh] pb-24">
     <!-- Header Hero Ayuda -->
-    <header class="relative bg-gradient-to-br from-[#002f34] via-[#003c42] to-[#004e57] text-white overflow-hidden pb-16 pt-16 px-4 sm:px-6 lg:px-8 text-center rounded-b-[40px] shadow-lg">
+    <header class="relative bg-gradient-to-br from-[#04142E] via-[#061B3D] to-[#0B63FF] text-white overflow-hidden pb-16 pt-16 px-4 sm:px-6 lg:px-8 text-center rounded-b-[40px] shadow-lg">
       <div class="max-w-4xl mx-auto space-y-4">
         <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white font-display">
           Preguntas Frecuentes
         </h1>
-        <div class="w-16 h-1 bg-[#00f2d1] mx-auto rounded-full"></div>
+        <div class="w-16 h-1 bg-gradient-to-r from-altok-brand to-altok-cyan mx-auto rounded-full"></div>
         <p class="text-sm sm:text-base text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
           ¿Tienes preguntas acerca de Cambia Altok? ¡Esperamos que esta lista de preguntas frecuentes pueda ayudarte!
         </p>
@@ -1982,14 +1999,14 @@
       
       <!-- 1. Sobre el proceso de cambio -->
       <div class="space-y-4">
-        <h3 class="text-lg font-bold text-[#002f34] font-display">Sobre el proceso de cambio</h3>
+        <h3 class="text-lg font-bold text-[#04142E] font-display">Sobre el proceso de cambio</h3>
         <div class="border-t border-slate-100 divide-y divide-slate-100 bg-white rounded-2xl shadow-sm border border-slate-100/80 overflow-hidden">
           
           <!-- Q1 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('proceso_1')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Cuál es el procedimiento de cambio?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_1']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿Cuál es el procedimiento de cambio?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_1']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['proceso_1']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               Para cambiar soles o bolivianos, primero cotiza tu operación en nuestra calculadora, selecciona tu cuenta de destino, realiza la transferencia desde la app o web de tu banco a la cuenta de Cambia Altok que te indiquemos y, finalmente, ingresa tu número de operación. ¡Tu dinero estará en tu cuenta en un promedio de 15 minutos!
@@ -1999,8 +2016,8 @@
           <!-- Q2 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('proceso_2')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Con qué bancos trabajan?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_2']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿Con qué bancos trabajan?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_2']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['proceso_2']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               Trabajamos con transferencias inmediatas con el BCP e Interbank en todo el país. Para BanBif, BBVA, Scotiabank y Banco Pichincha, operamos de manera inmediata para cuentas registradas en Lima. Para otras regiones o bancos, las transferencias se procesan de forma interbancaria diferida y pueden tomar hasta 24 horas útiles.
@@ -2010,8 +2027,8 @@
           <!-- Q3 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('proceso_3')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿En cuánto tiempo tendré mi cambio?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_3']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿En cuánto tiempo tendré mi cambio?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_3']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['proceso_3']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               Las operaciones inmediatas demoran en promedio 15 minutos desde que validamos tu transferencia. Para transferencias interbancarias, la duración depende de los horarios establecidos por la Cámara de Compensación Electrónica (CCE), realizándose en el transcurso del día o en la mañana del siguiente día útil.
@@ -2021,8 +2038,8 @@
           <!-- Q4 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('proceso_4')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Dónde encuentro el número de operación?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_4']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿Dónde encuentro el número de operación?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_4']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['proceso_4']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               Puedes encontrar este número directamente en la constancia de transferencia emitida por la app de tu banco. Usualmente está rotulado como "Número de operación", "Nro. de referencia" o "Número de transacción" y consta de 6 a 12 dígitos.
@@ -2032,8 +2049,8 @@
           <!-- Q5 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('proceso_5')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Por qué solo me permite seleccionar la cuenta de destino? ¿Cómo debitarán el dinero?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_5']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿Por qué solo me permite seleccionar la cuenta de destino? ¿Cómo debitarán el dinero?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_5']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['proceso_5']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               Por razones de máxima seguridad, Cambia Altok no tiene acceso para debitar dinero directamente de tus cuentas bancarias. Eres tú quien debe ingresar a la app de tu banco y hacer la transferencia de forma manual hacia la cuenta de destino de Cambia Altok provista durante la operación.
@@ -2043,8 +2060,8 @@
           <!-- Q6 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('proceso_6')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Hasta qué monto puedo cambiar en Cambia Altok?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_6']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿Hasta qué monto puedo cambiar en Cambia Altok?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_6']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['proceso_6']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               No hay un límite máximo de cambio. Para operaciones mayores a 35,000 Bs. o S/. 18,000 soles, disponemos de tasas preferenciales mejoradas que puedes negociar de forma instantánea contactando con nuestros operadores.
@@ -2054,8 +2071,8 @@
           <!-- Q7 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('proceso_7')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Hay algún monto mínimo por transacción?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_7']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿Hay algún monto mínimo por transacción?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_7']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['proceso_7']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               El monto mínimo para procesar un cambio en nuestra plataforma es de 70 Bs. o su contravalor en soles peruanos.
@@ -2065,8 +2082,8 @@
           <!-- Q8 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('proceso_8')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Cuál es mi cupón de bienvenida?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_8']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿Cuál es mi cupón de bienvenida?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['proceso_8']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['proceso_8']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               Los nuevos usuarios registrados pueden utilizar el cupón **MIPRIMERKAMBIO** en su primera transacción para recibir una mejora especial en el margen de su tipo de cambio.
@@ -2078,14 +2095,14 @@
 
       <!-- 2. Sobre seguridad -->
       <div class="space-y-4">
-        <h3 class="text-lg font-bold text-[#002f34] font-display">Sobre seguridad</h3>
+        <h3 class="text-lg font-bold text-[#04142E] font-display">Sobre seguridad</h3>
         <div class="border-t border-slate-100 divide-y divide-slate-100 bg-white rounded-2xl shadow-sm border border-slate-100/80 overflow-hidden">
           
           <!-- Q1 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('seguridad_1')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Cuáles son las plataformas oficiales de Cambia Altok?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_1']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿Cuáles son las plataformas oficiales de Cambia Altok?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_1']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['seguridad_1']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               Nuestras únicas plataformas oficiales son el portal web oficial (https://cambiaaltok.com) y nuestras aplicaciones móviles oficiales disponibles en Google Play (Android), App Store (iOS) y AppGallery (Huawei). No realices operaciones fuera de estas plataformas.
@@ -2095,8 +2112,8 @@
           <!-- Q2 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('seguridad_2')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Es necesaria la validación de identidad?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_2']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿Es necesaria la validación de identidad?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_2']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['seguridad_2']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               Sí, es una exigencia legal dictaminada por la Superintendencia de Banca, Seguros y AFP (SBS) y la Unidad de Inteligencia Financiera (UIF) en el marco de prevención de lavado de activos. Todo usuario debe verificar su identidad antes de cambiar dinero.
@@ -2106,8 +2123,8 @@
           <!-- Q3 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('seguridad_3')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Cómo realizo mi validación de identidad?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_3']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿Cómo realizo mi validación de identidad?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_3']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['seguridad_3']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               Al registrarte, completa tus datos personales y carga fotos nítidas de tu documento de identidad (DNI, Carné de Extranjería o Pasaporte). Para completar la validación biométrica, se te solicitará una selfi rápida. El proceso se aprueba de forma automática en pocos segundos.
@@ -2117,8 +2134,8 @@
           <!-- Q4 (Italics) -->
           <div class="group">
             <button (click)="toggleAyudaFaq('seguridad_4')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition italic">¿Cambia Altok es seguro?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_4']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition italic">¿Cambia Altok es seguro?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_4']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['seguridad_4']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               Sí. Cambia Altok es una empresa regulada por la SBS mediante Resolución de Registro Nro. 00335-2017. Manejamos altos estándares de cifrado SSL/TLS de grado bancario para proteger toda tu información y operaciones financieras.
@@ -2128,8 +2145,8 @@
           <!-- Q5 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('seguridad_5')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Puedo enviar mi cambio a una cuenta que no es mía?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_5']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿Puedo enviar mi cambio a una cuenta que no es mía?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_5']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['seguridad_5']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               No. Por regulaciones estrictas contra el fraude y lavado de dinero, todas las transferencias de origen y las cuentas bancarias de destino deben pertenecer única y exclusivamente al mismo titular que está registrado en Cambia Altok.
@@ -2139,8 +2156,8 @@
           <!-- Q6 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('seguridad_6')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Cambia Altok cambia criptomonedas u ofrece servicios de inversión?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_6']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿Cambia Altok cambia criptomonedas u ofrece servicios de inversión?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['seguridad_6']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['seguridad_6']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               No. Cambia Altok funciona únicamente como una plataforma digital de cambio de bolivianos y soles físicas de curso legal (soles peruanos y bolivianos americanos). No gestionamos criptomonedas, acciones o carteras de inversión.
@@ -2152,14 +2169,14 @@
 
       <!-- 3. Operaciones frecuentes -->
       <div class="space-y-4">
-        <h3 class="text-lg font-bold text-[#002f34] font-display">Operaciones frecuentes</h3>
+        <h3 class="text-lg font-bold text-[#04142E] font-display">Operaciones frecuentes</h3>
         <div class="border-t border-slate-100 divide-y divide-slate-100 bg-white rounded-2xl shadow-sm border border-slate-100/80 overflow-hidden">
           
           <!-- Q1 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('frecuentes_1')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Cómo guardo mi operación como "Operación frecuente"?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['frecuentes_1']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿Cómo guardo mi operación como "Operación frecuente"?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['frecuentes_1']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['frecuentes_1']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               Durante el proceso de ingreso de datos para tu transferencia, verás una casilla de verificación que indica "Guardar como operación frecuente". Al marcarla, podrás asignarle un alias (ej. "Pago de Tarjeta BCP") para seleccionarla directamente en tus próximos cambios.
@@ -2169,8 +2186,8 @@
           <!-- Q2 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('frecuentes_2')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Cuántas operaciones frecuentes puedo guardar?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['frecuentes_2']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿Cuántas operaciones frecuentes puedo guardar?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['frecuentes_2']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['frecuentes_2']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               No hay un límite de almacenamiento. Puedes guardar todas las cuentas y operaciones recurrentes que desees para acelerar tus flujos mensuales de cambio de dinero.
@@ -2180,8 +2197,8 @@
           <!-- Q3 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('frecuentes_3')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Puedo modificar los datos de mi operación frecuente? ¿Qué sucede si lo hago?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['frecuentes_3']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿Puedo modificar los datos de mi operación frecuente? ¿Qué sucede si lo hago?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['frecuentes_3']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['frecuentes_3']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               Sí, puedes modificar los datos de tus cuentas bancarias y alias guardados desde la configuración de tu perfil. Al guardar los cambios, las nuevas especificaciones se aplicarán automáticamente a tus futuras transferencias.
@@ -2193,14 +2210,14 @@
 
       <!-- 4. Otras preguntas -->
       <div class="space-y-4">
-        <h3 class="text-lg font-bold text-[#002f34] font-display">Otras preguntas</h3>
+        <h3 class="text-lg font-bold text-[#04142E] font-display">Otras preguntas</h3>
         <div class="border-t border-slate-100 divide-y divide-slate-100 bg-white rounded-2xl shadow-sm border border-slate-100/80 overflow-hidden">
           
           <!-- Q1 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('otras_1')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Qué es el ahorro acumulado? ¿Puedo retirarlo?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['otras_1']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿Qué es el ahorro acumulado? ¿Puedo retirarlo?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['otras_1']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['otras_1']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               El ahorro acumulado es un indicador de referencia en tu perfil que muestra la suma total aproximada que has ahorrado al operar con Cambia Altok en vez de cambiar con los bancos tradicionales. No constituye un saldo en efectivo y no es retirable.
@@ -2210,8 +2227,8 @@
           <!-- Q2 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('otras_2')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Hay algún cobro/comisión de parte de Cambia Altok por el cambio que haga?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['otras_2']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿Hay algún cobro/comisión de parte de Cambia Altok por el cambio que haga?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['otras_2']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['otras_2']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               No cobramos comisiones ni tasas de servicio adicionales. El tipo de cambio cotizado en la calculadora al inicio de tu operación es el valor neto e invariable que se transferirá a tu cuenta.
@@ -2221,8 +2238,8 @@
           <!-- Q3 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('otras_3')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-semibold text-[#002f34] pr-4 group-hover:text-teal-600 transition">¿Puedo pagar mi tarjeta de crédito?</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['otras_3']">+</span>
+              <span class="text-sm font-semibold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">¿Puedo pagar mi tarjeta de crédito?</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['otras_3']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['otras_3']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               Sí, puedes indicar como cuenta de destino una cuenta de ahorros y luego pagar tu tarjeta desde la app de tu banco habitual. Si el banco permite abono directo a la tarjeta por transferencia ordinaria, también puedes registrarla como destino de fondos.
@@ -2234,14 +2251,14 @@
 
       <!-- 5. Legal (All question titles in bold) -->
       <div class="space-y-4">
-        <h3 class="text-lg font-bold text-[#002f34] font-display">Legal</h3>
+        <h3 class="text-lg font-bold text-[#04142E] font-display">Legal</h3>
         <div class="border-t border-slate-100 divide-y divide-slate-100 bg-white rounded-2xl shadow-sm border border-slate-100/80 overflow-hidden">
           
           <!-- Q1 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('legal_1')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-bold text-[#002f34] pr-4 group-hover:text-teal-600 transition">Términos y condiciones</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['legal_1']">+</span>
+              <span class="text-sm font-bold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">Términos y condiciones</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['legal_1']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['legal_1']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               Nuestros Términos y Condiciones regulan el acuerdo legal, las obligaciones operativas, los plazos bancarios, y las responsabilidades del usuario al utilizar la plataforma de Cambia Altok. Puedes consultarlos al completo en el enlace del pie de página.
@@ -2251,8 +2268,8 @@
           <!-- Q2 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('legal_2')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-bold text-[#002f34] pr-4 group-hover:text-teal-600 transition">Políticas de privacidad</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['legal_2']">+</span>
+              <span class="text-sm font-bold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">Políticas de privacidad</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['legal_2']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['legal_2']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               Nos comprometemos a salvaguardar tu información privada bajo los estándares de la Ley Nro. 29733 de Protección de Datos Personales de Perú. Detalla cómo gestionamos tu información bancaria e identidad.
@@ -2262,8 +2279,8 @@
           <!-- Q3 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('legal_3')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-bold text-[#002f34] pr-4 group-hover:text-teal-600 transition">Políticas de cookies</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['legal_3']">+</span>
+              <span class="text-sm font-bold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">Políticas de cookies</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['legal_3']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['legal_3']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               Empleamos cookies técnicas, analíticas y de marketing para mejorar el rendimiento del sitio web y proveerte de anuncios personalizados. Puedes restringir el uso de cookies modificando la configuración de tu navegador de internet.
@@ -2273,8 +2290,8 @@
           <!-- Q4 -->
           <div class="group">
             <button (click)="toggleAyudaFaq('legal_4')" class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none transition-all hover:bg-slate-50/50">
-              <span class="text-sm font-bold text-[#002f34] pr-4 group-hover:text-teal-600 transition">Kambi Koinks</span>
-              <span class="text-lg font-bold text-[#00f2d1] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['legal_4']">+</span>
+              <span class="text-sm font-bold text-[#04142E] pr-4 group-hover:text-[#0B63FF] transition">Kambi Koinks</span>
+              <span class="text-lg font-bold text-[#12D6EB] transition transform select-none shrink-0" [class.rotate-45]="faqAyudaOpen()['legal_4']">+</span>
             </button>
             <div *ngIf="faqAyudaOpen()['legal_4']" class="px-6 pb-5 text-xs text-slate-500 font-light leading-relaxed animate-fade-in">
               Kambi Koinks es nuestro programa de fidelización exclusivo. Al acumular Koinks mediante transacciones continuadas en la plataforma, podrás desbloquear de forma automatizada mejores tipos de cambio mediante cupones especiales.
@@ -2288,141 +2305,179 @@
   </div>
 
   <!-- ==================== CONTENIDO EXCLUSIVO: CONTACTO ==================== -->
-  <div *ngIf="isContacto()" class="space-y-0 animate-fade-in bg-slate-50 min-h-[60vh] pb-24">
+  <div *ngIf="isContacto()" class="space-y-0 animate-fade-in bg-[#F4F7FB] min-h-[60vh] pb-24 relative overflow-hidden">
+    <!-- Glow behind layout (Faint light mode) -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#0B63FF]/5 rounded-full blur-[130px]"></div>
+      <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#12D6EB]/5 rounded-full blur-[110px]"></div>
+    </div>
+
     <!-- Header Hero Contacto -->
-    <header class="relative bg-gradient-to-r from-blue-700 via-indigo-700 to-indigo-900 text-white overflow-hidden pb-16 pt-16 px-4 sm:px-6 lg:px-8 text-center rounded-b-[40px] shadow-lg">
-      <div class="max-w-4xl mx-auto space-y-4">
+    <header class="relative bg-gradient-to-br from-[#04142E] via-[#061B3D] to-[#0B63FF] text-white overflow-hidden pb-16 pt-16 px-4 sm:px-6 lg:px-8 text-center rounded-b-[40px] shadow-lg">
+      <!-- HUD grid line overlay -->
+      <div class="absolute inset-0 pointer-events-none opacity-[0.03]"
+           style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 48px 48px;">
+      </div>
+      
+      <div class="max-w-4xl mx-auto space-y-3 relative z-10 flex flex-col items-center">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#12D6EB]/30 bg-[#12D6EB]/10 text-[10px] text-[#12D6EB] font-mono tracking-widest uppercase mb-1">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#12D6EB] opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-[#12D6EB]"></span>
+          </span>
+          SOPORTE EN VIVO
+        </div>
         <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white font-display">
-          Estamos para <span class="text-[#00f2d1]">ayudarte</span>.
+          Estamos para <span class="text-[#12D6EB]">ayudarte</span>.
         </h1>
-        <p class="text-sm sm:text-base text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
+        <p class="text-sm sm:text-base text-white/85 max-w-2xl mx-auto font-light leading-relaxed">
           Encuéntranos por el canal que prefieras. Respondemos rápido — sin chatbots.
         </p>
       </div>
     </header>
 
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16 relative z-10">
       
-      <!-- Cards Grid (3 channels) -->
+      <!-- Cards Grid (3 channels) - Light Futuristic Glassmorphism Theme -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         
         <!-- Card 1: Visítanos -->
-        <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300 text-center flex flex-col items-center space-y-5">
-          <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center shadow-inner">
+        <div class="relative bg-white/90 backdrop-blur-xl border border-slate-200/80 rounded-3xl p-8 hover:border-[#0B63FF]/40 hover:shadow-[0_15px_40px_rgba(11,99,255,0.08)] transition-all duration-300 text-center flex flex-col items-center space-y-5 hover:scale-[1.02] group overflow-hidden">
+          <!-- Cyberpunk corner lines -->
+          <div class="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#0B63FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#0B63FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#0B63FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#0B63FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+          <div class="w-14 h-14 bg-[#0B63FF]/10 text-[#0B63FF] border border-[#0B63FF]/20 rounded-full flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:border-[#0B63FF] group-hover:bg-[#0B63FF]/20 transition-all duration-300">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
             </svg>
           </div>
           <div class="space-y-2">
-            <h4 class="font-bold text-slate-800 font-display text-base">Visítanos</h4>
-            <p class="text-xs text-slate-400 font-medium leading-relaxed">
+            <h4 class="font-bold text-[#04142E] font-display text-lg">Visítanos</h4>
+            <p class="text-sm text-slate-600 font-light leading-relaxed">
               Cal. Arias Schreiber 165<br/>
               Urb. La Aurora, Miraflores<br/>
               Lima, Perú
             </p>
+            <span class="text-[#0B63FF] text-[11px] font-semibold mt-2 block bg-[#0B63FF]/10 py-1.5 px-3 rounded-full border border-[#0B63FF]/20">Ref: Parque Ramón Castilla / Wong Benavides</span>
           </div>
         </div>
 
         <!-- Card 2: Llámanos -->
-        <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300 text-center flex flex-col items-center space-y-5">
-          <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center shadow-inner">
+        <div class="relative bg-white/90 backdrop-blur-xl border border-slate-200/80 rounded-3xl p-8 hover:border-[#0B63FF]/40 hover:shadow-[0_15px_40px_rgba(11,99,255,0.08)] transition-all duration-300 text-center flex flex-col items-center space-y-5 hover:scale-[1.02] group overflow-hidden">
+          <!-- Cyberpunk corner lines -->
+          <div class="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#0B63FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#0B63FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#0B63FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#0B63FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+          <div class="w-14 h-14 bg-[#0B63FF]/10 text-[#0B63FF] border border-[#0B63FF]/20 rounded-full flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:border-[#0B63FF] group-hover:bg-[#0B63FF]/20 transition-all duration-300">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.01-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
             </svg>
           </div>
           <div class="space-y-2">
-            <h4 class="font-bold text-slate-800 font-display text-base">Llámanos</h4>
-            <p class="text-sm font-bold text-indigo-900 hover:text-indigo-700 transition font-display select-all">+51 994 790 996</p>
-            <p class="text-xs text-slate-400 font-medium">Lun a Vie, 9am – 6pm</p>
+            <h4 class="font-bold text-[#04142E] font-display text-lg">Llámanos</h4>
+            <p class="text-base font-bold text-[#0B63FF] group-hover:text-[#12D6EB] transition font-display select-all">+51 994 790 996</p>
+            <p class="text-xs text-slate-500 font-light mt-1 bg-slate-100 py-1 px-3 rounded-full border border-slate-200/40 inline-block">Lun a Vie, 9am – 6pm</p>
           </div>
         </div>
 
         <!-- Card 3: Escríbenos -->
-        <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300 text-center flex flex-col items-center space-y-5">
-          <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center shadow-inner">
+        <div class="relative bg-white/90 backdrop-blur-xl border border-slate-200/80 rounded-3xl p-8 hover:border-[#0B63FF]/40 hover:shadow-[0_15px_40px_rgba(11,99,255,0.08)] transition-all duration-300 text-center flex flex-col items-center space-y-5 hover:scale-[1.02] group overflow-hidden">
+          <!-- Cyberpunk corner lines -->
+          <div class="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#0B63FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#0B63FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#0B63FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#0B63FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+          <div class="w-14 h-14 bg-[#0B63FF]/10 text-[#0B63FF] border border-[#0B63FF]/20 rounded-full flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:border-[#0B63FF] group-hover:bg-[#0B63FF]/20 transition-all duration-300">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
             </svg>
           </div>
           <div class="space-y-2">
-            <h4 class="font-bold text-slate-800 font-display text-base">Escríbenos</h4>
-            <a href="mailto:operaciones@srcambio.pe" class="text-xs font-bold text-indigo-900 hover:text-indigo-700 underline block select-all">operaciones@srcambio.pe</a>
-            <p class="text-xs text-slate-400 font-medium">Respondemos en menos de 24h.</p>
+            <h4 class="font-bold text-[#04142E] font-display text-lg">Escríbenos</h4>
+            <a href="mailto:operaciones@srcambio.pe" class="text-sm font-bold text-[#0B63FF] hover:underline block select-all transition duration-200">operaciones@srcambio.pe</a>
+            <p class="text-xs text-slate-500 font-light mt-1 bg-slate-100 py-1 px-3 rounded-full border border-slate-200/40 inline-block">Respondemos en menos de 24h.</p>
           </div>
         </div>
 
       </div>
 
-      <!-- Vector Styled Google Map -->
-      <div class="max-w-5xl mx-auto h-[350px] bg-white rounded-3xl p-3 shadow-md border border-slate-150 relative overflow-hidden group">
-        <!-- Pulse effect for background layout -->
+      <!-- Vector Styled Google Map - Cyberpunk Light Edition -->
+      <div class="max-w-5xl mx-auto h-[350px] bg-white border border-slate-200/80 rounded-3xl p-3 shadow-lg relative overflow-hidden group">
         <div class="w-full h-full rounded-2xl overflow-hidden relative">
           
-          <!-- Styled Map SVG -->
-          <svg class="w-full h-full rounded-2xl shadow-inner bg-[#f4f3f0]" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+          <!-- Styled Map SVG (Futuristic Light Edition) -->
+          <svg class="w-full h-full rounded-2xl shadow-inner bg-[#F1F5F9]" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <clipPath id="mapClip">
                 <rect width="600" height="300" rx="16"/>
               </clipPath>
             </defs>
             <g clip-path="url(#mapClip)">
-              <!-- Terrain grids -->
-              <rect x="50" y="30" width="100" height="60" rx="10" fill="#d1fae5" opacity="0.8"/>
-              <text x="100" y="65" font-family="Inter" font-size="8" font-weight="600" fill="#047857" text-anchor="middle">Parque Ramón Castilla</text>
+              <!-- Terrain grids (Parks) -->
+              <rect x="50" y="30" width="100" height="60" rx="10" fill="#0B63FF" opacity="0.08"/>
+              <text x="100" y="65" font-family="Inter" font-size="8" font-weight="600" fill="#04142E" text-anchor="middle">Parque Ramón Castilla</text>
               
-              <rect x="350" y="160" width="120" height="90" rx="10" fill="#d1fae5" opacity="0.8"/>
-              <text x="410" y="210" font-family="Inter" font-size="8" font-weight="600" fill="#047857" text-anchor="middle">Wong Benavides</text>
+              <rect x="350" y="160" width="120" height="90" rx="10" fill="#0B63FF" opacity="0.08"/>
+              <text x="410" y="210" font-family="Inter" font-size="8" font-weight="600" fill="#04142E" text-anchor="middle">Wong Benavides</text>
 
-              <!-- Roads -->
-              <path d="M 0,100 L 600,100" stroke="#ffffff" stroke-width="20" stroke-linecap="round"/>
-              <path d="M 0,100 L 600,100" stroke="#e2e8f0" stroke-width="14" stroke-linecap="round"/>
-              <text x="250" y="103" font-family="Inter" font-size="7" font-weight="700" fill="#94a3b8">Av. Roca y Boloña</text>
+              <!-- Roads Bases -->
+              <path d="M 0,100 L 600,100" stroke="#cbd5e1" stroke-width="16" stroke-linecap="round"/>
+              <path d="M 0,100 L 600,100" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+              <path d="M 0,100 L 600,100" stroke="#0B63FF" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+              <text x="250" y="103" font-family="Inter" font-size="7" font-weight="700" fill="#475569">Av. Roca y Boloña</text>
 
-              <path d="M 0,220 L 600,220" stroke="#ffffff" stroke-width="24" stroke-linecap="round"/>
-              <path d="M 0,220 L 600,220" stroke="#cbd5e1" stroke-width="16" stroke-linecap="round"/>
-              <text x="250" y="224" font-family="Inter" font-size="8" font-weight="700" fill="#64748b">Av. Alfredo Benavides</text>
+              <path d="M 0,220 L 600,220" stroke="#cbd5e1" stroke-width="20" stroke-linecap="round"/>
+              <path d="M 0,220 L 600,220" stroke="#ffffff" stroke-width="14" stroke-linecap="round"/>
+              <path d="M 0,220 L 600,220" stroke="#0B63FF" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+              <text x="250" y="224" font-family="Inter" font-size="8" font-weight="700" fill="#04142E">Av. Alfredo Benavides</text>
 
-              <path d="M 300,100 L 300,220" stroke="#ffffff" stroke-width="16" stroke-linecap="round"/>
-              <path d="M 300,100 L 300,220" stroke="#e2e8f0" stroke-width="10" stroke-linecap="round"/>
-              <text x="294" y="160" font-family="Inter" font-size="7" font-weight="700" fill="#94a3b8" transform="rotate(-90 294 160)">Cal. Arias Schreiber</text>
+              <path d="M 300,100 L 300,220" stroke="#cbd5e1" stroke-width="14" stroke-linecap="round"/>
+              <path d="M 300,100 L 300,220" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
+              <path d="M 300,100 L 300,220" stroke="#12D6EB" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+              <text x="294" y="160" font-family="Inter" font-size="7" font-weight="700" fill="#475569" transform="rotate(-90 294 160)">Cal. Arias Schreiber</text>
 
               <!-- Secondary roads -->
-              <path d="M 120,0 L 120,300" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round"/>
-              <path d="M 480,0 L 480,300" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round"/>
+              <path d="M 120,0 L 120,300" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+              <path d="M 480,0 L 480,300" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
               
               <!-- POI circles -->
-              <circle cx="340" cy="120" r="4" fill="#059669"/>
-              <text x="350" y="123" font-family="Inter" font-size="6" font-weight="600" fill="#047857">Starbucks</text>
+              <circle cx="340" cy="120" r="4" fill="#12D6EB"/>
+              <text x="350" y="123" font-family="Inter" font-size="6" font-weight="600" fill="#0B63FF">Starbucks</text>
               
-              <circle cx="380" cy="200" r="4" fill="#3b82f6"/>
-              <text x="390" y="203" font-family="Inter" font-size="6" font-weight="600" fill="#1d4ed8">Wong Aurora</text>
+              <circle cx="380" cy="200" r="4" fill="#0B63FF"/>
+              <text x="390" y="203" font-family="Inter" font-size="6" font-weight="600" fill="#0B63FF">Wong Aurora</text>
 
-              <!-- Pulse Pin -->
+              <!-- Pulse Pin (Cyan Cyberpunk Pin) -->
               <g transform="translate(300, 150)">
-                <circle cx="0" cy="0" r="12" fill="#ef4444" opacity="0.2">
-                  <animate attributeName="r" values="6;16;6" dur="2s" repeatCount="indefinite"/>
+                <circle cx="0" cy="0" r="14" fill="#0B63FF" opacity="0.15">
+                  <animate attributeName="r" values="6;20;6" dur="2.5s" repeatCount="indefinite"/>
                 </circle>
-                <ellipse cx="0" cy="8" rx="4" ry="1.5" fill="#000000" opacity="0.3"/>
-                <path d="M 0,-16 C -6,-16 -10,-12 -10,-6 C -10,-1 0,8 0,8 C 0,8 10,-1 10,-6 C 10,-12 6,-16 0,-16 Z" fill="#ef4444" stroke="#ffffff" stroke-width="1"/>
-                <circle cx="0" cy="-6" r="3" fill="#ffffff"/>
+                <ellipse cx="0" cy="8" rx="4" ry="1.5" fill="#000000" opacity="0.2"/>
+                <path d="M 0,-16 C -6,-16 -10,-12 -10,-6 C -10,-1 0,8 0,8 C 0,8 10,-1 10,-6 C 10,-12 6,-16 0,-16 Z" fill="#0B63FF" stroke="#ffffff" stroke-width="1.5"/>
+                <circle cx="0" cy="-6" r="3.5" fill="#ffffff"/>
               </g>
 
-              <!-- Floating search bar overlay -->
+              <!-- Floating search bar overlay (Light futuristic) -->
               <g transform="translate(20, 20)">
                 <!-- Search bar bg -->
-                <rect width="180" height="38" rx="8" fill="#ffffff" filter="drop-shadow(0px 2px 4px rgba(0,0,0,0.08))"/>
-                <text x="12" y="16" font-family="Inter" font-size="7.5" font-weight="700" fill="#0f172a">Calle Arias Schreiber 165</text>
-                <text x="12" y="26" font-family="Inter" font-size="6.5" font-weight="500" fill="#94a3b8">Miraflores, Lima, Perú</text>
+                <rect width="180" height="38" rx="8" fill="#ffffff" fill-opacity="0.95" stroke="rgba(4,20,46,0.1)" stroke-width="1"/>
+                <text x="12" y="16" font-family="Inter" font-size="7.5" font-weight="700" fill="#04142E">Calle Arias Schreiber 165</text>
+                <text x="12" y="26" font-family="Inter" font-size="6.5" font-weight="500" fill="#64748b">Miraflores, Lima, Perú</text>
                 
                 <!-- Direction icon -->
                 <g transform="translate(156, 11)">
-                  <circle cx="8" cy="8" r="8" fill="#3b82f6"/>
+                  <circle cx="8" cy="8" r="8" fill="#0B63FF"/>
                   <path d="M 5,8 L 11,5 L 8,11 L 7,9 Z" fill="#ffffff"/>
                 </g>
               </g>
             </g>
           </svg>
-
         </div>
       </div>
 
@@ -2771,7 +2826,7 @@
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
       </div>
       <div class="space-y-0.5">
-        <p class="font-extrabold text-[#002f34]">¿Hablamos por WhatsApp?</p>
+        <p class="font-extrabold text-[#04142E]">¿Hablamos por WhatsApp?</p>
         <p class="text-slate-400 text-[10px] font-normal leading-tight font-sans">Resolvemos tu duda en minutos.</p>
       </div>
     </div>
