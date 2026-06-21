@@ -15,21 +15,7 @@
 
       <!-- Centro: Links de Navegación -->
       <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-white/80">
-        <!-- Toggle Personas/Empresas -->
-        <div class="inline-flex bg-black/30 p-0.5 rounded-full border border-white/10 backdrop-blur-sm mr-2">
-          <button 
-            (click)="isPersonas.set(true); isPromociones.set(false); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)"
-            [class]="isPersonas() && !isPromociones() && !isAyuda() && !isContacto() ? 'bg-white/10 text-white font-semibold' : 'text-white/60 hover:text-white'"
-            class="px-4 py-1 rounded-full text-xs transition duration-200">
-            Personas
-          </button>
-          <button 
-            (click)="isPersonas.set(false); isPromociones.set(false); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)"
-            [class]="!isPersonas() && !isPromociones() && !isAyuda() && !isContacto() ? 'bg-white/10 text-white font-semibold' : 'text-white/60 hover:text-white'"
-            class="px-4 py-1 rounded-full text-xs transition duration-200">
-            Empresas
-          </button>
-        </div>
+
 
         <button 
           (click)="isPromociones.set(true); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)"
@@ -161,7 +147,24 @@
       <div *ngIf="isPersonas() && !isPromociones()" class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center animate-fade-in">
         
         <!-- Bloque Izquierdo: Copy y Estadísticas -->
-        <div class="lg:col-span-7 space-y-6 lg:space-y-8 relative order-2 lg:order-1">
+        <div class="lg:col-span-7 space-y-6 lg:space-y-8 relative order-2 lg:order-1 flex flex-col items-start">
+          
+          <!-- Toggle Personas/Empresas en el Hero -->
+          <div class="inline-flex bg-white/10 p-0.5 rounded-full border border-white/10 backdrop-blur-sm">
+            <button 
+              (click)="isPersonas.set(true); isPromociones.set(false); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)"
+              [class]="isPersonas() && !isPromociones() && !isAyuda() && !isContacto() ? 'bg-white text-slate-900 font-bold shadow-sm' : 'text-white/80 hover:text-white'"
+              class="px-5 py-1.5 rounded-full text-xs transition duration-200 cursor-pointer border-none font-semibold">
+              Personas
+            </button>
+            <button 
+              (click)="isPersonas.set(false); isPromociones.set(false); isAyuda.set(false); isContacto.set(false); isMobileMenuOpen.set(false)"
+              [class]="!isPersonas() && !isPromociones() && !isAyuda() && !isContacto() ? 'bg-white text-slate-900 font-bold shadow-sm' : 'text-white/80 hover:text-white'"
+              class="px-5 py-1.5 rounded-full text-xs transition duration-200 cursor-pointer border-none font-semibold">
+              Empresas
+            </button>
+          </div>
+
           <!-- Contenedor de Texto Estrecho para forzar salto de línea vertical -->
           <div class="max-w-[540px] space-y-4 lg:space-y-6">
             <h1 class="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight leading-tight text-white font-display">
@@ -169,8 +172,8 @@
             </h1>
           </div>
 
-          <!-- Caja Mejora tu Cotización (Diseño Cuadrado Drag & Drop en el Hero - Centrado) -->
-          <div class="bg-white/5 backdrop-blur-md text-white rounded-2xl shadow-xl border border-white/10 p-5 max-w-md w-full relative z-20 transition-all duration-300 hover:border-[#12D6EB]/40 mt-6 mx-auto text-center flex flex-col items-center">
+          <!-- Caja Mejora tu Cotización (Diseño Cuadrado Drag & Drop en el Hero - Centrado / Ajustado al Centro de la Pantalla) -->
+          <div class="bg-white/5 backdrop-blur-md text-white rounded-2xl shadow-xl border border-white/10 p-5 max-w-md w-full relative z-20 transition-all duration-300 hover:border-[#12D6EB]/40 mt-6 mx-auto lg:ml-auto lg:mr-0 text-center flex flex-col items-center">
             <h3 class="text-sm sm:text-base font-extrabold text-white font-display leading-snug text-center">
               ¿Tienes una cotización de otra casa de cambio?
             </h3>
@@ -273,7 +276,7 @@
 
 
           <!-- Contenedor Calculadora (Diseño Rectangular Transparente - Estilo Kambista - Más Ancho y Alineado) -->
-          <div class="relative p-3 sm:p-4 lg:p-5 w-full max-w-[390px] mx-auto lg:mr-0 lg:ml-auto lg:mt-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl">
+          <div class="relative p-3 sm:p-4 lg:p-5 w-full max-w-[390px] mx-auto lg:mr-0 lg:ml-auto lg:-mt-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl">
             
             <!-- Encabezado Tipo Cambio (Estilo Compacto Kambista - Agrandado) -->
             <div class="text-center mb-4 text-white bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm shadow-md">
