@@ -44,7 +44,7 @@ export class App {
   }
 
   nextPromotionSlide() {
-    this.activePromotionIndex.set((this.activePromotionIndex() + 1) % 3);
+    this.activePromotionIndex.set((this.activePromotionIndex() + 1) % 2);
   }
 
   // Form signals for Login
