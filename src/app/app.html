@@ -376,41 +376,41 @@
 
           <!-- Caja Mejora tu Cotización (Abajo de la calculadora - Ancho adaptado y Fondo Transparente) -->
           <div class="bg-white/5 backdrop-blur-md text-white rounded-xl shadow-lg border border-white/10 p-4 max-w-[390px] mx-auto lg:mr-0 lg:ml-auto mt-4 relative z-20">
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div class="flex flex-col gap-4">
               <!-- Header Section -->
               <div class="flex-1">
-                <div class="flex items-center gap-2.5 mb-1.5">
-                  <div class="w-8 h-8 rounded-full bg-altok-cyan/15 flex items-center justify-center shrink-0 border border-altok-cyan/30 shadow-md shadow-altok-cyan/10">
+                <div class="flex items-start gap-2.5 mb-1.5">
+                  <div class="w-8 h-8 rounded-full bg-altok-cyan/15 flex items-center justify-center shrink-0 border border-altok-cyan/30 shadow-md shadow-altok-cyan/10 mt-0.5">
                     <svg class="w-4.5 h-4.5 text-altok-cyan animate-pulse" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                     </svg>
                   </div>
-                  <h3 class="text-sm sm:text-base font-extrabold text-white font-display leading-tight">
-                    Mejora tu cotización aquí
+                  <h3 class="text-xs sm:text-sm font-extrabold text-white font-display leading-snug">
+                    ¿Tienes una cotización de otra casa de cambio? Nosotros la mejoramos
                   </h3>
                 </div>
-                <p class="text-[11px] sm:text-xs text-white/90 leading-snug pl-0.5">
-                  ¿Tienes una cotización de otra casa de cambio? Nosotros la mejoramos. <a href="#" class="text-altok-cyan font-bold hover:underline">Aplica TyC</a>
+                <p class="text-[11px] sm:text-xs text-white/70 leading-snug pl-0.5 mt-1">
+                  Sube tu archivo y te ofrecemos una mejor tasa. <a href="#" class="text-altok-cyan font-bold hover:underline">Aplica TyC</a>
                 </p>
               </div>
 
               <!-- Zona Dotted Upload Compacta -->
-              <label class="cursor-pointer border border-dashed border-white/30 rounded-lg px-4 py-2 flex items-center justify-center gap-2 bg-black/15 hover:bg-black/25 transition shrink-0 select-none text-white">
+              <label class="cursor-pointer border-2 border-dashed border-altok-cyan/50 hover:border-altok-cyan rounded-xl px-4 py-2.5 flex items-center justify-center gap-2 bg-altok-cyan/15 hover:bg-altok-cyan/30 transition-all duration-300 shadow-lg shadow-altok-cyan/5 hover:shadow-altok-cyan/20 shrink-0 select-none text-white w-full">
                 <input type="file" class="hidden" (change)="onFileChange($event)" accept="image/*,.pdf" />
                 
                 <ng-container *ngIf="!uploadedFileName()">
                   <!-- Small Upload Icon -->
-                  <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <svg class="w-4 h-4 text-altok-cyan" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 6h14M12 18V8m0 0l-4 4m4-4l4 4" />
                   </svg>
-                  <span class="text-white font-bold text-[10px] uppercase tracking-wider">
+                  <span class="text-white font-extrabold text-[10px] uppercase tracking-wider">
                     ENVIAR ARCHIVO
                   </span>
                 </ng-container>
 
                 <ng-container *ngIf="uploadedFileName()">
                   <span class="text-xs">📄</span>
-                  <span class="text-white font-bold text-[10px] truncate max-w-[100px]">
+                  <span class="text-white font-bold text-[10px] truncate max-w-[150px]">
                     {{ uploadedFileName() }}
                   </span>
                   <span class="text-altok-cyan font-bold text-[8px] uppercase ml-1">
