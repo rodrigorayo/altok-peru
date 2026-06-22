@@ -1,9 +1,9 @@
 <div class="min-h-screen bg-slate-50 font-sans">
 
-  <!-- Formulario-->
+  <!-- Contenedor Principal: Vista Principal (Home/Landing Page) -->
   <div *ngIf="!isLogin() && !isRegister()" class="flex flex-col min-h-screen">
 
-    <!-- Header-->
+    <!-- Cabecera Principal y Barra de Navegación del Sitio -->
     <nav
       class="sticky top-0 z-50 bg-[#04142E]/95 backdrop-blur-md border-b border-white/10 text-white py-2.5 px-4 sm:px-6 lg:px-8 shadow-md">
       <div class="max-w-7xl mx-auto flex items-center justify-between">
@@ -13,7 +13,6 @@
           <img src="altok-logo.png" alt="Cambia Altok Logo" class="h-10 w-auto object-contain rounded-md" />
         </div>
 
-        <!--Navegación -->
         <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-white/80">
 
           <button
@@ -40,7 +39,6 @@
           </button>
         </div>
 
-        <!-- Login-->
         <div class="hidden lg:flex items-center gap-4 text-sm font-semibold">
           <button (click)="showLogin()"
             class="text-white/80 hover:text-altok-cyan transition duration-200 bg-transparent border-none cursor-pointer font-semibold">Iniciar
@@ -117,7 +115,7 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Sección Hero: Presentación y Calculadora de Cambio -->
     <header *ngIf="!isAyuda() && !isContacto()"
       class="relative bg-gradient-to-b from-[#04142E] via-altok-night to-altok-deep text-white overflow-hidden pb-20 sm:pb-28 lg:pb-32 pt-8 sm:pt-10 lg:pt-12 px-4 sm:px-6 lg:px-8">
 
@@ -133,7 +131,7 @@
         class="absolute inset-0 bg-gradient-to-r from-[#04142E] via-[#04142E] via-50% to-transparent pointer-events-none z-0">
       </div>
 
-      <!-- Overlay sólido solo en Empresas -->
+      <!-- Fondo sólido decorativo (solo visible en la vista de Empresas) -->
       <div *ngIf="!isPersonas() && !isPromociones()"
         class="absolute inset-0 bg-[#04142E] pointer-events-none z-1">
       </div>
@@ -147,7 +145,6 @@
 
       <div class="max-w-7xl mx-auto relative z-20">
 
-        <!-- Hero -->
         <div *ngIf="isPersonas() && !isPromociones()"
           class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-start animate-fade-in">
 
@@ -182,30 +179,20 @@
 
             <div class="w-full flex flex-col md:flex-row items-center md:items-start gap-4 lg:gap-8 mt-6 relative z-20">
 
-              <div class="grid grid-cols-2 gap-4 sm:gap-6 w-full max-w-[280px] text-center shrink-0 mx-auto md:mx-0">
-
-                <div class="flex flex-col items-center justify-center space-y-2 animate-fade-in">
-                  <svg class="w-8 h-8 text-[#12D6EB]" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                  </svg>
-                  <span class="text-xl sm:text-3xl font-black text-white font-display tracking-tight leading-none">+
-                    2M</span>
-                  <span
-                    class="text-[8px] sm:text-[10px] text-white/60 font-bold uppercase tracking-wider leading-tight">OPERACIONES<br>REALIZADAS</span>
+              <div class="flex items-center gap-6 w-full max-w-[280px] shrink-0 mx-auto md:mx-0 text-left">
+                
+                <div class="flex-1 flex flex-col justify-center animate-fade-in">
+                  <span class="text-xl sm:text-2xl font-black text-white font-display tracking-tight leading-none">+ 5K</span>
+                  <span class="text-[9px] sm:text-[10px] text-white/60 font-semibold tracking-wide leading-tight mt-1">Operaciones realizadas</span>
                 </div>
 
-                <div class="flex flex-col items-center justify-center space-y-2 animate-fade-in">
-                  <svg class="w-8 h-8 text-[#12D6EB]" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <span class="text-xl sm:text-3xl font-black text-white font-display tracking-tight leading-none">+
-                    400K</span>
-                  <span
-                    class="text-[8px] sm:text-[10px] text-white/60 font-bold uppercase tracking-wider leading-tight">USUARIOS<br>REGISTRADOS</span>
+                <div class="w-px h-10 bg-white/20 self-center shrink-0"></div>
+
+                <div class="flex-1 flex flex-col justify-center animate-fade-in">
+                  <span class="text-xl sm:text-2xl font-black text-white font-display tracking-tight leading-none">+ 2K</span>
+                  <span class="text-[9px] sm:text-[10px] text-white/60 font-semibold tracking-wide leading-tight mt-1">Usuarios registrados</span>
                 </div>
+
               </div>
 
               <div
@@ -406,7 +393,6 @@
                 </div>
               </div>
 
-              <!-- Registro -->
               <div class="mt-5">
                 <button
                   class="w-full bg-altok-turquoise hover:bg-altok-cyan text-altok-night font-extrabold py-3.5 px-6 rounded-full font-display shadow-lg shadow-altok-turquoise/15 hover:shadow-xl transition-all duration-300 uppercase tracking-wider text-xs active:scale-[0.99] border-none cursor-pointer">
@@ -473,7 +459,6 @@
 
             <div
               class="bg-gradient-to-br from-blue/200 to-blue-700/5 backdrop-blur-xl text-white rounded-3xl border border-white/20 relative p-6 sm:p-8 shadow-2xl">
-              <!-- Glow decorativo -->
               <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#0B63FF]/10 via-transparent to-[#12D6EB]/5 pointer-events-none"></div>
 
               <h2 class="text-xl sm:text-2xl font-bold font-display text-white leading-snug relative z-10">
@@ -562,7 +547,7 @@
 
         </div>
 
-        <!-- Bancos (solo Empresas) -->
+        <!-- Listado de Bancos Disponibles para Cuentas de Empresas -->
         <div *ngIf="!isPersonas() && !isPromociones()" class="mt-12 animate-fade-in">
           <div
             class="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 py-3.5 px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-4 lg:gap-3 justify-between">
@@ -677,7 +662,7 @@
           </div>
         </div>
 
-        <!--Section promociones-->
+        <!-- Sección de Promociones y Cupones Activos -->
         <div *ngIf="isPromociones()" class="max-w-4xl mx-auto text-center space-y-8 animate-fade-in py-10"
           id="promociones-top">
           <h1
@@ -812,7 +797,7 @@
 
     </header>
 
-    <!-- Bancos-->
+    <!-- Listado de Bancos Disponibles para Cuentas Personales -->
     <section *ngIf="!isAyuda() && !isContacto() && isPersonas()"
       class="relative z-20 -mt-24 sm:-mt-32 lg:-mt-52 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
 
@@ -1062,7 +1047,7 @@
     </section>
 
     <div *ngIf="isPersonas() && !isPromociones() && !isAyuda() && !isContacto()">
-      <!-- ¿Qué es Cambia Altok? y ¿Cómo Usar? -->
+      <!-- Sección Informativa: Qué es Cambia Altok y Instrucciones de Uso -->
       <section
         class="py-16 sm:py-20 bg-gradient-to-b from-slate-50/50 to-white mt-8 sm:mt-12 lg:mt-16 border-t border-slate-100 relative overflow-hidden">
 
@@ -1075,7 +1060,6 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-          <!-- ¿Qué es Cambia Altok? -->
           <div class="max-w-6xl mx-auto mb-16 sm:mb-24 px-4 sm:px-6 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
@@ -1108,7 +1092,7 @@
                       class="w-9 h-9 rounded-full bg-altok-brand/10 flex items-center justify-center text-altok-brand text-sm">
                       ⚡</div>
                     <div class="flex flex-col">
-                      <span class="text-xs font-extrabold text-slate-800 leading-tight">15 Minutos</span>
+                      <span class="text-xs font-extrabold text-slate-800 leading-tight">20 Minutos</span>
                       <span class="text-[9px] text-slate-500 font-medium">Liquidación express</span>
                     </div>
                   </div>
@@ -1137,45 +1121,12 @@
                   preferida por miles de peruanos y empresas.
                 </p>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-slate-100">
-                  <div class="flex items-start gap-4">
-                    <div
-                      class="w-10 h-10 rounded-xl bg-altok-brand/10 flex items-center justify-center text-altok-brand shrink-0">
-                      <svg class="w-5 h-5 text-altok-brand" fill="none" stroke="currentColor" stroke-width="2.5"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 class="text-sm sm:text-base font-bold text-slate-800 uppercase tracking-wider">Garantía SBS
-                      </h4>
-                      <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Operaciones 100% reguladas y seguras.</p>
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-4">
-                    <div
-                      class="w-10 h-10 rounded-xl bg-altok-cyan/15 flex items-center justify-center text-altok-brand shrink-0">
-                      <svg class="w-5 h-5 text-altok-brand" fill="none" stroke="currentColor" stroke-width="2.5"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider">En 15 Minutos</h4>
-                      <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Liquidación ultra rápida a tu cuenta bancaria.
-                      </p>
-                    </div>
-                  </div>
-                </div>
 
               </div>
 
             </div>
           </div>
 
-          <!--¿Cómo usar?-->
           <div id="como-funciona" class="space-y-12 sm:space-y-16 scroll-mt-24">
 
             <div class="text-center space-y-3">
@@ -1366,7 +1317,7 @@
         </div>
       </section>
 
-      <!-- Alertas de Tipo de Cambio -->
+      <!-- Sección Oculta: Alertas de Tipo de Cambio (Deshabilitada temporalmente) -->
       <!-- <section class="py-0 bg-[#061B3D] relative overflow-hidden">
 
         <div class="absolute inset-0 pointer-events-none">
@@ -1789,7 +1740,7 @@
         </div>
       </section>
 
-      <!-- Testimonios -->
+      <!-- Sección de Testimonios y Experiencias de Usuarios -->
       <section class="py-12 sm:py-16 lg:py-24 bg-slate-50 relative overflow-hidden">
 
         <div
@@ -1801,7 +1752,7 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <!-- Header / Navegación -->
+          <!-- Cabecera de la Sección Testimonios -->
           <div class="text-center mb-16 space-y-4">
             <h2 class="text-2xl sm:text-3xl sm:text-4xl font-extrabold text-[#061B3D] font-display leading-tight">
               Lo que dicen nuestros <span
@@ -1814,7 +1765,6 @@
 
           <div class="relative">
 
-            <!-- Testimonios -->
             <div class="relative overflow-hidden w-full py-4 px-1">
               <div class="flex transition-transform duration-500 ease-out testimonial-slider"
                    [style.--active-idx]="activeTestimonialIndex()">
@@ -1879,7 +1829,7 @@
               </div>
             </div>
 
-            <!-- Header / Navegación -->
+            <!-- Controles de Navegación del Carrusel de Testimonios -->
             <div class="flex items-center justify-center gap-4 sm:gap-6 mt-10">
 
               <button (click)="prevTestimonial()"
@@ -1890,7 +1840,6 @@
                 </svg>
               </button>
 
-              <!-- Header / Navegación -->
               <div class="flex items-center gap-2">
                 <button *ngFor="let t of testimonials; let i = index" (click)="activeTestimonialIndex.set(i)"
                   class="transition-all duration-300 rounded-full" [ngClass]="i === activeTestimonialIndex()
@@ -1935,7 +1884,7 @@
         </div>
       </section>
 
-      <section class="py-0 bg-[#061B3D] relative overflow-hidden">
+      <section *ngIf="false" class="py-0 bg-[#061B3D] relative overflow-hidden">
 
         <div class="absolute inset-0 pointer-events-none">
           <div class="absolute top-[-60px] right-[-60px] w-[500px] h-[500px] bg-[#0B63FF]/15 rounded-full blur-[120px]">
@@ -2008,7 +1957,7 @@
 
             <div class="lg:col-span-7 space-y-4">
 
-              <!-- Seleccionar período -->
+              <!-- Selector de Período del Gráfico Estadístico -->
               <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 relative z-10 pb-2">
                 <span class="text-xs text-slate-300 uppercase tracking-widest font-black font-display">Seleccionar período</span>
                 <div class="flex items-center gap-2 flex-wrap">
@@ -2151,7 +2100,7 @@
                   <div class="absolute bottom-0 right-4 text-[9px] text-slate-500 font-mono">2026 Junio</div>
                 </div>
 
-                <!-- Footer -->
+                <!-- Pie de Tarjeta: Información de Última Actualización del Tipo de Cambio -->
                 <div class="flex items-center justify-center gap-2 border-t border-white/5 pt-4 mt-4">
                   <div class="w-1.5 h-1.5 bg-[#12D6EB] rounded-full animate-pulse"></div>
                   <p class="text-center text-[10px] text-slate-500 font-mono tracking-wide">
@@ -2171,7 +2120,7 @@
     </div>
 
     <div *ngIf="isAyuda()" class="space-y-0 animate-fade-in bg-white min-h-[60vh] pb-24">
-      <!-- Header / Navegación -->
+      <!-- Cabecera de la Sección de Preguntas Frecuentes -->
       <header
         class="relative bg-gradient-to-br from-[#04142E] via-[#061B3D] to-[#0B63FF] text-white overflow-hidden pb-16 pt-16 px-4 sm:px-6 lg:px-8 text-center rounded-b-[40px] shadow-lg">
         <div class="max-w-4xl mx-auto space-y-4">
@@ -2185,7 +2134,7 @@
         </div>
       </header>
 
-      <!-- Preguntas Frecuentes (FAQ) -->
+      <!-- Acordeón de Preguntas Frecuentes (FAQ) -->
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
 
         <div class="space-y-4">
@@ -2622,7 +2571,7 @@
         <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#12D6EB]/5 rounded-full blur-[110px]"></div>
       </div>
 
-      <!-- Header / Navegación -->
+      <!-- Cabecera de la Sección de Contacto -->
       <header
         class="relative bg-gradient-to-br from-[#04142E] via-[#061B3D] to-[#0B63FF] text-white overflow-hidden pb-16 pt-16 px-4 sm:px-6 lg:px-8 text-center rounded-b-[40px] shadow-lg">
 
@@ -2642,10 +2591,9 @@
 
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16 relative z-10">
 
-        <!-- 3 tarjetas de contacto -->
+        <!-- Canales de Atención (Visítanos, Llámanos, Escríbenos) -->
         <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200 bg-white rounded-3xl shadow-lg border border-slate-100 overflow-hidden">
 
-          <!-- Visítanos -->
           <div class="flex flex-col items-center text-center p-10 gap-5 hover:bg-slate-50 transition-colors duration-300 group">
             <div class="w-16 h-16 flex items-center justify-center">
               <svg class="w-14 h-14 text-[#0B63FF] group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
@@ -2662,7 +2610,6 @@
             </a>
           </div>
 
-          <!-- Llámanos -->
           <div class="flex flex-col items-center text-center p-10 gap-5 hover:bg-slate-50 transition-colors duration-300 group">
             <div class="w-16 h-16 flex items-center justify-center">
               <svg class="w-14 h-14 text-[#0B63FF] group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
@@ -2679,7 +2626,6 @@
             </a>
           </div>
 
-          <!-- Escríbenos -->
           <div class="flex flex-col items-center text-center p-10 gap-5 hover:bg-slate-50 transition-colors duration-300 group">
             <div class="w-16 h-16 flex items-center justify-center">
               <svg class="w-14 h-14 text-[#0B63FF] group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
@@ -2698,7 +2644,7 @@
 
         </div>
 
-        <!-- Google Maps -->
+        <!-- Mapa de Ubicación Geográfica de la Oficina -->
         <div class="rounded-3xl overflow-hidden shadow-lg border border-slate-200 h-[420px]">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.8!2d-77.0324!3d-12.1197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8b5d35662b1%3A0x6e8f0c87d2c5e1a0!2sCalle%20Arias%20Schreiber%20165%2C%20Miraflores%2015074%2C%20Lima!5e0!3m2!1ses!2spe!4v1718000000000!5m2!1ses!2spe"
@@ -2751,7 +2697,7 @@
                 Entérate antes que nadie del tipo de cambio diario, cupones exclusivos y alertas del mercado en nuestro <span class="font-semibold text-[#25D366]">grupo de WhatsApp</span>.
               </p>
 
-              <!-- Beneficios -->
+              <!-- Beneficios de la Comunidad de WhatsApp -->
               <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
                 <div class="flex items-center gap-2 text-sm text-slate-600">
                   <div class="w-5 h-5 rounded-full bg-[#25D366]/15 flex items-center justify-center shrink-0">
@@ -2805,7 +2751,7 @@
       </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Pie de Página (Footer) Principal del Sitio -->
     <footer id="contacto" class="bg-[#061B3D] text-slate-400 relative overflow-hidden scroll-mt-24">
 
       <div class="absolute inset-0 pointer-events-none">
@@ -3062,51 +3008,35 @@
       </a>
     </div>
 
-  </div> <!-- Formularios de Acceso (Login / Registro / Contacto) -->
+  </div> <!-- Fin de la Vista Principal (Home/Landing Page) -->
 
   <div *ngIf="isLogin()"
     class="animate-fade-in min-h-screen bg-white flex flex-col lg:flex-row overflow-hidden font-sans">
 
     <div
-      class="w-full lg:w-[45%] p-8 sm:p-12 lg:p-16 flex flex-col justify-between min-h-screen bg-white relative z-10 border-r border-slate-100 shadow-2xl">
+      class="w-full lg:w-[45%] p-5 sm:p-7 lg:p-9 flex flex-col justify-between min-h-screen bg-white relative z-10 border-r border-slate-100 shadow-2xl">
 
-      <div class="flex items-center justify-between">
+      <nav class="flex items-center justify-between py-3.5 px-5 sm:px-7 lg:px-9 bg-[#04142E] text-white -mx-5 sm:-mx-7 lg:-mx-9 -mt-5 sm:-mt-7 lg:-mt-9 border-b border-white/10 mb-6">
 
-        <div class="flex items-center gap-3 group cursor-pointer" (click)="closeAuth()">
-          <div
-            class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#04142E] via-[#0B63FF] to-[#12D6EB] p-[1.5px] shadow-[0_0_15px_rgba(11,99,255,0.15)] transition duration-300 group-hover:scale-105">
-            <div class="w-full h-full bg-white rounded-[10px] flex items-center justify-center p-1.5">
-              <img src="altok-logo.png" alt="Cambia Altok" class="w-full h-full object-contain" />
-            </div>
-          </div>
-          <span
-            class="text-xl font-black tracking-tight font-display bg-gradient-to-r from-[#04142E] via-[#0B63FF] to-[#12D6EB] bg-clip-text text-transparent group-hover:opacity-80 transition">Cambia
-            Altok</span>
+        <div class="flex items-center cursor-pointer" (click)="closeAuth()">
+          <img src="logo-altok-brand.svg" alt="Cambia Altok" class="h-6 sm:h-7 w-auto object-contain brightness-0 invert" />
         </div>
 
         <button (click)="closeAuth()"
-          class="text-xs font-semibold text-slate-500 hover:text-[#0B63FF] transition flex items-center gap-1.5 bg-transparent border-none cursor-pointer group">
-          <svg class="w-4 h-4 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor"
+          class="text-xs font-semibold text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-transparent border-none cursor-pointer group">
+          <svg class="w-4 h-4 transition-transform group-hover:-translate-x-0.5 text-slate-300 group-hover:text-white" fill="none" stroke="currentColor"
             stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
           Volver a Inicio
         </button>
-      </div>
+      </nav>
 
-      <div class="max-w-md w-full mx-auto my-auto py-10">
-        <div class="space-y-4 mb-8 text-center sm:text-left">
-
-          <div
-            class="inline-flex w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#04142E] via-[#0B63FF] to-[#12D6EB] p-[2px] shadow-[0_8px_30px_rgba(11,99,255,0.15)] mb-2">
-            <div class="w-full h-full bg-white rounded-[14px] flex items-center justify-center p-2.5">
-              <img src="altok-logo.png" alt="Cambia Altok" class="w-full h-full object-contain" />
-            </div>
-          </div>
+      <div class="max-w-md w-full mx-auto my-auto py-4">
+        <div class="space-y-3 mb-4 text-center sm:text-left">
           <div class="space-y-2">
             <h2 class="text-3xl font-extrabold text-[#04142E] tracking-tight font-display">¡Bienvenido de nuevo!</h2>
-            <p class="text-sm text-slate-400 font-medium leading-relaxed">Ingresa a tu cuenta de Cambia Altok para
-              continuar operando.</p>
+            <p class="text-sm text-slate-400 font-medium leading-relaxed">Ingresa a tu cuenta de Cambia Altok para continuar operando.</p>
           </div>
         </div>
 
@@ -3130,7 +3060,7 @@
           <span>¡Inicio de sesión exitoso! Redirigiendo a tu cuenta...</span>
         </div>
 
-        <form (submit)="handleLogin($event)" class="space-y-5">
+        <form (submit)="handleLogin($event)" class="space-y-3">
 
           <div class="space-y-1.5">
             <label for="login-email" class="text-[10px] font-bold text-[#04142E] uppercase tracking-widest block">Correo
@@ -3144,7 +3074,7 @@
               </span>
               <input id="login-email" type="email" placeholder="ejemplo@correo.com" [ngModel]="loginEmail()"
                 (ngModelChange)="loginEmail.set($event)" name="loginEmail"
-                class="w-full bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] focus:bg-white text-sm text-slate-800 rounded-2xl py-3.5 pl-11 pr-4 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 placeholder:text-slate-400"
+                class="w-full bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] focus:bg-white text-sm text-slate-800 rounded-2xl py-2.5 pl-11 pr-4 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 placeholder:text-slate-400"
                 required />
             </div>
           </div>
@@ -3165,7 +3095,7 @@
               </span>
               <input id="login-password" [type]="showLoginPassword() ? 'text' : 'password'" placeholder="••••••••"
                 [ngModel]="loginPassword()" (ngModelChange)="loginPassword.set($event)" name="loginPassword"
-                class="w-full bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] focus:bg-white text-sm text-slate-800 rounded-2xl py-3.5 pl-11 pr-12 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 placeholder:text-slate-400"
+                class="w-full bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] focus:bg-white text-sm text-slate-800 rounded-2xl py-2.5 pl-11 pr-12 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 placeholder:text-slate-400"
                 required />
               <button type="button" (click)="showLoginPassword.set(!showLoginPassword())"
                 class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 cursor-pointer bg-transparent border-none">
@@ -3194,7 +3124,7 @@
           </div>
 
           <button type="submit" [disabled]="authLoading()"
-            class="w-full bg-gradient-to-r from-[#0B63FF] to-[#12D6EB] hover:brightness-105 disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold py-4 px-6 rounded-2xl transition duration-300 shadow-md shadow-[#0B63FF]/10 hover:shadow-lg hover:shadow-[#0B63FF]/20 flex items-center justify-center gap-2 cursor-pointer border-none">
+            class="w-full bg-gradient-to-r from-[#0B63FF] to-[#12D6EB] hover:brightness-105 disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold py-3 px-6 rounded-2xl transition duration-300 shadow-md shadow-[#0B63FF]/10 hover:shadow-lg hover:shadow-[#0B63FF]/20 flex items-center justify-center gap-2 cursor-pointer border-none">
             <svg *ngIf="authLoading()" class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
               <path class="opacity-75" fill="currentColor"
@@ -3206,7 +3136,7 @@
         </form>
       </div>
 
-      <!-- Footer -->
+      <!-- Enlace para Registro en la Vista de Login -->
       <div class="text-center">
         <p class="text-xs text-slate-500 font-semibold">
           ¿No tienes una cuenta?
@@ -3231,14 +3161,9 @@
         class="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-[#12D6EB]/15 rounded-full blur-[120px] pointer-events-none">
       </div>
 
-      <!-- Header / Navegación -->
-      <div class="relative z-10 flex items-center gap-3">
-        <div class="w-8 h-8 rounded-lg bg-white/10 p-[1px] backdrop-blur-md border border-white/20">
-          <div class="w-full h-full bg-white rounded-[6px] flex items-center justify-center">
-            <img src="altok-logo.png" alt="Logo" class="w-5 h-5 object-contain" />
-          </div>
-        </div>
-        <span class="text-lg font-bold font-display tracking-tight text-white">Cambia Altok</span>
+      <!-- Logo de Cambia Altok en el Sidebar de Login -->
+      <div class="relative z-10 flex items-center">
+        <img src="logo-altok-brand.svg" alt="Cambia Altok" class="h-6 sm:h-7 w-auto object-contain brightness-0 invert" />
       </div>
 
       <div class="relative z-10 flex flex-col items-center justify-center flex-1 my-12">
@@ -3252,7 +3177,7 @@
           </div>
 
           <img src="mascota.png" alt="Mascota Altok"
-            class="relative z-10 w-64 h-auto object-contain animate-float-slow" />
+            class="relative z-10 w-64 h-auto object-contain" />
         </div>
 
         <div
@@ -3265,7 +3190,7 @@
         </div>
       </div>
 
-      <!-- Footer -->
+      <!-- Mensaje del Sidebar de Login -->
       <div class="relative z-10 space-y-3">
         <h3 class="text-2xl font-bold font-display tracking-tight text-white">Cambia seguro, ahorra siempre</h3>
         <p class="text-sm text-blue-100/70 leading-relaxed font-light max-w-md">En Cambia Altok nos tomamos tu seguridad
@@ -3274,41 +3199,33 @@
     </div>
   </div>
 
-  <!-- Formularios de Acceso (Login / Registro / Contacto) -->
+  <!-- Vista de Registro de Usuarios -->
   <div *ngIf="isRegister()"
     class="animate-fade-in min-h-screen bg-white flex flex-col lg:flex-row overflow-hidden font-sans">
 
     <div
-      class="w-full lg:w-[45%] p-8 sm:p-12 lg:p-16 flex flex-col justify-between min-h-screen bg-white relative z-10 border-r border-slate-100 shadow-2xl">
+      class="w-full lg:w-[45%] p-5 sm:p-7 lg:p-9 flex flex-col justify-between min-h-screen bg-white relative z-10 border-r border-slate-100 shadow-2xl">
 
-      <div class="flex items-center justify-between">
+      <nav class="flex items-center justify-between py-3.5 px-5 sm:px-7 lg:px-9 bg-[#04142E] text-white -mx-5 sm:-mx-7 lg:-mx-9 -mt-5 sm:-mt-7 lg:-mt-9 border-b border-white/10 mb-6">
 
-        <div class="flex items-center gap-3 group cursor-pointer" (click)="closeAuth()">
-          <div
-            class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#04142E] via-[#0B63FF] to-[#12D6EB] p-[1.5px] shadow-[0_0_15px_rgba(11,99,255,0.15)] transition duration-300 group-hover:scale-105">
-            <div class="w-full h-full bg-white rounded-[10px] flex items-center justify-center p-1.5">
-              <img src="altok-logo.png" alt="Cambia Altok" class="w-full h-full object-contain" />
-            </div>
-          </div>
-          <span
-            class="text-xl font-black tracking-tight font-display bg-gradient-to-r from-[#04142E] via-[#0B63FF] to-[#12D6EB] bg-clip-text text-transparent group-hover:opacity-80 transition">Cambia
-            Altok</span>
+        <div class="flex items-center cursor-pointer" (click)="closeAuth()">
+          <img src="logo-altok-brand.svg" alt="Cambia Altok" class="h-6 sm:h-7 w-auto object-contain brightness-0 invert" />
         </div>
 
         <button (click)="closeAuth()"
-          class="text-xs font-semibold text-slate-500 hover:text-[#0B63FF] transition flex items-center gap-1.5 bg-transparent border-none cursor-pointer group">
-          <svg class="w-4 h-4 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor"
+          class="text-xs font-semibold text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-transparent border-none cursor-pointer group">
+          <svg class="w-4 h-4 transition-transform group-hover:-translate-x-0.5 text-slate-300 group-hover:text-white" fill="none" stroke="currentColor"
             stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
           Volver a Inicio
         </button>
-      </div>
+      </nav>
 
-      <div class="max-w-md w-full mx-auto my-auto py-6">
+      <div class="max-w-md w-full mx-auto my-auto py-2">
 
-        <!-- Step indicator -->
-        <div class="flex items-center gap-3 mb-8">
+        <!-- Indicador del Paso Actual en el Registro -->
+        <div class="flex items-center gap-3 mb-4">
           <div class="flex items-center gap-2">
             <div [ngClass]="registerStep() === 1 ? 'bg-[#0B63FF] text-white' : 'bg-emerald-500 text-white'"
               class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-black transition-all duration-300">
@@ -3332,13 +3249,7 @@
           </div>
         </div>
 
-        <!-- Header -->
-        <div class="space-y-1 mb-7">
-          <div class="inline-flex w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#04142E] via-[#0B63FF] to-[#12D6EB] p-[2px] shadow-[0_8px_30px_rgba(11,99,255,0.15)] mb-2">
-            <div class="w-full h-full bg-white rounded-[14px] flex items-center justify-center p-2.5">
-              <img src="altok-logo.png" alt="Cambia Altok" class="w-full h-full object-contain" />
-            </div>
-          </div>
+        <div class="space-y-1 mb-3">
           <h2 class="text-2xl font-extrabold text-[#04142E] tracking-tight font-display">
             {{ registerStep() === 1 ? 'Crea tu cuenta gratis' : 'Tus datos personales' }}
           </h2>
@@ -3347,7 +3258,7 @@
           </p>
         </div>
 
-        <!-- Error / Success messages -->
+        <!-- Mensajes de Error o Éxito del Registro -->
         <div *ngIf="authErrorMessage()"
           class="bg-red-50 border border-red-200 text-red-700 p-4 rounded-2xl text-xs font-semibold flex items-start gap-2.5 animate-fade-in mb-4">
           <svg class="w-4 h-4 text-red-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -3364,24 +3275,22 @@
           <span>¡Cuenta creada con éxito! Redirigiendo al inicio de sesión...</span>
         </div>
 
-        <!-- ======================== STEP 1: Credenciales ======================== -->
-        <div *ngIf="registerStep() === 1" class="space-y-4 animate-fade-in">
+        <!-- PASO 1 DEL REGISTRO: Credenciales de Acceso -->
+        <div *ngIf="registerStep() === 1" class="space-y-3 animate-fade-in">
 
-          <!-- Correo electrónico -->
           <div class="space-y-1.5">
             <label for="reg-email" class="text-[10px] font-bold text-[#04142E] uppercase tracking-widest block">Correo Electrónico <span class="text-red-500">*</span></label>
             <input id="reg-email" type="email" placeholder="juan@correo.com"
               [ngModel]="registerEmail()" (ngModelChange)="registerEmail.set($event)" name="registerEmail"
-              class="w-full bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] focus:bg-white text-sm text-slate-800 rounded-2xl py-3.5 px-4 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 placeholder:text-slate-400"
+              class="w-full bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] focus:bg-white text-sm text-slate-800 rounded-2xl py-2.5 px-4 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 placeholder:text-slate-400"
               required />
           </div>
 
-          <!-- Confirmar correo -->
           <div class="space-y-1.5">
             <label for="reg-email-confirm" class="text-[10px] font-bold text-[#04142E] uppercase tracking-widest block">Confirmar Correo <span class="text-red-500">*</span></label>
             <input id="reg-email-confirm" type="email" placeholder="Repite tu correo"
               [ngModel]="registerEmailConfirm()" (ngModelChange)="registerEmailConfirm.set($event)" name="registerEmailConfirm"
-              class="w-full bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] focus:bg-white text-sm text-slate-800 rounded-2xl py-3.5 px-4 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 placeholder:text-slate-400"
+              class="w-full bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] focus:bg-white text-sm text-slate-800 rounded-2xl py-2.5 px-4 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 placeholder:text-slate-400"
               required />
             <p *ngIf="registerEmailConfirm() && registerEmail() !== registerEmailConfirm()"
               class="text-xs text-red-500 font-semibold flex items-center gap-1">
@@ -3390,13 +3299,12 @@
             </p>
           </div>
 
-          <!-- Contraseña -->
           <div class="space-y-1.5">
             <label for="reg-password" class="text-[10px] font-bold text-[#04142E] uppercase tracking-widest block">Contraseña <span class="text-red-500">*</span></label>
             <div class="relative">
               <input id="reg-password" [type]="showRegisterPassword() ? 'text' : 'password'" placeholder="Mínimo 8 caracteres"
                 [ngModel]="registerPassword()" (ngModelChange)="registerPassword.set($event)" name="registerPassword"
-                class="w-full bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] focus:bg-white text-sm text-slate-800 rounded-2xl py-3.5 pl-4 pr-12 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 placeholder:text-slate-400"
+                class="w-full bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] focus:bg-white text-sm text-slate-800 rounded-2xl py-2.5 pl-4 pr-12 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 placeholder:text-slate-400"
                 required />
               <button type="button" (click)="showRegisterPassword.set(!showRegisterPassword())"
                 class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 cursor-pointer bg-transparent border-none">
@@ -3408,7 +3316,6 @@
                 </svg>
               </button>
             </div>
-            <!-- Barra de fuerza -->
             <div class="space-y-1 mt-1.5">
               <div class="flex justify-between text-[10px] font-bold text-slate-400">
                 <span>Fuerza de la contraseña</span>
@@ -3424,13 +3331,12 @@
             </div>
           </div>
 
-          <!-- Confirmar contraseña -->
           <div class="space-y-1.5">
             <label for="reg-password-confirm" class="text-[10px] font-bold text-[#04142E] uppercase tracking-widest block">Confirmar Contraseña <span class="text-red-500">*</span></label>
             <div class="relative">
               <input id="reg-password-confirm" [type]="showRegisterPasswordConfirm() ? 'text' : 'password'" placeholder="Repite tu contraseña"
                 [ngModel]="registerPasswordConfirm()" (ngModelChange)="registerPasswordConfirm.set($event)" name="registerPasswordConfirm"
-                class="w-full bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] focus:bg-white text-sm text-slate-800 rounded-2xl py-3.5 pl-4 pr-12 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 placeholder:text-slate-400"
+                class="w-full bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] focus:bg-white text-sm text-slate-800 rounded-2xl py-2.5 pl-4 pr-12 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 placeholder:text-slate-400"
                 required />
               <button type="button" (click)="showRegisterPasswordConfirm.set(!showRegisterPasswordConfirm())"
                 class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 cursor-pointer bg-transparent border-none">
@@ -3449,8 +3355,7 @@
             </p>
           </div>
 
-          <!-- Términos y condiciones -->
-          <div class="space-y-3 pt-1 border-t border-slate-100">
+          <div class="space-y-2 pt-1 border-t border-slate-100">
             <label class="flex items-start gap-3 text-xs text-slate-600 cursor-pointer select-none group">
               <input type="checkbox" [ngModel]="registerTerms()" (ngModelChange)="registerTerms.set($event)"
                 name="registerTerms" class="w-4 h-4 rounded text-[#0B63FF] border-slate-300 focus:ring-[#0B63FF] mt-0.5 shrink-0" required />
@@ -3468,11 +3373,10 @@
             </label>
           </div>
 
-          <!-- Botón Continuar -->
           <button type="button"
             (click)="registerStep.set(2)"
             [disabled]="!registerEmail() || !registerEmailConfirm() || registerEmail() !== registerEmailConfirm() || !registerPassword() || !registerPasswordConfirm() || registerPassword() !== registerPasswordConfirm() || !registerTerms()"
-            class="w-full bg-gradient-to-r from-[#0B63FF] to-[#12D6EB] hover:brightness-105 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-4 px-6 rounded-2xl transition duration-300 shadow-md shadow-[#0B63FF]/20 hover:shadow-lg hover:shadow-[#0B63FF]/30 flex items-center justify-center gap-2 cursor-pointer border-none">
+            class="w-full bg-gradient-to-r from-[#0B63FF] to-[#12D6EB] hover:brightness-105 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-3 px-6 rounded-2xl transition duration-300 shadow-md shadow-[#0B63FF]/20 hover:shadow-lg hover:shadow-[#0B63FF]/30 flex items-center justify-center gap-2 cursor-pointer border-none">
             Continuar
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
@@ -3481,24 +3385,22 @@
 
         </div>
 
-        <!-- ======================== STEP 2: Datos personales ======================== -->
-        <form *ngIf="registerStep() === 2" (submit)="handleRegister($event)" class="space-y-4 animate-fade-in">
+        <!-- PASO 2 DEL REGISTRO: Datos Personales -->
+        <form *ngIf="registerStep() === 2" (submit)="handleRegister($event)" class="space-y-3 animate-fade-in">
 
-          <!-- Nombre completo -->
           <div class="space-y-1.5">
             <label for="reg-name" class="text-[10px] font-bold text-[#04142E] uppercase tracking-widest block">Nombre Completo <span class="text-red-500">*</span></label>
             <input id="reg-name" type="text" placeholder="Juan Pérez García"
               [ngModel]="registerName()" (ngModelChange)="registerName.set($event)" name="registerName"
-              class="w-full bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] focus:bg-white text-sm text-slate-800 rounded-2xl py-3.5 px-4 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 placeholder:text-slate-400"
+              class="w-full bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] focus:bg-white text-sm text-slate-800 rounded-2xl py-2.5 px-4 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 placeholder:text-slate-400"
               required />
           </div>
 
-          <!-- Tipo y Número de Documento -->
           <div class="space-y-1.5">
             <label class="text-[10px] font-bold text-[#04142E] uppercase tracking-widest block">Documento de Identidad <span class="text-red-500">*</span></label>
             <div class="flex gap-2">
               <select [ngModel]="registerDocType()" (ngModelChange)="registerDocType.set($event)" name="registerDocType"
-                class="w-[38%] bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] text-sm text-slate-800 rounded-2xl py-3.5 px-3 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 cursor-pointer appearance-none">
+                class="w-[38%] bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] text-sm text-slate-800 rounded-2xl py-2.5 px-3 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 cursor-pointer appearance-none">
                 <option value="DNI">🪪 DNI</option>
                 <option value="CE">🌐 C. Ext.</option>
                 <option value="PASAPORTE">✈️ Pasaporte</option>
@@ -3506,12 +3408,11 @@
               </select>
               <input type="text" placeholder="Nº de documento"
                 [ngModel]="registerDocNumber()" (ngModelChange)="registerDocNumber.set($event)" name="registerDocNumber"
-                class="flex-1 bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] focus:bg-white text-sm text-slate-800 rounded-2xl py-3.5 px-4 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 placeholder:text-slate-400"
+                class="flex-1 bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] focus:bg-white text-sm text-slate-800 rounded-2xl py-2.5 px-4 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 placeholder:text-slate-400"
                 required />
             </div>
           </div>
 
-          <!-- Celular y Fecha de Nacimiento -->
           <div class="grid grid-cols-2 gap-2">
             <div class="space-y-1.5">
               <label class="text-[10px] font-bold text-[#04142E] uppercase tracking-widest block">Celular <span class="text-red-500">*</span></label>
@@ -3519,7 +3420,7 @@
                 <span class="flex items-center px-3 text-sm font-bold text-slate-500 border-r border-slate-200 bg-slate-100 select-none">🇵🇪</span>
                 <input type="tel" placeholder="987 654 321"
                   [ngModel]="registerPhone()" (ngModelChange)="registerPhone.set($event)" name="registerPhone"
-                  class="flex-1 bg-transparent py-3.5 px-3 text-sm text-slate-800 outline-none border-none placeholder:text-slate-400"
+                  class="flex-1 bg-transparent py-2.5 px-3 text-sm text-slate-800 outline-none border-none placeholder:text-slate-400"
                   required />
               </div>
             </div>
@@ -3527,19 +3428,18 @@
               <label class="text-[10px] font-bold text-[#04142E] uppercase tracking-widest block">Fecha de Nacimiento <span class="text-red-500">*</span></label>
               <input type="date"
                 [ngModel]="registerBirthdate()" (ngModelChange)="registerBirthdate.set($event)" name="registerBirthdate"
-                class="w-full bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] focus:bg-white text-sm text-slate-800 rounded-2xl py-3.5 px-4 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10"
+                class="w-full bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] focus:bg-white text-sm text-slate-800 rounded-2xl py-2.5 px-4 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10"
                 required />
             </div>
           </div>
 
-          <!-- ¿Dónde cambiabas antes? (opcional) -->
           <div class="space-y-1.5">
             <label class="text-[10px] font-bold text-[#04142E] uppercase tracking-widest block flex items-center gap-2">
               ¿Dónde cambiabas antes?
               <span class="text-[9px] font-semibold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full normal-case tracking-normal">Opcional</span>
             </label>
             <select [ngModel]="registerPreviousExchange()" (ngModelChange)="registerPreviousExchange.set($event)" name="registerPreviousExchange"
-              class="w-full bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] text-sm text-slate-800 rounded-2xl py-3.5 px-4 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 appearance-none cursor-pointer">
+              class="w-full bg-slate-50/60 border border-slate-200/80 focus:border-[#0B63FF] text-sm text-slate-800 rounded-2xl py-2.5 px-4 outline-none transition duration-200 focus:ring-4 focus:ring-[#0B63FF]/10 appearance-none cursor-pointer">
               <option value="">Selecciona una opción...</option>
               <option value="banco">Banco (BCP, BBVA, Interbank...)</option>
               <option value="calle">Casa de cambio en la calle</option>
@@ -3549,17 +3449,16 @@
             </select>
           </div>
 
-          <!-- Botones -->
           <div class="flex gap-3 pt-1">
             <button type="button" (click)="registerStep.set(1)"
-              class="flex items-center gap-1.5 px-5 py-4 rounded-2xl border border-slate-200 text-slate-500 hover:text-[#0B63FF] hover:border-[#0B63FF]/30 font-bold text-sm transition duration-200 bg-transparent cursor-pointer">
+              class="flex items-center gap-1.5 px-5 py-3 rounded-2xl border border-slate-200 text-slate-500 hover:text-[#0B63FF] hover:border-[#0B63FF]/30 font-bold text-sm transition duration-200 bg-transparent cursor-pointer">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/>
               </svg>
               Atrás
             </button>
             <button type="submit" [disabled]="authLoading()"
-              class="flex-1 bg-gradient-to-r from-[#0B63FF] to-[#12D6EB] hover:brightness-105 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-4 px-6 rounded-2xl transition duration-300 shadow-md shadow-[#0B63FF]/20 hover:shadow-lg hover:shadow-[#0B63FF]/30 flex items-center justify-center gap-2 cursor-pointer border-none">
+              class="flex-1 bg-gradient-to-r from-[#0B63FF] to-[#12D6EB] hover:brightness-105 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-3 px-6 rounded-2xl transition duration-300 shadow-md shadow-[#0B63FF]/20 hover:shadow-lg hover:shadow-[#0B63FF]/30 flex items-center justify-center gap-2 cursor-pointer border-none">
               <svg *ngIf="authLoading()" class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -3572,7 +3471,7 @@
 
       </div>
 
-      <!-- Footer -->
+      <!-- Enlace para Iniciar Sesión en la Vista de Registro -->
       <div class="text-center pb-2">
         <p class="text-xs text-slate-500 font-semibold">
           ¿Ya tienes cuenta?
@@ -3598,14 +3497,9 @@
         class="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-[#12D6EB]/15 rounded-full blur-[120px] pointer-events-none">
       </div>
 
-      <!-- Header / Navegación -->
-      <div class="relative z-10 flex items-center gap-3">
-        <div class="w-8 h-8 rounded-lg bg-white/10 p-[1px] backdrop-blur-md border border-white/20">
-          <div class="w-full h-full bg-white rounded-[6px] flex items-center justify-center">
-            <img src="altok-logo.png" alt="Logo" class="w-5 h-5 object-contain" />
-          </div>
-        </div>
-        <span class="text-lg font-bold font-display tracking-tight text-white">Cambia Altok</span>
+      <!-- Logo de Cambia Altok en el Sidebar de Registro -->
+      <div class="relative z-10 flex items-center">
+        <img src="logo-altok-brand.svg" alt="Cambia Altok" class="h-6 sm:h-7 w-auto object-contain brightness-0 invert" />
       </div>
 
       <div class="relative z-10 flex flex-col items-center justify-center flex-1 my-12">
@@ -3619,11 +3513,11 @@
           </div>
 
           <img src="mascota.png" alt="Mascota Altok"
-            class="relative z-10 w-64 h-auto object-contain animate-float-slow" />
+            class="relative z-10 w-64 h-auto object-contain" />
         </div>
       </div>
 
-      <!-- Footer -->
+      <!-- Mensaje del Sidebar de Registro -->
       <div class="relative z-10 space-y-3">
         <h3 class="text-2xl font-bold font-display tracking-tight text-white">Regístrate en 2 minutos</h3>
         <p class="text-sm text-blue-100/70 leading-relaxed font-light max-w-md">Accede a tasas corporativas y beneficios
