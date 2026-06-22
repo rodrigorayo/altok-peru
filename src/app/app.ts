@@ -6,6 +6,7 @@ interface Testimonial {
   name: string;
   stars: number;
   text: string;
+  gender: 'male' | 'female';
 }
 
 @Component({
@@ -54,11 +55,21 @@ export class App {
   showLoginPassword = signal(false);
 
   // Form signals for Register
+  registerStep = signal(1); // 1 = credenciales, 2 = datos personales
   registerName = signal('');
   registerEmail = signal('');
+  registerEmailConfirm = signal('');
   registerPassword = signal('');
+  registerPasswordConfirm = signal('');
   registerTerms = signal(false);
+  registerMarketing = signal(false);
+  registerDocType = signal('DNI');
+  registerDocNumber = signal('');
+  registerPhone = signal('');
+  registerBirthdate = signal('');
+  registerPreviousExchange = signal('');
   showRegisterPassword = signal(false);
+  showRegisterPasswordConfirm = signal(false);
 
   // Auth helper states
   authLoading = signal(false);
@@ -246,17 +257,32 @@ export class App {
     {
       name: 'Nicole Rodriguez',
       stars: 5,
-      text: 'Es buenísimo. Probé la plataforma hace 1 mes y realmente super la experiencia. Mejor tasa que en la calle y mil veces más seguro.'
+      text: 'Es buenísimo. Probé la plataforma de Cambia Altok hace un mes y realmente superó mi expectativa. Tienen una tasa excelente y el proceso es súper seguro.',
+      gender: 'female'
     },
     {
       name: 'Milagros Lujan',
       stars: 5,
-      text: 'Lo que más me ha gustado desde que uso Kambista es que un día deposité a la cuenta incorrecta para una operación y me enviaron un mensaje alertándome de ello. Me devolvieron el dinero en menos de una hora, no leí el mensaje y me llamaron. Este tipo de atención no la pierdan, por favor. Humaniza y personaliza el servicio. ¡Gracias!'
+      text: 'Me encanta el servicio de Cambia Altok. Una vez cometí un error al depositar y me alertaron de inmediato. En menos de una hora solucionaron todo de forma transparente.',
+      gender: 'female'
     },
     {
       name: 'Jean Paul',
       stars: 5,
-      text: 'Excelente servicio corporativo. Las tasas son competitivas y las transferencias demoran menos de 15 minutos en horario de oficina. Recomendado para empresas.'
+      text: 'Excelente servicio para empresas. Las tasas en Cambia Altok son competitivas y las transferencias demoran menos de 15 minutos en horario de oficina. Súper recomendado.',
+      gender: 'male'
+    },
+    {
+      name: 'Renato Flores',
+      stars: 5,
+      text: 'La facilidad para cambiar soles y bolivianos es increíble. Todo es online, rápido y con la mejor tasa del mercado. El soporte al cliente es de primer nivel.',
+      gender: 'male'
+    },
+    {
+      name: 'Sofia Montes',
+      stars: 5,
+      text: 'Cambio mis fondos de forma frecuente aquí. Lo que más me gusta es la seguridad y la rapidez. La transferencia llega en minutos y la cotización es inmejorable.',
+      gender: 'female'
     }
   ];
 

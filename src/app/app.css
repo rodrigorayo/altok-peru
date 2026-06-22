@@ -1,0 +1,9 @@
+.testimonial-slider {
+  transform: translateX(calc(var(--active-idx) * -100%));
+}
+
+@media (min-width: 768px) {
+  .testimonial-slider {
+    transform: translateX(calc(min(2, max(0, var(--active-idx) - 1)) * -33.333%));
+  }
+}
